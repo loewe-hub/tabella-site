@@ -31,7 +31,7 @@ export default async function MapPage({ searchParams }: { searchParams: Promise<
       <main>
         <MarkerMap signupHref={signup} lang={lang} />
       </main>
-      <Footer disclaimer={t.disclaimer} />
+      <Footer disclaimer={t.disclaimer} lang={lang} />
     </div>
   );
 }

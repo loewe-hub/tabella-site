@@ -139,7 +139,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
         </section>
       </main>
 
-      <Footer disclaimer={l.disclaimer} />
+      <Footer disclaimer={l.disclaimer} lang={lang} />
     </div>
   );
 }

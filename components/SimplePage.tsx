@@ -16,7 +16,7 @@ export function SimplePage({ lang, children }: { lang: Lang; children: React.Rea
           {children}
         </div>
       </main>
-      <Footer disclaimer={landing[lang].disclaimer} />
+      <Footer disclaimer={landing[lang].disclaimer} lang={lang} />
     </div>
   );
 }
