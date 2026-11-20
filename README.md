@@ -23,13 +23,13 @@ Name, domain, sender and publisher live in `config/brand.ts`. Update that file (
 | `BREVO_DOI_TEMPLATE_ID` | double opt-in confirmation email template |
 
 ## Brevo setup
-1. Contact attributes (text): `COUNTRY`, `REASON`, `LANGUAGE`, `GUIDE_URL`, `AI_TOOL`; (date): `RETEST_DATE`.
+1. Contact attributes (text): `COUNTRY`, `REASON`, `LANGUAGE`, `GUIDE_URL`, `AI_TOOL`, `TOPIC_FOCUS` (women / men / both / none, optional, set by a one-click link in the welcome email); (date): `RETEST_DATE`.
 2. A list, e.g. "Guide 01 · Cholesterol".
 3. A double opt-in template (Brevo's DOI template type) that contains the confirmation link.
 4. Automation "Welcome": trigger = contact added to the list → send welcome email with the button linking to `{{ contact.GUIDE_URL }}`.
-5. Automations (built, off until launch): AI-tool click tags, day-14 visit check-in, retest reminder 7 days before `RETEST_DATE`.
+5. Automations (built, off until launch): AI-tool and topic-focus click tags (each link sets the attribute), day-14 visit check-in, retest reminder 7 days before `RETEST_DATE`.
 
 ## Privacy by design
-- We never ask for or store test results. Ticks stay in the reader's browser (localStorage).
+- We never ask for or store test results. `TOPIC_FOCUS` is optional and used only to tailor content (state this purpose in the privacy notice). Ticks stay in the reader's browser (localStorage).
 - Analytics: Vercel Web Analytics (cookieless). Copy clicks are counted per question, anonymously.
 - The access cookie is strictly necessary (it only remembers the guide link).
