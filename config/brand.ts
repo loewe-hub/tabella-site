@@ -2,12 +2,12 @@
 // Renaming the product = editing this file (plus the logo, if it changes).
 
 export const brand = {
-  name: "Tabella",
+  name: "Curiact",
   tagline: "The questions you didn't know to ask.",
-  // Set SITE_URL in Vercel once the domain exists, e.g. https://gettabella.com
+  // Set SITE_URL in Vercel once the domain exists, e.g. https://curiact.com
   siteUrl: process.env.SITE_URL || "http://localhost:3000",
-  senderName: "Tabella",
-  senderEmail: "hello@[domain]",
+  senderName: "Curiact",
+  senderEmail: "hello@curiact.com",
   publisher: "[Publisher name]",
   vatNumber: "P.IVA [number]",
   founderSignature: "Christian",

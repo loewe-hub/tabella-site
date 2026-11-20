@@ -1,6 +1,6 @@
-# tabella-site
+# curiact (repo: tabella-site)
 
-Landing page, sign-up and interactive guide. Working name: **Tabella** (to be confirmed).
+Landing page, sign-up and interactive guide. Brand: **Curiact** (decided 20 Nov 2026).
 
 ## Renaming
 Name, domain, sender and publisher live in `config/brand.ts`. Update that file (and the logo in `components/Logo.tsx` if it changes) and set `SITE_URL`.
@@ -16,7 +16,7 @@ Name, domain, sender and publisher live in `config/brand.ts`. Update that file (
 ## Environment variables (Vercel)
 | Name | What |
 | --- | --- |
-| `SITE_URL` | e.g. `https://gettabella.com` (no trailing slash) |
+| `SITE_URL` | e.g. `https://curiact.com` (no trailing slash) |
 | `GUIDE_SECRET` | long random string. Without it the guide is open (preview mode) |
 | `BREVO_API_KEY` | Brevo API key. Without it sign-ups run in mock mode (logged only) |
 | `BREVO_LIST_ID` | list that confirmed subscribers join |

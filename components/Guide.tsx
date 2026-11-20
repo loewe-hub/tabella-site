@@ -7,8 +7,8 @@ import { brand } from "@/config/brand";
 import { GUIDELINE_URL, checklist, glossary, miss, prompt, situation, ui, visit } from "@/content/guide";
 import { LANGS, LANG_LABEL, type Lang } from "@/lib/i18n";
 
-const TICKS_KEY = "guide01:ticks";
-const PLANG_KEY = "guide01:promptLang";
+const TICKS_KEY = "curiact-guide01:ticks";
+const PLANG_KEY = "curiact-guide01:promptLang";
 
 function load<T>(key: string, fallback: T): T {
   try {
