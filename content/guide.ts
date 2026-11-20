@@ -20,7 +20,7 @@ export const ui: Record<Lang, Record<string, string>> = {
     rangeBody: "The \"normal\" range printed on the report describes the population. Your target is personal: European guidelines (ESC/EAS 2019) set LDL targets by cardiovascular risk category, not one number for everyone.",
     guideline: "Read the guideline",
     promptH: "4. One prompt for your AI", promptIntro: "Start a new chat, paste this, then add your lab report (a photo or the values). Your AI will ask what it needs.",
-    copyPrompt: "Copy prompt", copy: "Copy", copied: "Copied",
+    copyPrompt: "Copy the full prompt", copy: "Copy", copied: "Copied", showFull: "Show the full prompt", fullNote: "The full prompt also asks your AI not to diagnose you, to use official sources for where you live, and to end with a summary for your doctor.",
     nudgeHead: "One tip:", nudge: "answer your AI's questions honestly. It is only as good as what you tell it.",
     checkH: "Did your AI cover these?", checkIntro: "Tick what came up. For anything missing, copy the question and ask it.", mapLink: "See how these markers connect on the map",
     progress: "{n} of {t} covered", b1: "Understanding the full picture", b2: "What I can do myself", b3: "Tests and options where you live",
@@ -43,7 +43,7 @@ export const ui: Record<Lang, Record<string, string>> = {
     rangeBody: "L'intervallo \"normale\" stampato sul referto descrive la popolazione. Il tuo obiettivo è personale: le linee guida europee (ESC/EAS 2019) fissano gli obiettivi di LDL per categoria di rischio cardiovascolare, non un numero uguale per tutti.",
     guideline: "Leggi la linea guida",
     promptH: "4. Un prompt per la tua AI", promptIntro: "Apri una nuova chat, incolla questo testo, poi aggiungi il referto (foto o valori). La tua AI ti chiederà ciò che le serve.",
-    copyPrompt: "Copia il prompt", copy: "Copia", copied: "Copiato",
+    copyPrompt: "Copia il prompt completo", copy: "Copia", copied: "Copiato", showFull: "Mostra il prompt completo", fullNote: "Il prompt completo chiede anche alla tua AI di non fare diagnosi, di usare fonti ufficiali per dove vivi e di chiudere con un riassunto per il medico.",
     nudgeHead: "Un consiglio:", nudge: "rispondi con sincerità alle domande della tua AI. È utile quanto ciò che le racconti.",
     checkH: "La tua AI ha toccato questi punti?", checkIntro: "Spunta ciò che è emerso. Per quello che manca, copia la domanda e chiedila.", mapLink: "Guarda come si collegano questi valori sulla mappa (in inglese)",
     progress: "{n} su {t}", b1: "Capire il quadro completo", b2: "Cosa posso fare io", b3: "Esami e opzioni dove vivi",
@@ -67,7 +67,7 @@ export const ui: Record<Lang, Record<string, string>> = {
     rangeBody: "Der „normale“ Bereich im Befund beschreibt die Bevölkerung. Dein Ziel ist persönlich: Die europäischen Leitlinien (ESC/EAS 2019) legen LDL-Ziele nach kardiovaskulärer Risikokategorie fest, nicht eine Zahl für alle.",
     guideline: "Zur Leitlinie",
     promptH: "4. Ein Prompt für deine KI", promptIntro: "Starte einen neuen Chat, füge diesen Text ein und dann deinen Befund (Foto oder Werte). Deine KI fragt nach, was sie braucht.",
-    copyPrompt: "Prompt kopieren", copy: "Kopieren", copied: "Kopiert",
+    copyPrompt: "Ganzen Prompt kopieren", copy: "Kopieren", copied: "Kopiert", showFull: "Ganzen Prompt zeigen", fullNote: "Der ganze Prompt bittet deine KI außerdem, keine Diagnose zu stellen, offizielle Quellen für deinen Wohnort zu nutzen und mit einer Zusammenfassung für deinen Arzt zu enden.",
     nudgeHead: "Ein Tipp:", nudge: "Beantworte die Fragen deiner KI ehrlich. Sie ist nur so gut wie das, was du ihr erzählst.",
     checkH: "Hat deine KI das angesprochen?", checkIntro: "Hake ab, was vorkam. Für alles andere: Frage kopieren und stellen.", mapLink: "Sieh auf der Karte, wie diese Werte zusammenhängen (auf Englisch)",
     progress: "{n} von {t}", b1: "Das ganze Bild verstehen", b2: "Was ich selbst tun kann", b3: "Tests und Angebote vor Ort",
@@ -116,20 +116,27 @@ export const situation = [
 
 export const GUIDELINE_URL = "https://doi.org/10.1093/eurheartj/ehz455";
 
+// Plain words first, the lab-report term in brackets. No units, no cut-offs.
 export const glossary: [string, string][] = [
-  ["Total cholesterol", "all cholesterol in the blood, good and bad together. On its own it says little."],
-  ["LDL cholesterol (C-LDL)", "carried by the particles that build plaque in artery walls. Often calculated from the other values rather than measured directly."],
-  ["HDL cholesterol", "carried by particles that remove cholesterol. Not a target to treat."],
-  ["Non-HDL cholesterol", "total minus HDL. Covers all the particles that can cause plaque; you can work it out from any panel."],
-  ["Triglycerides", "another blood fat, sensitive to diet, alcohol and insulin resistance."],
-  ["ApoB", "counts the harmful particles directly. Rarely on a standard panel."],
-  ["Lp(a)", "a particle mostly set by your genes that raises risk independently of LDL. Rarely on a standard panel."],
-  ["Risk category (SCORE2 / SCORE2-OP)", "the ESC's estimate of your 10-year cardiovascular risk from age, sex, smoking, blood pressure and cholesterol. Your category decides your LDL target."],
-  ["Fasting glucose and HbA1c", "your blood sugar now, and its average over the past 2–3 months."],
-  ["Fasting insulin and HOMA-IR", "how much insulin your body needs to keep blood sugar normal; HOMA-IR combines insulin and glucose. Can show insulin resistance before glucose rises. Rarely on a standard panel."],
-  ["hs-CRP", "a marker of low-grade inflammation, sometimes read alongside cholesterol."],
-  ["Blood pressure", "two numbers, the pressure when the heart beats (systolic) and between beats (diastolic). Systolic pressure is one of the inputs to SCORE2, so it changes your risk category and with it your LDL target. One reading says little; a pattern over several days says more."],
+  ["All cholesterol (total cholesterol)", "the good and the bad together. On its own it says little."],
+  ["Plaque-building cholesterol (LDL)", "carried by the particles that slowly build plaque in your arteries. Often calculated, not measured."],
+  ["Clean-up cholesterol (HDL)", "carried by particles that take cholesterol away. Not something to treat."],
+  ["All plaque particles (non-HDL)", "total minus HDL. You can work it out from any report."],
+  ["Blood fats (triglycerides)", "react to food, alcohol and how your body handles sugar."],
+  ["Particle count (ApoB)", "counts the plaque-building particles directly. Rarely tested."],
+  ["Inherited particle (Lp(a))", "mostly set by your genes. Rarely tested, often once is enough."],
+  ["Your risk group (SCORE2)", "a European estimate of your heart risk from age, sex, smoking, blood pressure and cholesterol. It decides your personal target."],
+  ["Blood sugar (glucose, HbA1c)", "your blood sugar today, and its average over recent months."],
+  ["Insulin (fasting insulin)", "how hard your body works to keep blood sugar normal. Rarely tested."],
+  ["Inflammation (hs-CRP)", "a low, background inflammation. A recent cold can raise it."],
+  ["Blood pressure", "two numbers: when the heart beats, and between beats. One reading says little; a few days of readings say more."],
 ];
+
+export const promptShort: T3 = {
+  en: "Help me understand my cholesterol results and prepare for my doctor. Ask me what you need first.",
+  it: "Aiutami a capire le analisi del colesterolo e a prepararmi per il medico. Prima chiedimi ciò che ti serve.",
+  de: "Hilf mir, meine Cholesterinwerte zu verstehen und mich auf den Arzt vorzubereiten. Frag mich zuerst, was du brauchst.",
+};
 
 export const prompt: T3 = {
   en: "I just got my cholesterol results and want to prepare for a visit with my doctor. I live in [city, region, country]. Do not diagnose me or recommend a treatment. First ask me the questions you need to understand my situation, one at a time. If I have blood pressure readings, I'll share them too. Then explain my report in plain language and tell me what you are unsure about. For anything about tests, costs or services where I live, search the web for official sources (health ministry, regional health authority, public booking service) and give me the links; if you can't find a source, say so instead of guessing. At the end, write a one-page summary for my doctor: my values, what we discussed and my questions.",

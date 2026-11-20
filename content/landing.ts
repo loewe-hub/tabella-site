@@ -36,8 +36,8 @@ export const landing: Record<Lang, {
   en: {
     nav: { how: "How it works", inside: "What's inside", faq: "FAQ", map: "The map", home: "Home", cta: "Get the free guide" },
     mapEyebrow: "Free · no sign-up",
-    mapH: "One blood test. More than \"all good?\"",
-    mapP: "See how your markers connect: heart, metabolism and the rest of your report. Tap any marker for what it signals, how strong the evidence is, and a prompt to ask your AI.",
+    mapH: "One number rarely tells the story.",
+    mapP: "See how your markers connect: heart, metabolism and the rest of your report. Tap a marker to see what it is, what it connects to, and what to ask your AI.",
     mapCta: "Explore the map",
     eyebrow: "Just got your blood test results?",
     h1: "The questions you didn't know to ask.",
@@ -83,8 +83,8 @@ export const landing: Record<Lang, {
   it: {
     nav: { how: "Come funziona", inside: "Cosa contiene", faq: "Domande", map: "La mappa", home: "Home", cta: "Ricevi la guida gratuita" },
     mapEyebrow: "Gratis · senza iscrizione",
-    mapH: "Un esame del sangue. Più di \"tutto a posto?\"",
-    mapP: "Scopri come si collegano i tuoi valori: cuore, metabolismo e il resto del referto. Tocca un valore per vedere cosa segnala, quanto sono solide le prove e una domanda da fare alla tua AI. La mappa è in inglese.",
+    mapH: "Un solo valore racconta poco.",
+    mapP: "Scopri come si collegano i tuoi valori: cuore, metabolismo e il resto del referto. Tocca un valore: cos'è, a cosa si collega e cosa chiedere alla tua AI. La mappa è in inglese.",
     mapCta: "Esplora la mappa",
     eyebrow: "Hai appena ricevuto le analisi del sangue?",
     h1: "Le domande che non sapevi di dover fare.",
@@ -130,8 +130,8 @@ export const landing: Record<Lang, {
   de: {
     nav: { how: "So funktioniert's", inside: "Inhalt", faq: "Fragen", map: "Die Karte", home: "Start", cta: "Kostenlosen Leitfaden holen" },
     mapEyebrow: "Kostenlos · ohne Anmeldung",
-    mapH: "Ein Bluttest. Mehr als \"alles gut?\"",
-    mapP: "Sieh, wie deine Werte zusammenhängen: Herz, Stoffwechsel und der Rest deines Befunds. Tippe auf einen Wert: was er signalisiert, wie stark die Evidenz ist und eine Frage für deine KI. Die Karte ist auf Englisch.",
+    mapH: "Ein Wert allein erzählt wenig.",
+    mapP: "Sieh, wie deine Werte zusammenhängen: Herz, Stoffwechsel und der Rest deines Befunds. Tippe auf einen Wert: was er ist, womit er zusammenhängt und was du deine KI fragen kannst. Die Karte ist auf Englisch.",
     mapCta: "Karte ansehen",
     eyebrow: "Gerade deine Blutwerte bekommen?",
     h1: "Die Fragen, von denen du nicht wusstest, dass du sie stellen solltest.",

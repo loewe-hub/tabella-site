@@ -4,7 +4,7 @@ import { track } from "@vercel/analytics";
 import { useEffect, useState } from "react";
 import { LogoMark } from "@/components/Logo";
 import { brand } from "@/config/brand";
-import { GUIDELINE_URL, checklist, glossary, miss, prompt, situation, ui, visit } from "@/content/guide";
+import { GUIDELINE_URL, checklist, glossary, miss, prompt, promptShort, situation, ui, visit } from "@/content/guide";
 import { LANGS, LANG_LABEL, type Lang } from "@/lib/i18n";
 
 const TICKS_KEY = "curiact-guide01:ticks";
@@ -140,7 +140,12 @@ export function Guide({ initialLang, preview }: { initialLang: Lang; preview: bo
           <h2 style={{ fontSize: 24 }}>{t.promptH}</h2>
           <p className="muted">{t.promptIntro}</p>
           <div className="stack" style={{ background: "var(--mint)", borderRadius: 14, padding: "20px 22px", gap: 14 }}>
-            <p lang={plang} style={{ fontSize: 15, color: "var(--primary-dark)" }}>{prompt[plang]}</p>
+            <p lang={plang} style={{ fontSize: 19, fontWeight: 600, color: "var(--primary-dark)" }}>&ldquo;{promptShort[plang]}&rdquo;</p>
+            <p className="small" style={{ color: "var(--primary-dark)" }}>{t.fullNote}</p>
+            <details>
+              <summary className="small" style={{ cursor: "pointer", fontWeight: 600, color: "var(--primary)" }}>{t.showFull}</summary>
+              <p lang={plang} style={{ fontSize: 15, color: "var(--primary-dark)", marginTop: 8 }}>{prompt[plang]}</p>
+            </details>
             <div className="row no-print" style={{ gap: 12, alignItems: "center" }}>
               <button type="button" className="btn" onClick={() => copy("prompt", prompt[plang])}>{copied === "prompt" ? t.copied : t.copyPrompt}</button>
               <span role="status" className="tiny" style={{ color: "var(--accent)" }}>{copied === "prompt" ? t.copied : ""}</span>
