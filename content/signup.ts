@@ -12,12 +12,14 @@ export const signup: Record<Lang, {
   countries: Record<(typeof COUNTRIES)[number], string>;
   reason: string;
   reasons: Record<(typeof REASONS)[number], string>;
-  consent: string;
+  privacyLead: string;
   privacy: string;
+  weekly: string;
+  weeklyHint: string;
   submit: string;
   sending: string;
   note: string;
-  errors: { email: string; consent: string; generic: string };
+  errors: { email: string; generic: string };
   inboxH: string;
   inboxP: string;
   inboxSpam: string;
@@ -34,12 +36,14 @@ export const signup: Record<Lang, {
     countries: { IT: "Italy", DE: "Germany", AT: "Austria", CH: "Switzerland", GB: "United Kingdom", OTHER: "Other" },
     reason: "What brings you here?",
     reasons: { results: "I just got blood test results", checkup: "I'm preparing for a check-up", family: "I'm asking for a family member", professional: "I work in health" },
-    consent: "I'd like to receive the guide and the newsletter. I have read the",
+    privacyLead: "We use your email to send you the guide. See our",
     privacy: "privacy notice",
+    weekly: "Also send me the weekly prompts",
+    weeklyHint: "One topic a week, a few prompts to try with your AI, one small thing to do. Unsubscribe anytime.",
     submit: "Send me the guide",
     sending: "Sending…",
     note: "No health questions. Unsubscribe anytime.",
-    errors: { email: "Please enter a valid email address.", consent: "Please tick the box so we can send you the guide.", generic: "Something went wrong. Please try again in a minute." },
+    errors: { email: "Please enter a valid email address.", generic: "Something went wrong. Please try again in a minute." },
     inboxH: "Check your inbox",
     inboxP: "We sent you a link to confirm your email. Click it and your guide link follows straight away.",
     inboxSpam: "Nothing there after a few minutes? Check your spam or promotions folder.",
@@ -56,12 +60,14 @@ export const signup: Record<Lang, {
     countries: { IT: "Italia", DE: "Germania", AT: "Austria", CH: "Svizzera", GB: "Regno Unito", OTHER: "Altro" },
     reason: "Cosa ti porta qui?",
     reasons: { results: "Ho appena ricevuto le analisi del sangue", checkup: "Mi preparo per un controllo", family: "Chiedo per un familiare", professional: "Lavoro in ambito sanitario" },
-    consent: "Desidero ricevere la guida e la newsletter. Ho letto l'",
+    privacyLead: "Usiamo la tua email per inviarti la guida. Leggi l'",
     privacy: "informativa privacy",
+    weekly: "Inviami anche i prompt settimanali",
+    weeklyHint: "Un tema a settimana, qualche prompt da provare con la tua AI, una piccola cosa da fare. Disiscriviti quando vuoi.",
     submit: "Inviami la guida",
     sending: "Invio…",
     note: "Nessuna domanda sulla salute. Disiscriviti quando vuoi.",
-    errors: { email: "Inserisci un indirizzo email valido.", consent: "Spunta la casella così possiamo inviarti la guida.", generic: "Qualcosa è andato storto. Riprova tra un minuto." },
+    errors: { email: "Inserisci un indirizzo email valido.", generic: "Qualcosa è andato storto. Riprova tra un minuto." },
     inboxH: "Controlla la tua email",
     inboxP: "Ti abbiamo inviato un link per confermare l'indirizzo. Cliccalo e riceverai subito il link alla guida.",
     inboxSpam: "Non trovi nulla dopo qualche minuto? Guarda nella cartella spam o promozioni.",
@@ -78,12 +84,14 @@ export const signup: Record<Lang, {
     countries: { IT: "Italien", DE: "Deutschland", AT: "Österreich", CH: "Schweiz", GB: "Vereinigtes Königreich", OTHER: "Anderes" },
     reason: "Was führt dich hierher?",
     reasons: { results: "Ich habe gerade Blutwerte bekommen", checkup: "Ich bereite einen Check-up vor", family: "Ich frage für ein Familienmitglied", professional: "Ich arbeite im Gesundheitsbereich" },
-    consent: "Ich möchte den Leitfaden und den Newsletter erhalten. Ich habe die",
-    privacy: "Datenschutzhinweise gelesen",
+    privacyLead: "Wir nutzen deine E-Mail, um dir den Leitfaden zu schicken. Mehr in den",
+    privacy: "Datenschutzhinweisen",
+    weekly: "Schick mir auch die wöchentlichen Prompts",
+    weeklyHint: "Ein Thema pro Woche, ein paar Prompts für deine KI, eine kleine Sache zum Tun. Jederzeit abmeldbar.",
     submit: "Leitfaden senden",
     sending: "Wird gesendet…",
     note: "Keine Gesundheitsfragen. Jederzeit abmeldbar.",
-    errors: { email: "Bitte gib eine gültige E-Mail-Adresse ein.", consent: "Bitte setz das Häkchen, damit wir dir den Leitfaden schicken können.", generic: "Etwas ist schiefgelaufen. Bitte versuch es in einer Minute noch einmal." },
+    errors: { email: "Bitte gib eine gültige E-Mail-Adresse ein.", generic: "Etwas ist schiefgelaufen. Bitte versuch es in einer Minute noch einmal." },
     inboxH: "Schau in dein Postfach",
     inboxP: "Wir haben dir einen Bestätigungslink geschickt. Klick ihn an, dann kommt dein Link zum Leitfaden sofort.",
     inboxSpam: "Nach ein paar Minuten nichts da? Schau im Spam- oder Werbeordner nach.",

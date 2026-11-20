@@ -8,7 +8,8 @@ import { createGuideToken } from "@/lib/token";
 // clicking the confirmation link. GUIDE_URL is stored on the contact so the welcome
 // email can link to the guide with {{ contact.GUIDE_URL }}.
 //
-// Env: BREVO_API_KEY, BREVO_LIST_ID, BREVO_DOI_TEMPLATE_ID, SITE_URL, GUIDE_SECRET.
+// Env: BREVO_API_KEY, BREVO_LIST_ID (guide), BREVO_NEWSLETTER_LIST_ID (weekly prompts, opt-in),
+// BREVO_DOI_TEMPLATE_ID, SITE_URL, GUIDE_SECRET.
 // Without BREVO_API_KEY the route runs in mock mode and only logs.
 
 export async function POST(req: Request) {
@@ -23,9 +24,8 @@ export async function POST(req: Request) {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 200) {
     return NextResponse.json({ error: "invalid_email" }, { status: 400 });
   }
-  if (body.consent !== true) {
-    return NextResponse.json({ error: "consent_required" }, { status: 400 });
-  }
+  // Newsletter is a separate, optional opt-in. The guide itself only needs the email.
+  const weekly = body.weekly === true;
   const country = (COUNTRIES as readonly string[]).includes(String(body.country)) ? String(body.country) : "OTHER";
   const reason = (REASONS as readonly string[]).includes(String(body.reason)) ? String(body.reason) : "";
   const lang = toLang(body.lang);
@@ -34,12 +34,13 @@ export async function POST(req: Request) {
 
   const apiKey = process.env.BREVO_API_KEY;
   if (!apiKey) {
-    console.log("[subscribe:mock]", { country, reason, lang });
+    console.log("[subscribe:mock]", { country, reason, lang, weekly });
     return NextResponse.json({ ok: true, mock: true });
   }
 
   const listId = Number(process.env.BREVO_LIST_ID);
   const templateId = Number(process.env.BREVO_DOI_TEMPLATE_ID);
+  const newsletterListId = Number(process.env.BREVO_NEWSLETTER_LIST_ID) || 0;
   if (!listId || !templateId) {
     console.error("[subscribe] BREVO_LIST_ID or BREVO_DOI_TEMPLATE_ID missing");
     return NextResponse.json({ error: "not_configured" }, { status: 500 });
@@ -50,8 +51,8 @@ export async function POST(req: Request) {
     headers: { "api-key": apiKey, "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify({
       email,
-      attributes: { COUNTRY: country, REASON: reason, LANGUAGE: lang, GUIDE_URL: guideUrl },
-      includeListIds: [listId],
+      attributes: { COUNTRY: country, REASON: reason, LANGUAGE: lang, GUIDE_URL: guideUrl, WEEKLY_OPT_IN: weekly },
+      includeListIds: weekly && newsletterListId ? [listId, newsletterListId] : [listId],
       templateId,
       redirectionUrl: `${brand.siteUrl}/confirmed${lang === "en" ? "" : `?lang=${lang}`}`,
     }),
