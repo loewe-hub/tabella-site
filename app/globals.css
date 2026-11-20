@@ -96,3 +96,35 @@ p { margin: 0; }
   body { background: #fff; font-size: 12pt; }
   .card { border: 0; padding: 0; }
 }
+
+/* Hub map */
+.map-node {
+  min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px solid;
+  font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; white-space: nowrap;
+  display: inline-flex; align-items: center; box-shadow: 0 6px 16px rgba(10,69,71,0.08);
+}
+.ev-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; flex: none; box-sizing: border-box; }
+.ev-strong { background: #0E5E60; }
+.ev-growing { background: #D9A15C; }
+.ev-debated { border: 2px solid #A84F2C; background: transparent; }
+.map-node[aria-pressed="true"] .ev-strong { background: #fff; }
+.map-node[aria-pressed="true"] .ev-debated { border-color: #fff; }
+.ev-tag-strong { background: var(--mint); color: var(--primary-dark); }
+.ev-tag-growing { background: #F7E6CC; color: #6B4413; }
+.ev-tag-debated { background: #F6D9C4; color: #7A3A1F; }
+.map-diagram { position: relative; width: 1100px; height: 640px; margin: 0 auto; }
+.map-circle { position: absolute; top: 10px; width: 620px; height: 620px; border-radius: 50%; border: 2px solid; }
+.map-label { position: absolute; margin: 0; font-family: var(--font-head); font-weight: 800; font-size: 24px; }
+.map-both { position: absolute; width: 100px; margin: 0; text-align: center; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; color: var(--subtle); }
+.map-list { display: none; }
+.map-ring { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; padding: 18px 22px; border: 2px dashed #B9CCC9; border-radius: 40px; max-width: 1000px; }
+.map-link { min-height: 40px; padding: 0 14px; border-radius: 999px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; background: var(--ground); color: var(--ink); border: 1.5px solid var(--border); }
+.map-link.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+@media (max-width: 1140px) {
+  .map-diagram { display: none; }
+  .map-list { display: flex; }
+}
+.map-teaser-art { position: relative; height: 280px; display: block; text-decoration: none; }
+.map-teaser-art span { position: absolute; }
+.map-teaser-art .c { width: 56%; aspect-ratio: 1; border-radius: 50%; border: 2px solid; top: 6%; }
+.map-teaser-art .n { border-radius: 999px; padding: 8px 14px; font-size: 14px; font-weight: 600; white-space: nowrap; }

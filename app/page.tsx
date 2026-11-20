@@ -9,6 +9,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
   const lang = toLang((await searchParams).lang);
   const t = landing[lang];
   const signup = lang === "en" ? "/signup" : `/signup?lang=${lang}`;
+  const mapHref = lang === "en" ? "/map" : `/map?lang=${lang}`;
 
   return (
     <div lang={lang}>
@@ -18,6 +19,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
           <div className="nav">
             <a href="#how">{t.nav.how}</a>
             <a href="#inside">{t.nav.inside}</a>
+            <Link href={mapHref}>{t.nav.map}</Link>
             <a href="#faq">{t.nav.faq}</a>
             <LangSwitch current={lang} path="/" />
             <Link href={signup} className="btn btn-small">{t.nav.cta}</Link>
@@ -85,6 +87,27 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
                 <p className="muted">{s.p}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section id="map" aria-label={t.nav.map} className="wrap" style={{ paddingTop: 48, paddingBottom: 48 }}>
+          <div className="row card" style={{ borderRadius: 28, padding: 48, gap: 40, alignItems: "center", boxShadow: "0 24px 60px rgba(10,69,71,0.08)" }}>
+            <div className="stack" style={{ flex: "1 1 380px", minWidth: 0, gap: 16 }}>
+              <p className="eyebrow" style={{ color: "#A84F2C" }}>{t.mapEyebrow}</p>
+              <h2 style={{ fontSize: "clamp(30px, 3.6vw, 42px)", lineHeight: 1.1 }}>{t.mapH}</h2>
+              <p className="muted" style={{ fontSize: 18 }}>{t.mapP}</p>
+              <Link href={mapHref} className="btn" style={{ alignSelf: "flex-start" }}>{t.mapCta}</Link>
+            </div>
+            <Link href={mapHref} aria-label={t.mapCta} className="map-teaser-art" style={{ flex: "1 1 340px", minWidth: 0 }}>
+              <span className="c" style={{ left: "4%", background: "rgba(14,94,96,0.10)", borderColor: "rgba(14,94,96,0.35)" }} />
+              <span className="c" style={{ right: "4%", background: "rgba(181,85,47,0.10)", borderColor: "rgba(181,85,47,0.35)" }} />
+              <span className="n" style={{ left: "8%", top: "34%", background: "#0E5E60", color: "#fff" }}>Lp(a)</span>
+              <span className="n" style={{ left: "34%", top: "16%", background: "#17302F", color: "#fff" }}>Blood pressure</span>
+              <span className="n" style={{ left: "34%", top: "50%", background: "#fff", color: "#17302F", border: "1.5px solid #17302F" }}>Triglycerides</span>
+              <span className="n" style={{ right: "6%", top: "36%", background: "#A84F2C", color: "#fff" }}>HbA1c</span>
+              <span className="n" style={{ left: "18%", bottom: 0, background: "#fff", color: "#17302F", border: "1.5px dashed #9DB3B0" }}>Ferritin</span>
+              <span className="n" style={{ right: "14%", bottom: 0, background: "#fff", color: "#17302F", border: "1.5px dashed #9DB3B0" }}>Thyroid</span>
+            </Link>
           </div>
         </section>
 
