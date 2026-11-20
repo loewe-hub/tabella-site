@@ -5,8 +5,10 @@ import { toLang } from "@/lib/i18n";
 
 export const metadata = { title: "Check your inbox" };
 
-export default async function CheckInbox({ searchParams }: { searchParams: Promise<{ lang?: string }> }) {
-  const lang = toLang((await searchParams).lang);
+export default async function CheckInbox({ searchParams }: { searchParams: Promise<{ lang?: string; mode?: string }> }) {
+  const sp = await searchParams;
+  const lang = toLang(sp.lang);
+  const weeklyOnly = sp.mode === "weekly";
   const t = signup[lang];
   return (
     <SimplePage lang={lang}>
@@ -17,7 +19,7 @@ export default async function CheckInbox({ searchParams }: { searchParams: Promi
         </svg>
       </span>
       <h1 style={{ fontSize: 30 }}>{t.inboxH}</h1>
-      <p className="muted">{t.inboxP}</p>
+      <p className="muted">{weeklyOnly ? t.inboxPWeekly : t.inboxP}</p>
       <p className="small subtle">{t.inboxSpam}</p>
       <Link href={lang === "en" ? "/" : `/?lang=${lang}`} className="small">{t.back}</Link>
     </SimplePage>

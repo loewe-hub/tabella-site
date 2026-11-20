@@ -128,7 +128,10 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
               <h2 style={{ fontSize: 32, marginBottom: 8 }}>{t.finalH}</h2>
               <p className="muted">{t.finalP}</p>
             </div>
-            <Link href={signup} className="btn">{t.cta}</Link>
+            <div className="stack" style={{ gap: 10, alignItems: "center" }}>
+              <Link href={signup} className="btn">{t.cta}</Link>
+              <Link href={`/signup?mode=weekly${lang === "en" ? "" : `&lang=${lang}`}`} className="small">{landing[lang].weeklyLink}</Link>
+            </div>
           </div>
         </section>
       </main>

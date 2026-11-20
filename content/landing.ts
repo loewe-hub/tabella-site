@@ -27,6 +27,7 @@ export const landing: Record<Lang, {
   finalH: string;
   finalP: string;
   disclaimer: string;
+  weeklyLink: string;
 }> = {
   en: {
     nav: { how: "How it works", inside: "What's inside", faq: "FAQ", cta: "Get the free guide" },
@@ -69,6 +70,7 @@ export const landing: Record<Lang, {
     finalH: "Your next blood test is coming.",
     finalP: "Get the guide now and go in with the right questions.",
     disclaimer: "Educational content, not medical advice. If you have chest pain or sudden symptoms, call 112.",
+    weeklyLink: "Just want the weekly prompts?",
   },
   it: {
     nav: { how: "Come funziona", inside: "Cosa contiene", faq: "Domande", cta: "Ricevi la guida gratuita" },
@@ -111,6 +113,7 @@ export const landing: Record<Lang, {
     finalH: "Il tuo prossimo esame del sangue arriverà.",
     finalP: "Ricevi la guida ora e arriva con le domande giuste.",
     disclaimer: "Contenuto educativo, non un consiglio medico. In caso di dolore al petto o sintomi improvvisi, chiama il 112.",
+    weeklyLink: "Vuoi solo i prompt settimanali?",
   },
   de: {
     nav: { how: "So funktioniert's", inside: "Inhalt", faq: "Fragen", cta: "Kostenlosen Leitfaden holen" },
@@ -153,5 +156,6 @@ export const landing: Record<Lang, {
     finalH: "Dein nächster Bluttest kommt bestimmt.",
     finalP: "Hol dir jetzt den Leitfaden und geh mit den richtigen Fragen hin.",
     disclaimer: "Bildungsinhalt, keine medizinische Beratung. Bei Brustschmerzen oder plötzlichen Symptomen: 112 anrufen.",
+    weeklyLink: "Nur die wöchentlichen Prompts?",
   },
 };

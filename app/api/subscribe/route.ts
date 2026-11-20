@@ -26,6 +26,10 @@ export async function POST(req: Request) {
   }
   // Newsletter is a separate, optional opt-in. The guide itself only needs the email.
   const weekly = body.weekly === true;
+  const guide = body.guide !== false; // default: the guide form
+  if (!weekly && !guide) {
+    return NextResponse.json({ error: "nothing_selected" }, { status: 400 });
+  }
   const country = (COUNTRIES as readonly string[]).includes(String(body.country)) ? String(body.country) : "OTHER";
   const reason = (REASONS as readonly string[]).includes(String(body.reason)) ? String(body.reason) : "";
   const lang = toLang(body.lang);
@@ -34,7 +38,7 @@ export async function POST(req: Request) {
 
   const apiKey = process.env.BREVO_API_KEY;
   if (!apiKey) {
-    console.log("[subscribe:mock]", { country, reason, lang, weekly });
+    console.log("[subscribe:mock]", { country, reason, lang, weekly, guide });
     return NextResponse.json({ ok: true, mock: true });
   }
 
@@ -51,8 +55,8 @@ export async function POST(req: Request) {
     headers: { "api-key": apiKey, "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify({
       email,
-      attributes: { COUNTRY: country, REASON: reason, LANGUAGE: lang, GUIDE_URL: guideUrl, WEEKLY_OPT_IN: weekly },
-      includeListIds: weekly && newsletterListId ? [listId, newsletterListId] : [listId],
+      attributes: { COUNTRY: country, REASON: reason, LANGUAGE: lang, GUIDE_URL: guide ? guideUrl : "", WEEKLY_OPT_IN: weekly },
+      includeListIds: [...(guide ? [listId] : []), ...(weekly && newsletterListId ? [newsletterListId] : [])],
       templateId,
       redirectionUrl: `${brand.siteUrl}/confirmed${lang === "en" ? "" : `?lang=${lang}`}`,
     }),

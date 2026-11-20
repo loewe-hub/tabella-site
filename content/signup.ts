@@ -1,7 +1,8 @@
 import type { Lang } from "@/lib/i18n";
 
 export const COUNTRIES = ["IT", "DE", "AT", "CH", "GB", "OTHER"] as const;
-export const REASONS = ["results", "checkup", "family", "professional"] as const;
+export const REASONS = ["results", "checkup", "family", "curious", "professional"] as const;
+export type SignupMode = "guide" | "weekly";
 
 export const signup: Record<Lang, {
   eyebrow: string;
@@ -22,6 +23,15 @@ export const signup: Record<Lang, {
   errors: { email: string; generic: string };
   inboxH: string;
   inboxP: string;
+  inboxPWeekly: string;
+  weeklyEyebrow: string;
+  weeklyH1: string;
+  weeklyP: string;
+  weeklySubmit: string;
+  weeklyPrivacyLead: string;
+  guideToo: string;
+  guideTooHint: string;
+  weeklyLink: string;
   inboxSpam: string;
   confirmedH: string;
   confirmedP: string;
@@ -35,7 +45,7 @@ export const signup: Record<Lang, {
     country: "Country",
     countries: { IT: "Italy", DE: "Germany", AT: "Austria", CH: "Switzerland", GB: "United Kingdom", OTHER: "Other" },
     reason: "What brings you here?",
-    reasons: { results: "I just got blood test results", checkup: "I'm preparing for a check-up", family: "I'm asking for a family member", professional: "I work in health" },
+    reasons: { results: "I just got blood test results", checkup: "I'm preparing for a check-up", family: "I'm asking for a family member", curious: "I'm just curious", professional: "I work in health" },
     privacyLead: "We use your email to send you the guide. See our",
     privacy: "privacy notice",
     weekly: "Also send me the weekly prompts",
@@ -46,6 +56,15 @@ export const signup: Record<Lang, {
     errors: { email: "Please enter a valid email address.", generic: "Something went wrong. Please try again in a minute." },
     inboxH: "Check your inbox",
     inboxP: "We sent you a link to confirm your email. Click it and your guide link follows straight away.",
+    inboxPWeekly: "We sent you a link to confirm your email. Click it and your first weekly prompts are on their way.",
+    weeklyEyebrow: "Weekly prompts",
+    weeklyH1: "Stay curious",
+    weeklyP: "One topic a week, a few prompts to try with your AI, one small thing to do.",
+    weeklySubmit: "Send me the weekly prompts",
+    weeklyPrivacyLead: "We use your email only for what you choose here. Unsubscribe anytime. See our",
+    guideToo: "Also send me the cholesterol guide",
+    guideTooHint: "For when you have results in hand or a check-up coming.",
+    weeklyLink: "Just want the weekly prompts?",
     inboxSpam: "Nothing there after a few minutes? Check your spam or promotions folder.",
     confirmedH: "You're in",
     confirmedP: "Your email is confirmed. Your personal guide link is on its way to your inbox.",
@@ -59,7 +78,7 @@ export const signup: Record<Lang, {
     country: "Paese",
     countries: { IT: "Italia", DE: "Germania", AT: "Austria", CH: "Svizzera", GB: "Regno Unito", OTHER: "Altro" },
     reason: "Cosa ti porta qui?",
-    reasons: { results: "Ho appena ricevuto le analisi del sangue", checkup: "Mi preparo per un controllo", family: "Chiedo per un familiare", professional: "Lavoro in ambito sanitario" },
+    reasons: { results: "Ho appena ricevuto le analisi del sangue", checkup: "Mi preparo per un controllo", family: "Chiedo per un familiare", curious: "Sono solo curioso/a", professional: "Lavoro in ambito sanitario" },
     privacyLead: "Usiamo la tua email per inviarti la guida. Leggi l'",
     privacy: "informativa privacy",
     weekly: "Inviami anche i prompt settimanali",
@@ -70,6 +89,15 @@ export const signup: Record<Lang, {
     errors: { email: "Inserisci un indirizzo email valido.", generic: "Qualcosa è andato storto. Riprova tra un minuto." },
     inboxH: "Controlla la tua email",
     inboxP: "Ti abbiamo inviato un link per confermare l'indirizzo. Cliccalo e riceverai subito il link alla guida.",
+    inboxPWeekly: "Ti abbiamo inviato un link per confermare l'indirizzo. Cliccalo e i primi prompt settimanali sono in arrivo.",
+    weeklyEyebrow: "Prompt settimanali",
+    weeklyH1: "Resta curioso",
+    weeklyP: "Un tema a settimana, qualche prompt da provare con la tua AI, una piccola cosa da fare.",
+    weeklySubmit: "Inviami i prompt settimanali",
+    weeklyPrivacyLead: "Usiamo la tua email solo per ciò che scegli qui. Disiscriviti quando vuoi. Leggi l'",
+    guideToo: "Inviami anche la guida sul colesterolo",
+    guideTooHint: "Per quando hai gli esami in mano o un controllo in arrivo.",
+    weeklyLink: "Vuoi solo i prompt settimanali?",
     inboxSpam: "Non trovi nulla dopo qualche minuto? Guarda nella cartella spam o promozioni.",
     confirmedH: "Ci sei",
     confirmedP: "La tua email è confermata. Il link personale alla guida sta arrivando nella tua casella.",
@@ -83,7 +111,7 @@ export const signup: Record<Lang, {
     country: "Land",
     countries: { IT: "Italien", DE: "Deutschland", AT: "Österreich", CH: "Schweiz", GB: "Vereinigtes Königreich", OTHER: "Anderes" },
     reason: "Was führt dich hierher?",
-    reasons: { results: "Ich habe gerade Blutwerte bekommen", checkup: "Ich bereite einen Check-up vor", family: "Ich frage für ein Familienmitglied", professional: "Ich arbeite im Gesundheitsbereich" },
+    reasons: { results: "Ich habe gerade Blutwerte bekommen", checkup: "Ich bereite einen Check-up vor", family: "Ich frage für ein Familienmitglied", curious: "Ich bin einfach neugierig", professional: "Ich arbeite im Gesundheitsbereich" },
     privacyLead: "Wir nutzen deine E-Mail, um dir den Leitfaden zu schicken. Mehr in den",
     privacy: "Datenschutzhinweisen",
     weekly: "Schick mir auch die wöchentlichen Prompts",
@@ -94,6 +122,15 @@ export const signup: Record<Lang, {
     errors: { email: "Bitte gib eine gültige E-Mail-Adresse ein.", generic: "Etwas ist schiefgelaufen. Bitte versuch es in einer Minute noch einmal." },
     inboxH: "Schau in dein Postfach",
     inboxP: "Wir haben dir einen Bestätigungslink geschickt. Klick ihn an, dann kommt dein Link zum Leitfaden sofort.",
+    inboxPWeekly: "Wir haben dir einen Bestätigungslink geschickt. Klick ihn an, dann kommen deine ersten wöchentlichen Prompts.",
+    weeklyEyebrow: "Wöchentliche Prompts",
+    weeklyH1: "Bleib neugierig",
+    weeklyP: "Ein Thema pro Woche, ein paar Prompts für deine KI, eine kleine Sache zum Tun.",
+    weeklySubmit: "Schick mir die wöchentlichen Prompts",
+    weeklyPrivacyLead: "Wir nutzen deine E-Mail nur für das, was du hier wählst. Jederzeit abmeldbar. Mehr in den",
+    guideToo: "Schick mir auch den Cholesterin-Leitfaden",
+    guideTooHint: "Für den Moment, wenn du Werte in der Hand hast oder ein Check-up ansteht.",
+    weeklyLink: "Nur die wöchentlichen Prompts?",
     inboxSpam: "Nach ein paar Minuten nichts da? Schau im Spam- oder Werbeordner nach.",
     confirmedH: "Du bist dabei",
     confirmedP: "Deine E-Mail ist bestätigt. Dein persönlicher Link zum Leitfaden ist unterwegs.",
