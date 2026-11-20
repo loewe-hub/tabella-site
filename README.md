@@ -23,7 +23,7 @@ Name, domain, sender and publisher live in `config/brand.ts`. Update that file (
 | `BREVO_DOI_TEMPLATE_ID` | double opt-in confirmation email template |
 
 ## Brevo setup
-1. Contact attributes (text): `COUNTRY`, `REASON`, `LANGUAGE`, `GUIDE_URL`, `AI_TOOL`, `TOPIC_FOCUS` (women / men / both / none, optional, set by a one-click link in the welcome email); (date): `RETEST_DATE`.
+1. Contact attributes (text): `COUNTRY`, `REASON`, `LANGUAGE`, `GUIDE_URL`, `AI_TOOL`, `TOPIC_FOCUS` (women / men / all; optional, no click = all; set by a one-click link in the welcome email); (date): `RETEST_DATE`.
 2. A list, e.g. "Guide 01 · Cholesterol".
 3. A double opt-in template (Brevo's DOI template type) that contains the confirmation link.
 4. Automation "Welcome": trigger = contact added to the list → send welcome email with the button linking to `{{ contact.GUIDE_URL }}`.
