@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Brand } from "@/components/Logo";
 import { Footer } from "@/components/Footer";
+import { LangSwitch } from "@/components/LangSwitch";
 import { MarkerMap } from "@/components/MarkerMap";
 import { landing } from "@/content/landing";
 import { toLang } from "@/lib/i18n";
@@ -16,18 +17,19 @@ export default async function MapPage({ searchParams }: { searchParams: Promise<
   const signup = lang === "en" ? "/signup" : `/signup?lang=${lang}`;
 
   return (
-    <div lang="en">
+    <div lang={lang}>
       <header className="site-header">
         <div className="wrap">
           <Brand href={lang === "en" ? "/" : `/?lang=${lang}`} />
           <div className="nav">
             <Link href={lang === "en" ? "/" : `/?lang=${lang}`}>{t.nav.home}</Link>
+            <LangSwitch current={lang} path="/map" />
             <Link href={signup} className="btn btn-small">{t.nav.cta}</Link>
           </div>
         </div>
       </header>
       <main>
-        <MarkerMap signupHref={signup} />
+        <MarkerMap signupHref={signup} lang={lang} />
       </main>
       <Footer disclaimer={t.disclaimer} />
     </div>

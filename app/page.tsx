@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { LangSwitch } from "@/components/LangSwitch";
 import { home } from "@/content/home";
 import { landing } from "@/content/landing";
+import { nodes } from "@/content/map";
 import { toLang } from "@/lib/i18n";
 
 const ICONS = [
@@ -21,6 +22,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
   const signup = q ? `/signup?${q}` : "/signup";
   const weekly = `/signup?mode=weekly${q ? `&${q}` : ""}`;
   const mapHref = q ? `/map?${q}` : "/map";
+  const mk = Object.fromEntries(nodes(lang).map((n) => [n.id, n.name]));
 
   return (
     <div lang={lang}>
@@ -98,11 +100,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
               <span className="c" style={{ left: "4%", background: "rgba(14,94,96,0.10)", borderColor: "rgba(14,94,96,0.35)" }} />
               <span className="c" style={{ right: "4%", background: "rgba(181,85,47,0.10)", borderColor: "rgba(181,85,47,0.35)" }} />
               <span className="n" style={{ left: "8%", top: "34%", background: "#0E5E60", color: "#fff" }}>Lp(a)</span>
-              <span className="n" style={{ left: "34%", top: "16%", background: "#1E2B2A", color: "#fff" }}>Blood pressure</span>
-              <span className="n" style={{ left: "34%", top: "50%", background: "#fff", color: "#1E2B2A", border: "1.5px solid #1E2B2A" }}>Blood fats</span>
-              <span className="n" style={{ right: "6%", top: "36%", background: "#A84F2C", color: "#fff" }}>Blood sugar</span>
-              <span className="n" style={{ left: "18%", bottom: 0, background: "#fff", color: "#1E2B2A", border: "1.5px dashed #CFC4B6" }}>Iron stores</span>
-              <span className="n" style={{ right: "14%", bottom: 0, background: "#fff", color: "#1E2B2A", border: "1.5px dashed #CFC4B6" }}>Thyroid</span>
+              <span className="n" style={{ left: "34%", top: "16%", background: "#1E2B2A", color: "#fff" }}>{mk.bp}</span>
+              <span className="n" style={{ left: "34%", top: "50%", background: "#fff", color: "#1E2B2A", border: "1.5px solid #1E2B2A" }}>{mk.tg}</span>
+              <span className="n" style={{ right: "6%", top: "36%", background: "#A84F2C", color: "#fff" }}>{mk.glucose}</span>
+              <span className="n" style={{ left: "18%", bottom: 0, background: "#fff", color: "#1E2B2A", border: "1.5px dashed #CFC4B6" }}>{mk.iron}</span>
+              <span className="n" style={{ right: "14%", bottom: 0, background: "#fff", color: "#1E2B2A", border: "1.5px dashed #CFC4B6" }}>{mk.thyroid}</span>
             </Link>
           </div>
         </section>

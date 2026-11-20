@@ -159,7 +159,7 @@ export function Guide({ initialLang, preview }: { initialLang: Lang; preview: bo
             </span>
           </div>
           <p className="muted">{t.checkIntro}</p>
-          <a href="/map" style={{ fontWeight: 600, alignSelf: "flex-start" }}>{t.mapLink}</a>
+          <a href={lang === "en" ? "/map" : `/map?lang=${lang}`} style={{ fontWeight: 600, alignSelf: "flex-start" }}>{t.mapLink}</a>
           {buckets.map((b) => (
             <div key={b.id} className="stack" style={{ gap: 10 }}>
               <p className="eyebrow" style={{ marginTop: 10 }}>{b.title}</p>
