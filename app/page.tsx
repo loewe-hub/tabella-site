@@ -67,6 +67,23 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
           </div>
         </section>
 
+        <section id="why" aria-label={t.whyEyebrow} className="wrap stack" style={{ gap: 28, paddingBottom: 96 }}>
+          <div className="stack" style={{ gap: 12, maxWidth: 760 }}>
+            <p className="eyebrow">{t.whyEyebrow}</p>
+            <h2 className="display-2">{t.whyH}</h2>
+          </div>
+          <div className="grid-auto">
+            {t.stats.map((x) => (
+              <div key={x.n} className="tile stack" style={{ gap: 10 }}>
+                <p className="stat-n">{x.n}</p>
+                <p style={{ fontSize: 17 }}>{x.text}</p>
+                <a href={x.href} target="_blank" rel="noopener noreferrer" className="tiny subtle" style={{ marginTop: "auto" }}>{x.src}</a>
+              </div>
+            ))}
+          </div>
+          <p className="why-line">{t.whyLine}</p>
+        </section>
+
         <section aria-label={t.chatH} style={{ background: "var(--primary)" }}>
           <div className="wrap row" style={{ paddingTop: 96, paddingBottom: 96, gap: 56, alignItems: "center" }}>
             <div className="stack" style={{ flex: "1 1 360px", minWidth: 0, gap: 18 }}>
@@ -109,6 +126,20 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
           </div>
         </section>
 
+        <section aria-label={t.isH} className="wrap" style={{ paddingBottom: 96 }}>
+          <div className="grid-auto" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
+            <div className="tile stack" style={{ gap: 14 }}>
+              <h2 style={{ fontSize: 26 }}>{t.isH}</h2>
+              {t.is.map((x) => <p key={x} className="claim-row"><span aria-hidden="true" className="mark-yes">✓</span>{x}</p>)}
+            </div>
+            <div className="tile stack" style={{ gap: 14, background: "transparent", border: "1.5px solid var(--border)" }}>
+              <h2 style={{ fontSize: 26 }}>{t.notH}</h2>
+              {t.not.map((x) => <p key={x} className="claim-row"><span aria-hidden="true" className="mark-no">✕</span>{x}</p>)}
+            </div>
+          </div>
+          <p className="principle">{t.principle}</p>
+        </section>
+
         <section id="topics" aria-label={t.topicsH} className="wrap stack" style={{ gap: 28, paddingBottom: 96 }}>
           <h2 style={{ fontSize: 36 }}>{t.topicsH}</h2>
           <div className="grid-tiles">
@@ -128,13 +159,20 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
           </div>
         </section>
 
-        <section aria-label={t.weeklyH} className="wrap" style={{ paddingBottom: 112 }}>
+        <section aria-label={t.weeklyH} className="wrap" style={{ paddingBottom: 48 }}>
           <div className="row card-lg" style={{ gap: 32, alignItems: "center", justifyContent: "space-between", padding: 56 }}>
             <div className="stack" style={{ flex: "1 1 420px", minWidth: 0, gap: 12 }}>
               <h2 className="display-2">{t.weeklyH}</h2>
               <p className="muted" style={{ fontSize: 19 }}>{t.weeklyP}</p>
             </div>
             <Link href={weekly} className="btn btn-lg">{t.weeklyCta}</Link>
+          </div>
+        </section>
+
+        <section id="free" aria-label={t.freeH} className="wrap" style={{ paddingBottom: 96 }}>
+          <div className="stack" style={{ gap: 10, maxWidth: 720 }}>
+            <h2 style={{ fontSize: 26 }}>{t.freeH}</h2>
+            <p className="muted" style={{ fontSize: 18 }}>{t.freeP}</p>
           </div>
         </section>
       </main>

@@ -22,6 +22,17 @@ export type HomeCopy = {
   weeklyH: string;
   weeklyP: string;
   weeklyCta: string;
+  whyEyebrow: string;
+  whyH: string;
+  stats: { n: string; text: string; src: string; href: string }[];
+  whyLine: string;
+  isH: string;
+  is: string[];
+  notH: string;
+  not: string[];
+  principle: string;
+  freeH: string;
+  freeP: string;
 };
 
 export const home: Record<Lang, HomeCopy> = {
@@ -53,6 +64,21 @@ export const home: Record<Lang, HomeCopy> = {
     weeklyH: "Stay curious.",
     weeklyP: "One topic a week, a few prompts to try, and one small thing to do.",
     weeklyCta: "Get the weekly prompts",
+    whyEyebrow: "Why Curiact",
+    whyH: "Asking AI is how people learn about their health now.",
+    stats: [
+      { n: "300M+", text: "people ask ChatGPT about their health every week.", src: "OpenAI, 2026", href: "https://openai.com/index/health-in-chatgpt/" },
+      { n: "95% vs 35%", text: "AI alone found the right condition in 95% of test cases. People using the same AI: fewer than 35%. The gap is the questions.", src: "Oxford, Nature Medicine 2026", href: "https://pubmed.ncbi.nlm.nih.gov/41663592/" },
+      { n: "1 in 3", text: "US adults now use AI for health information, double the year before.", src: "Rock Health, 2026", href: "https://rockhealth.com/rock-weekly/one-in-three-consumers-is-using-ai-for-health-questions/" },
+    ],
+    whyLine: "We don't replace your AI or your doctor. We help you ask well, so you understand more and decide together.",
+    isH: "What we are",
+    is: ["Guides and questions for the AI you already use", "Built around real moments, like your blood test", "Based on current guidelines, made in Europe"],
+    notH: "What we're not",
+    not: ["An app that reads your results", "A doctor or a diagnosis", "A place that stores your health data: we never see your results"],
+    principle: "We choose science-based findings over any commercial opportunity.",
+    freeH: "Why is it free?",
+    freeP: "The guides and the weekly prompts are free. Later we'll offer deeper country editions and work with organisations that want to give these guides to their members. We will never sell your personal data.",
   },
   it: {
     nav: { how: "Come funziona", topics: "Temi", map: "La mappa", cta: "Inizia con una domanda" },
@@ -82,6 +108,21 @@ export const home: Record<Lang, HomeCopy> = {
     weeklyH: "Resta curioso.",
     weeklyP: "Un tema a settimana, qualche prompt da provare e una piccola cosa da fare.",
     weeklyCta: "Ricevi i prompt settimanali",
+    whyEyebrow: "Perché Curiact",
+    whyH: "Chiedere all'AI è il nuovo modo di informarsi sulla salute.",
+    stats: [
+      { n: "300M+", text: "persone ogni settimana fanno domande sulla salute a ChatGPT.", src: "OpenAI, 2026", href: "https://openai.com/index/health-in-chatgpt/" },
+      { n: "95% vs 35%", text: "Da sola, l'AI ha trovato la condizione giusta nel 95% dei casi di prova. Le persone che usavano la stessa AI: meno del 35%. La differenza sta nelle domande.", src: "Oxford, Nature Medicine 2026", href: "https://pubmed.ncbi.nlm.nih.gov/41663592/" },
+      { n: "73%", text: "degli italiani tra 18 e 34 anni usa già l'AI come prima fonte per la salute.", src: "Salute Artificiale, 2026", href: "https://www.avvenire.it/vita-e-cura/salute-il-942-degli-italiani-chiede-a-google-o-allia_104031" },
+    ],
+    whyLine: "Non sostituiamo la tua AI né il tuo medico. Ti aiutiamo a chiedere bene, per capire di più e decidere insieme.",
+    isH: "Cosa siamo",
+    is: ["Guide e domande per l'AI che già usi", "Pensate per momenti reali, come le tue analisi del sangue", "Basate sulle linee guida attuali, fatte in Europa"],
+    notH: "Cosa non siamo",
+    not: ["Un'app che legge i tuoi risultati", "Un medico o una diagnosi", "Un luogo che conserva i tuoi dati sanitari: non vediamo mai i tuoi risultati"],
+    principle: "Scegliamo le evidenze scientifiche prima di qualsiasi opportunità commerciale.",
+    freeH: "Perché è gratis?",
+    freeP: "Le guide e i prompt settimanali sono gratuiti. In futuro offriremo edizioni per Paese più approfondite e lavoreremo con organizzazioni che vogliono offrire queste guide ai propri iscritti. Non venderemo mai i tuoi dati personali.",
   },
   de: {
     nav: { how: "So funktioniert's", topics: "Themen", map: "Die Karte", cta: "Mit einer Frage starten" },
@@ -111,5 +152,20 @@ export const home: Record<Lang, HomeCopy> = {
     weeklyH: "Bleib neugierig.",
     weeklyP: "Ein Thema pro Woche, ein paar Prompts zum Ausprobieren und eine kleine Sache zum Tun.",
     weeklyCta: "Wöchentliche Prompts erhalten",
+    whyEyebrow: "Warum Curiact",
+    whyH: "KI fragen ist heute der Weg, sich über Gesundheit zu informieren.",
+    stats: [
+      { n: "300 Mio.+", text: "Menschen stellen ChatGPT jede Woche Gesundheitsfragen.", src: "OpenAI, 2026", href: "https://openai.com/index/health-in-chatgpt/" },
+      { n: "95 % vs. 35 %", text: "Allein fand die KI in 95 % der Testfälle die richtige Erkrankung. Menschen mit derselben KI: unter 35 %. Der Unterschied liegt in den Fragen.", src: "Oxford, Nature Medicine 2026", href: "https://pubmed.ncbi.nlm.nih.gov/41663592/" },
+      { n: "7 von 10", text: "Deutschen, die online zu Gesundheit recherchieren, fragen bereits einen KI-Chatbot.", src: "Bitkom, 2026", href: "https://www.bitkom.org/Presse/Presseinformation/8-von-10-suchen-Krankheit-Beschwerden-Rat-im-Netz" },
+    ],
+    whyLine: "Wir ersetzen weder deine KI noch deinen Arzt. Wir helfen dir, gut zu fragen, damit du mehr verstehst und gemeinsam entscheidest.",
+    isH: "Was wir sind",
+    is: ["Leitfäden und Fragen für die KI, die du schon nutzt", "Gebaut für echte Momente, wie deinen Bluttest", "Auf Basis aktueller Leitlinien, gemacht in Europa"],
+    notH: "Was wir nicht sind",
+    not: ["Eine App, die deine Werte liest", "Ein Arzt oder eine Diagnose", "Ein Ort, der deine Gesundheitsdaten speichert: Wir sehen deine Werte nie"],
+    principle: "Wir stellen wissenschaftliche Erkenntnisse über jede kommerzielle Gelegenheit.",
+    freeH: "Warum ist das kostenlos?",
+    freeP: "Die Leitfäden und die wöchentlichen Prompts sind kostenlos. Später bieten wir ausführlichere Länderausgaben an und arbeiten mit Organisationen, die diese Leitfäden ihren Mitgliedern anbieten wollen. Wir werden deine persönlichen Daten niemals verkaufen.",
   },
 };
