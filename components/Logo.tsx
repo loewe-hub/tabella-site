@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { brand } from "@/config/brand";
 
+// Kept for the guide header (dark background).
 export function LogoMark({ size = 32, inverted = false }: { size?: number; inverted?: boolean }) {
-  const bg = inverted ? "#DDF1EA" : "#0E5E60";
-  const fg = inverted ? "#0E5E60" : "#DDF1EA";
+  const bg = inverted ? "#F6D9C4" : "#0E5E60";
+  const fg = inverted ? "#0E5E60" : "#F6D9C4";
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true">
       <rect x="2" y="2" width="28" height="28" rx="8" fill={bg} />
@@ -12,11 +12,11 @@ export function LogoMark({ size = 32, inverted = false }: { size?: number; inver
   );
 }
 
-export function Brand({ href = "/" }: { href?: string }) {
+// Wordmark: Curi + act. `animated` fades it in after the hero animation (landing only).
+export function Brand({ href = "/", animated = false }: { href?: string; animated?: boolean }) {
   return (
-    <Link href={href} className="brand">
-      <LogoMark />
-      <span>{brand.name}</span>
+    <Link href={href} className={`brand${animated ? " cx-logo" : ""}`} aria-label="Curiact">
+      Curi<span className="brand-act">act</span>
     </Link>
   );
 }
