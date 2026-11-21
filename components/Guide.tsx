@@ -77,7 +77,7 @@ export function Guide({ initialLang, preview }: { initialLang: Lang; preview: bo
   }
 
   const done = checklist.filter((c) => ticks[c.id]).length;
-  const buckets = (["b1", "b2", "b3"] as const).map((b) => ({ id: b, title: t[b], items: checklist.filter((c) => c.bucket === b) }));
+  const buckets = (["b1", "b2", "b3", "b4"] as const).map((b) => ({ id: b, title: t[b], items: checklist.filter((c) => c.bucket === b) }));
 
   return (
     <div lang={lang}>
@@ -133,6 +133,15 @@ export function Guide({ initialLang, preview }: { initialLang: Lang; preview: bo
           </ul>
         </section>
 
+        <section className="card stack" style={{ gap: 12, borderLeft: "4px solid var(--terracotta)" }}>
+          <h2 style={{ fontSize: 22 }}>{t.setupH}</h2>
+          <p className="muted">{t.setupIntro}</p>
+          <ol className="stack" style={{ gap: 8, paddingLeft: 20, margin: 0 }}>
+            {[t.setup1, t.setup2, t.setup3, t.setup4].map((x) => <li key={x}>{x}</li>)}
+          </ol>
+          <p className="small subtle">{t.setupNote}</p>
+        </section>
+
         <section className="card stack" style={{ gap: 14 }}>
           <h2 style={{ fontSize: 24 }}>{t.promptH}</h2>
           <p className="muted">{t.promptIntro}</p>
@@ -181,9 +190,9 @@ export function Guide({ initialLang, preview }: { initialLang: Lang; preview: bo
                   </div>
                 );
               })}
+              {b.id === "b3" && <p className="small muted">{t.confirm}</p>}
             </div>
           ))}
-          <p className="small muted">{t.confirm}</p>
           <p className="tiny subtle">{t.saved}</p>
         </section>
 
