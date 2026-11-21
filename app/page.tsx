@@ -137,7 +137,17 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
               {t.not.map((x) => <p key={x} className="claim-row"><span aria-hidden="true" className="mark-no">✕</span>{x}</p>)}
             </div>
           </div>
-          <p className="principle">{t.principle}</p>
+          <div className="stack" style={{ gap: 18, marginTop: 40 }}>
+            <h2 style={{ fontSize: 26 }}>{t.principlesH}</h2>
+            <div className="grid-tiles">
+              {t.principles.map((x) => (
+                <div key={x.h} className="principle-card stack" style={{ gap: 8 }}>
+                  <p className="principle-h">{x.h}</p>
+                  <p className="muted" style={{ fontSize: 16 }}>{x.p}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
 
         <section id="topics" aria-label={t.topicsH} className="wrap stack" style={{ gap: 28, paddingBottom: 96 }}>

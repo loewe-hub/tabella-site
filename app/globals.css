@@ -182,3 +182,5 @@ p { margin: 0; }
 .mark-yes { background: var(--primary); color: #fff; }
 .mark-no { background: var(--apricot); color: #7A3A1F; }
 .principle { margin-top: 24px; font-family: var(--font-head); font-weight: 700; font-size: 20px; color: var(--terracotta); text-align: center; }
+.principle-card { border-top: 3px solid var(--terracotta); padding-top: 16px; }
+.principle-h { font-family: var(--font-head); font-weight: 700; font-size: 19px; color: var(--primary-dark); }

@@ -30,7 +30,8 @@ export type HomeCopy = {
   is: string[];
   notH: string;
   not: string[];
-  principle: string;
+  principlesH: string;
+  principles: { h: string; p: string }[];
   freeH: string;
   freeP: string;
 };
@@ -76,9 +77,15 @@ export const home: Record<Lang, HomeCopy> = {
     is: ["Guides and questions for the AI you already use", "Built around real moments, like your blood test", "Based on current guidelines, made in Europe"],
     notH: "What we're not",
     not: ["An app that reads your results", "A doctor or a diagnosis", "A place that stores your health data: we never see your results"],
-    principle: "We choose science-based findings over any commercial opportunity.",
+    principlesH: "Our principles",
+    principles: [
+      { h: "Science first", p: "We choose science-based findings over any commercial opportunity." },
+      { h: "AI is a tool", p: "It gives you context and helps you learn. It can also make mistakes; our guides and checklists are built to catch them." },
+      { h: "Decisions with your doctor", p: "Medical decisions belong with your doctor or healthcare provider. Always." },
+      { h: "Your data stays yours", p: "Leave out your name, tax code and patient ID when you share results with your AI. We never see your results." },
+    ],
     freeH: "Why is it free?",
-    freeP: "The guides and the weekly prompts are free. Later we'll offer deeper country editions and work with organisations that want to give these guides to their members. We will never sell your personal data.",
+    freeP: "The guides and the weekly prompts are free. We will never sell your personal data.",
   },
   it: {
     nav: { how: "Come funziona", topics: "Temi", map: "La mappa", cta: "Inizia con una domanda" },
@@ -120,9 +127,15 @@ export const home: Record<Lang, HomeCopy> = {
     is: ["Guide e domande per l'AI che già usi", "Pensate per momenti reali, come le tue analisi del sangue", "Basate sulle linee guida attuali, fatte in Europa"],
     notH: "Cosa non siamo",
     not: ["Un'app che legge i tuoi risultati", "Un medico o una diagnosi", "Un luogo che conserva i tuoi dati sanitari: non vediamo mai i tuoi risultati"],
-    principle: "Scegliamo le evidenze scientifiche prima di qualsiasi opportunità commerciale.",
+    principlesH: "I nostri principi",
+    principles: [
+      { h: "Prima la scienza", p: "Scegliamo le evidenze scientifiche prima di qualsiasi opportunità commerciale." },
+      { h: "L'AI è uno strumento", p: "Ti dà contesto e ti aiuta a capire. Può anche sbagliare: le nostre guide e checklist servono a intercettare gli errori." },
+      { h: "Decidi con il tuo medico", p: "Le decisioni mediche spettano a te e al tuo medico o professionista sanitario. Sempre." },
+      { h: "I tuoi dati restano tuoi", p: "Quando condividi le analisi con la tua AI, togli nome, codice fiscale e ID paziente. Noi non vediamo mai i tuoi risultati." },
+    ],
     freeH: "Perché è gratis?",
-    freeP: "Le guide e i prompt settimanali sono gratuiti. In futuro offriremo edizioni per Paese più approfondite e lavoreremo con organizzazioni che vogliono offrire queste guide ai propri iscritti. Non venderemo mai i tuoi dati personali.",
+    freeP: "Le guide e i prompt settimanali sono gratuiti. Non venderemo mai i tuoi dati personali.",
   },
   de: {
     nav: { how: "So funktioniert's", topics: "Themen", map: "Die Karte", cta: "Mit einer Frage starten" },
@@ -164,8 +177,14 @@ export const home: Record<Lang, HomeCopy> = {
     is: ["Leitfäden und Fragen für die KI, die du schon nutzt", "Gebaut für echte Momente, wie deinen Bluttest", "Auf Basis aktueller Leitlinien, gemacht in Europa"],
     notH: "Was wir nicht sind",
     not: ["Eine App, die deine Werte liest", "Ein Arzt oder eine Diagnose", "Ein Ort, der deine Gesundheitsdaten speichert: Wir sehen deine Werte nie"],
-    principle: "Wir stellen wissenschaftliche Erkenntnisse über jede kommerzielle Gelegenheit.",
+    principlesH: "Unsere Prinzipien",
+    principles: [
+      { h: "Wissenschaft zuerst", p: "Wir stellen wissenschaftliche Erkenntnisse über jede kommerzielle Gelegenheit." },
+      { h: "KI ist ein Werkzeug", p: "Sie gibt dir Kontext und hilft dir zu verstehen. Sie kann auch Fehler machen; unsere Leitfäden und Checklisten sind dafür gebaut, sie aufzufangen." },
+      { h: "Entscheidungen mit deinem Arzt", p: "Medizinische Entscheidungen triffst du mit deinem Arzt oder deiner Ärztin. Immer." },
+      { h: "Deine Daten bleiben deine", p: "Lass Name, Steuer-ID und Patientennummer weg, wenn du Werte mit deiner KI teilst. Wir sehen deine Werte nie." },
+    ],
     freeH: "Warum ist das kostenlos?",
-    freeP: "Die Leitfäden und die wöchentlichen Prompts sind kostenlos. Später bieten wir ausführlichere Länderausgaben an und arbeiten mit Organisationen, die diese Leitfäden ihren Mitgliedern anbieten wollen. Wir werden deine persönlichen Daten niemals verkaufen.",
+    freeP: "Die Leitfäden und die wöchentlichen Prompts sind kostenlos. Wir werden deine persönlichen Daten niemals verkaufen.",
   },
 };
