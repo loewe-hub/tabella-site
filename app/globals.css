@@ -184,3 +184,6 @@ p { margin: 0; }
 .principle { margin-top: 24px; font-family: var(--font-head); font-weight: 700; font-size: 20px; color: var(--terracotta); text-align: center; }
 .principle-card { border-top: 3px solid var(--terracotta); padding-top: 16px; }
 .principle-h { font-family: var(--font-head); font-weight: 700; font-size: 19px; color: var(--primary-dark); }
+.tile-photo { padding: 0; overflow: hidden; }
+.tile-img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.tile-photo svg { width: 28px; height: 28px; }

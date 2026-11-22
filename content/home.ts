@@ -9,7 +9,7 @@ export type HomeCopy = {
   cta: string;
   ctaSecondary: string;
   reassurance: string;
-  triad: { k: string; h: string }[];
+  triad: { k: string; h: string; alt: string }[];
   chatH: string;
   chatP: string;
   bubbleUser: string;
@@ -44,9 +44,9 @@ export const home: Record<Lang, HomeCopy> = {
     ctaSecondary: "How it works",
     reassurance: "Free · Works with any AI · We never see your results",
     triad: [
-      { k: "Curious", h: "Ask what you didn't know to ask." },
-      { k: "Act", h: "Walk in with your top three questions." },
-      { k: "Decide", h: "Together with your doctor. It's your call." },
+      { k: "Curious", h: "Ask what you didn't know to ask.", alt: "A woman reads her blood test results at the kitchen table with a cup of coffee." },
+      { k: "Act", h: "Walk in with your top three questions.", alt: "The same woman in a waiting room, looking over her prepared questions in a notebook." },
+      { k: "Decide", h: "Together with your doctor. It's your call.", alt: "The woman and her doctor smiling together at a desk, agreeing on next steps." },
     ],
     chatH: "Your AI. Better questions.",
     chatP: "One prompt starts the conversation. A short checklist shows what your AI didn't bring up.",
@@ -94,9 +94,9 @@ export const home: Record<Lang, HomeCopy> = {
     ctaSecondary: "Come funziona",
     reassurance: "Gratis · Funziona con qualsiasi AI · Non vediamo mai i tuoi risultati",
     triad: [
-      { k: "Curioso", h: "Chiedi quello che non sapevi di dover chiedere." },
-      { k: "Agisci", h: "Vai dal medico con le tue tre domande principali." },
-      { k: "Decidi", h: "Insieme al tuo medico. La scelta è tua." },
+      { k: "Curioso", h: "Chiedi quello che non sapevi di dover chiedere.", alt: "Una donna legge le sue analisi del sangue al tavolo della cucina con un caffè." },
+      { k: "Agisci", h: "Vai dal medico con le tue tre domande principali.", alt: "La stessa donna in sala d'attesa rilegge le domande preparate sul suo taccuino." },
+      { k: "Decidi", h: "Insieme al tuo medico. La scelta è tua.", alt: "La donna e la sua dottoressa sorridono alla scrivania e concordano i prossimi passi." },
     ],
     chatH: "La tua AI. Domande migliori.",
     chatP: "Un prompt avvia la conversazione. Una breve checklist mostra cosa la tua AI non ha toccato.",
@@ -144,9 +144,9 @@ export const home: Record<Lang, HomeCopy> = {
     ctaSecondary: "So funktioniert's",
     reassurance: "Kostenlos · Mit jeder KI · Wir sehen deine Werte nie",
     triad: [
-      { k: "Neugierig", h: "Frag, was du nicht zu fragen wusstest." },
-      { k: "Handeln", h: "Geh mit deinen drei wichtigsten Fragen zum Arzt." },
-      { k: "Entscheiden", h: "Gemeinsam mit deinem Arzt. Du entscheidest." },
+      { k: "Neugierig", h: "Frag, was du nicht zu fragen wusstest.", alt: "Eine Frau liest am Küchentisch mit einer Tasse Kaffee ihre Blutwerte." },
+      { k: "Handeln", h: "Geh mit deinen drei wichtigsten Fragen zum Arzt.", alt: "Dieselbe Frau im Wartezimmer geht ihre vorbereiteten Fragen im Notizbuch durch." },
+      { k: "Entscheiden", h: "Gemeinsam mit deinem Arzt. Du entscheidest.", alt: "Die Frau und ihre Ärztin lächeln am Schreibtisch und einigen sich auf die nächsten Schritte." },
     ],
     chatH: "Deine KI. Bessere Fragen.",
     chatP: "Ein Prompt startet das Gespräch. Eine kurze Checkliste zeigt, was deine KI nicht angesprochen hat.",

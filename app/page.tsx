@@ -12,6 +12,7 @@ const ICONS = [
   <svg key="a" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 28l10-10 6 6 10-12" fill="none" stroke="#0E5E60" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /><path d="M27 12h7v7" fill="none" stroke="#0E5E60" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>,
   <svg key="d" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="14" cy="16" r="5" fill="none" stroke="#0A4547" strokeWidth="2.5" /><circle cx="27" cy="16" r="5" fill="none" stroke="#0A4547" strokeWidth="2.5" /><path d="M6 33c1-5 4-8 8-8s7 3 8 8M19 33c1-5 4-8 8-8s7 3 8 8" fill="none" stroke="#0A4547" strokeWidth="2.5" strokeLinecap="round" /></svg>,
 ];
+const PHOTOS = ["curious", "act", "decide"];
 const TRIAD_COLORS = ["#B5552F", "#0E5E60", "#0A4547"];
 
 export default async function Home({ searchParams }: { searchParams: Promise<{ lang?: string }> }) {
@@ -34,7 +35,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
             <a href="#topics" className="hide-sm">{t.nav.topics}</a>
             <Link href={mapHref}>{t.nav.map}</Link>
             <LangSwitch current={lang} path="/" />
-            <Link href={signup} className="btn btn-small btn-outline">{t.nav.cta}</Link>
+            <Link href={signup} className="btn btn-small btn-outline hide-sm">{t.nav.cta}</Link>
           </nav>
         </div>
       </header>
@@ -58,10 +59,15 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
         <section id="how" className="wrap" style={{ paddingBottom: 88 }} aria-label={t.nav.how}>
           <div className="grid-auto">
             {t.triad.map((x, i) => (
-              <div key={x.k} className="tile stack" style={{ gap: 14 }}>
-                {ICONS[i]}
-                <p className="eyebrow" style={{ color: TRIAD_COLORS[i] }}>{x.k}</p>
-                <p className="tile-h">{x.h}</p>
+              <div key={x.k} className="tile tile-photo stack" style={{ gap: 0 }}>
+                <img src={`/images/${PHOTOS[i]}.webp`} alt={x.alt} width={960} height={720} loading={i === 0 ? "eager" : "lazy"} className="tile-img" />
+                <div className="stack" style={{ gap: 12, padding: "24px 28px 28px" }}>
+                  <div className="row" style={{ gap: 10, alignItems: "center" }}>
+                    {ICONS[i]}
+                    <p className="eyebrow" style={{ color: TRIAD_COLORS[i] }}>{x.k}</p>
+                  </div>
+                  <p className="tile-h">{x.h}</p>
+                </div>
               </div>
             ))}
           </div>
