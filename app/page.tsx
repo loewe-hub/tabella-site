@@ -65,10 +65,13 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
               <h2 className="display-2">{s.youH}</h2>
               <p className="muted" style={{ fontSize: 19 }}>{s.youP}</p>
             </div>
-            <div className="tile stack" style={{ flex: "0 1 340px", gap: 8 }}>
+            <div className="tile tile-photo stack" style={{ flex: "0 1 400px", gap: 0 }}>
+              <img src="/images/curious.webp" alt={t.triad[0].alt} width={960} height={720} loading="eager" className="tile-img" />
+              <div className="stack" style={{ gap: 6, padding: "20px 24px 24px" }}>
               <p className="stat-n" style={{ fontSize: 56 }}>{s.youStat}</p>
               <p style={{ fontSize: 18 }}>{s.youStatText}</p>
               <a href={SOURCES.openai} target="_blank" rel="noopener noreferrer" className="tiny subtle">{s.youSrc}</a>
+              </div>
             </div>
           </div>
         </section>
@@ -126,21 +129,20 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
           </div>
         </section>
 
-        <section id="how" className="wrap stack" style={{ gap: 28, paddingTop: 104, paddingBottom: 96 }} aria-label={s.howEyebrow}>
+        <section id="get" className="wrap stack" style={{ gap: 28, paddingTop: 104, paddingBottom: 96 }} aria-label={s.pillarsEyebrow}>
           <div className="stack" style={{ gap: 12, maxWidth: 760 }}>
-            <p className="eyebrow">{s.howEyebrow}</p>
-            <h2 className="display-2">{s.howH}</h2>
+            <p className="eyebrow">{s.pillarsEyebrow}</p>
+            <h2 className="display-2">{s.pillarsH}</h2>
           </div>
           <div className="grid-auto">
-            {t.triad.map((x, i) => (
-              <div key={x.k} className="tile tile-photo stack" style={{ gap: 0 }}>
-                <img src={`/images/${PHOTOS[i]}.webp`} alt={x.alt} width={960} height={720} loading="lazy" className="tile-img" />
-                <div className="stack" style={{ gap: 12, padding: "24px 28px 28px" }}>
-                  <div className="row" style={{ gap: 10, alignItems: "center" }}>
-                    {ICONS[i]}
-                    <p className="eyebrow" style={{ color: TRIAD_COLORS[i] }}>{x.k}</p>
-                  </div>
-                  <p className="tile-h">{x.h}</p>
+            {s.pillars.map((x, i) => (
+              <div key={x.h} className="tile stack pillar" style={{ gap: 14 }}>
+                <p className="pillar-n">{i + 1}</p>
+                <p className="tile-h">{x.h}</p>
+                <p className="muted" style={{ fontSize: 17 }}>{x.p}</p>
+                <div className="row" style={{ gap: 12, alignItems: "center", marginTop: "auto", justifyContent: "space-between" }}>
+                  <span className="tiny" style={{ fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--terracotta)" }}>{x.tag}</span>
+                  {x.cta && x.link && <Link href={x.link === "signup" ? signup : weekly} className="btn btn-small">{x.cta}</Link>}
                 </div>
               </div>
             ))}
@@ -148,11 +150,14 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
         </section>
 
         <section id="decide" aria-label={s.decideEyebrow} className="wrap" style={{ paddingBottom: 104 }}>
-          <div className="card-lg stack" style={{ gap: 14, borderLeft: "6px solid var(--terracotta)" }}>
-            <p className="eyebrow">{s.decideEyebrow}</p>
-            <h2 className="display-2">{s.decideH}</h2>
-            <p className="muted" style={{ fontSize: 19, maxWidth: 820 }}>{s.decideP}</p>
-            <a href={SOURCES.oxford} target="_blank" rel="noopener noreferrer" className="tiny subtle">{s.decideSrc}</a>
+          <div className="card-lg row decide-card" style={{ gap: 40, alignItems: "stretch", padding: 0, overflow: "hidden" }}>
+            <img src="/images/decide.webp" alt={t.triad[2].alt} width={960} height={720} loading="lazy" className="decide-img" />
+            <div className="stack" style={{ gap: 14, flex: "1 1 380px", minWidth: 0, padding: "40px 44px 40px 0" }}>
+              <p className="eyebrow">{s.decideEyebrow}</p>
+              <h2 className="display-2">{s.decideH}</h2>
+              <p className="muted" style={{ fontSize: 19 }}>{s.decideP}</p>
+              <a href={SOURCES.oxford} target="_blank" rel="noopener noreferrer" className="tiny subtle">{s.decideSrc}</a>
+            </div>
           </div>
         </section>
 
@@ -177,18 +182,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
           </div>
         </section>
 
-        <section aria-label={t.isH} className="wrap" style={{ paddingBottom: 96 }}>
-          <div className="grid-auto" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
-            <div className="tile stack" style={{ gap: 14 }}>
-              <h2 style={{ fontSize: 26 }}>{t.isH}</h2>
-              {t.is.map((x) => <p key={x} className="claim-row"><span aria-hidden="true" className="mark-yes">✓</span>{x}</p>)}
-            </div>
-            <div className="tile stack" style={{ gap: 14, background: "transparent", border: "1.5px solid var(--border)" }}>
-              <h2 style={{ fontSize: 26 }}>{t.notH}</h2>
-              {[...t.not, s.notEmergency].map((x) => <p key={x} className="claim-row"><span aria-hidden="true" className="mark-no">✕</span>{x}</p>)}
-            </div>
-          </div>
-          <div className="stack" style={{ gap: 18, marginTop: 40 }}>
+        <section aria-label={t.principlesH} className="wrap" style={{ paddingBottom: 96 }}>
+          <div className="stack" style={{ gap: 18 }}>
             <h2 style={{ fontSize: 26 }}>{t.principlesH}</h2>
             <div className="grid-tiles">
               {t.principles.map((x) => (
@@ -197,6 +192,12 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
                   <p className="muted" style={{ fontSize: 16 }}>{x.p}</p>
                 </div>
               ))}
+            </div>
+          </div>
+          <div className="tile stack" style={{ gap: 12, marginTop: 32, background: "transparent", border: "1.5px solid var(--border)" }}>
+            <h2 style={{ fontSize: 22 }}>{t.notH}</h2>
+            <div className="grid-tiles" style={{ gap: "8px 24px" }}>
+              {[...t.not, s.notEmergency].map((x) => <p key={x} className="claim-row"><span aria-hidden="true" className="mark-no">✕</span>{x}</p>)}
             </div>
           </div>
         </section>
@@ -230,12 +231,6 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
           </div>
         </section>
 
-        <section id="free" aria-label={t.freeH} className="wrap" style={{ paddingBottom: 96 }}>
-          <div className="stack" style={{ gap: 10, maxWidth: 720 }}>
-            <h2 style={{ fontSize: 26 }}>{t.freeH}</h2>
-            <p className="muted" style={{ fontSize: 18 }}>{t.freeP}</p>
-          </div>
-        </section>
       </main>
 
       <Footer disclaimer={l.disclaimer} lang={lang} />

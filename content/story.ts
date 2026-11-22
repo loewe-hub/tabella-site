@@ -35,6 +35,9 @@ export type StoryCopy = {
   decideP: string;
   decideSrc: string;
   notEmergency: string;
+  pillarsEyebrow: string;
+  pillarsH: string;
+  pillars: { h: string; p: string; tag: string; cta?: string; link?: "signup" | "weekly" }[];
 };
 
 const OX = "https://pubmed.ncbi.nlm.nih.gov/41663592/";
@@ -92,6 +95,13 @@ export const story: Record<Lang, StoryCopy> = {
     decideP: "In the same Oxford study, even the AI on its own picked the right next step only about half the time. So use it to understand, and decide with your doctor: as a partner, not a patient without options.",
     decideSrc: "University of Oxford, Nature Medicine 2026",
     notEmergency: "Not for new symptoms or emergencies: see a doctor or call 112",
+    pillarsEyebrow: "What you get",
+    pillarsH: "Three ways to use your AI better for your health.",
+    pillars: [
+      { h: "Share safely", p: "Set up your AI before you share health data: what to leave out, which settings to switch off, and the honest limits.", tag: "Free guide · coming soon" },
+      { h: "Ask the right questions", p: "Prompts and checklists for real moments, built on current guidelines. Starting with your blood test and cholesterol.", tag: "Free guide", cta: "Get the guide", link: "signup" },
+      { h: "Keep learning", p: "One topic a week, with prompts you can try on yourself right away.", tag: "Weekly", cta: "Get the weekly prompts", link: "weekly" },
+    ],
   },
   it: {
     heroSub: "Domande migliori per la tua AI sulle analisi del sangue, per arrivare preparato dal medico.",
@@ -144,6 +154,13 @@ export const story: Record<Lang, StoryCopy> = {
     decideP: "Nello stesso studio di Oxford, anche l'AI da sola ha scelto il passo successivo giusto solo in circa metà dei casi. Usala per capire, e decidi con il tuo medico: da partner, non da paziente senza alternative.",
     decideSrc: "Università di Oxford, Nature Medicine 2026",
     notEmergency: "Non per sintomi nuovi o emergenze: rivolgiti a un medico o chiama il 112",
+    pillarsEyebrow: "Cosa trovi qui",
+    pillarsH: "Tre modi per usare meglio la tua AI per la salute.",
+    pillars: [
+      { h: "Condividi in sicurezza", p: "Imposta la tua AI prima di condividere dati sanitari: cosa togliere, quali impostazioni disattivare e i limiti reali.", tag: "Guida gratuita · in arrivo" },
+      { h: "Fai le domande giuste", p: "Prompt e checklist per momenti reali, basati sulle linee guida attuali. Si parte dalle analisi del sangue e dal colesterolo.", tag: "Guida gratuita", cta: "Ricevi la guida", link: "signup" },
+      { h: "Continua a imparare", p: "Un tema a settimana, con prompt da provare subito su di te.", tag: "Settimanale", cta: "Ricevi i prompt settimanali", link: "weekly" },
+    ],
   },
   de: {
     heroSub: "Bessere Fragen an deine KI zu deinem Bluttest, damit du vorbereitet zum Arzt gehst.",
@@ -196,5 +213,12 @@ export const story: Record<Lang, StoryCopy> = {
     decideP: "In derselben Oxford-Studie wählte selbst die KI allein nur in etwa der Hälfte der Fälle den richtigen nächsten Schritt. Nutze sie zum Verstehen und entscheide mit deinem Arzt: als Partner, nicht als Patient ohne Alternativen.",
     decideSrc: "Universität Oxford, Nature Medicine 2026",
     notEmergency: "Nicht für neue Beschwerden oder Notfälle: geh zum Arzt oder ruf 112 an",
+    pillarsEyebrow: "Was du hier bekommst",
+    pillarsH: "Drei Wege, deine KI besser für deine Gesundheit zu nutzen.",
+    pillars: [
+      { h: "Sicherer teilen", p: "Richte deine KI ein, bevor du Gesundheitsdaten teilst: was du weglässt, welche Einstellungen du ausschaltest und die ehrlichen Grenzen.", tag: "Kostenloser Leitfaden · bald" },
+      { h: "Die richtigen Fragen stellen", p: "Prompts und Checklisten für echte Momente, auf Basis aktueller Leitlinien. Los geht's mit Bluttest und Cholesterin.", tag: "Kostenloser Leitfaden", cta: "Leitfaden holen", link: "signup" },
+      { h: "Weiter lernen", p: "Ein Thema pro Woche, mit Prompts, die du gleich an dir selbst ausprobieren kannst.", tag: "Wöchentlich", cta: "Wöchentliche Prompts erhalten", link: "weekly" },
+    ],
   },
 };

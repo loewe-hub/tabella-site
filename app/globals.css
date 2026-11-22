@@ -201,3 +201,7 @@ p { margin: 0; }
 .sbs-ai { align-self: flex-start; background: #fff; border-radius: 18px 18px 18px 6px; }
 .sbs-chip { background: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 6px 12px; font-size: 14px; }
 .sbs-chip-good { background: var(--primary); color: #fff; border-color: var(--primary); }
+.pillar-n { font-family: var(--font-head); font-weight: 800; font-size: 40px; line-height: 1; color: var(--apricot); -webkit-text-stroke: 1.5px var(--terracotta); }
+.decide-img { flex: 1 1 380px; min-width: 0; width: 100%; max-width: 520px; min-height: 320px; object-fit: cover; display: block; }
+.decide-card > .stack { align-self: center; }
+@media (max-width: 900px) { .card-lg.decide-card { padding: 0 !important; gap: 24px !important; } .decide-card > .stack { padding: 0 24px 28px !important; } .decide-img { max-width: none; flex: 0 0 auto; aspect-ratio: 4 / 3; min-height: 0; height: auto; } }
