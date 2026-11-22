@@ -3,6 +3,7 @@ import { Brand } from "@/components/Logo";
 import { Footer } from "@/components/Footer";
 import { LangSwitch } from "@/components/LangSwitch";
 import { home } from "@/content/home";
+import { SOURCES, story } from "@/content/story";
 import { landing } from "@/content/landing";
 import { nodes } from "@/content/map";
 import { toLang } from "@/lib/i18n";
@@ -18,6 +19,7 @@ const TRIAD_COLORS = ["#B5552F", "#0E5E60", "#0A4547"];
 export default async function Home({ searchParams }: { searchParams: Promise<{ lang?: string }> }) {
   const lang = toLang((await searchParams).lang);
   const t = home[lang];
+  const s = story[lang];
   const l = landing[lang];
   const q = lang === "en" ? "" : `lang=${lang}`;
   const signup = q ? `/signup?${q}` : "/signup";
@@ -31,7 +33,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
         <div className="wrap">
           <Brand href={q ? `/?${q}` : "/"} animated />
           <nav aria-label="Main" className="nav">
-            <a href="#how" className="hide-sm">{t.nav.how}</a>
+            <a href="#compare" className="hide-sm">{t.nav.how}</a>
             <a href="#topics" className="hide-sm">{t.nav.topics}</a>
             <Link href={mapHref}>{t.nav.map}</Link>
             <LangSwitch current={lang} path="/" />
@@ -48,19 +50,91 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
               <span className="cx-act"><span className="cx-A">A</span><span className="cx-a">a</span>ct</span>
             </span>
           </h1>
-          <p className="cx-rise hero-sub">{t.heroSub}</p>
+          <p className="cx-rise hero-sub">{s.heroSub}</p>
           <div className="cx-rise row" style={{ gap: 12, justifyContent: "center", marginTop: 8 }}>
             <Link href={signup} className="btn btn-lg">{t.cta}</Link>
-            <a href="#how" className="btn-text">{t.ctaSecondary}</a>
+            <a href="#you" className="btn-text">{t.ctaSecondary}</a>
           </div>
           <p className="cx-rise small subtle">{t.reassurance}</p>
         </section>
 
-        <section id="how" className="wrap" style={{ paddingBottom: 88 }} aria-label={t.nav.how}>
+        <section id="you" aria-label={s.youEyebrow} className="wrap" style={{ paddingBottom: 96 }}>
+          <div className="row" style={{ gap: "32px 56px", alignItems: "center" }}>
+            <div className="stack" style={{ flex: "1 1 420px", minWidth: 0, gap: 14 }}>
+              <p className="eyebrow">{s.youEyebrow}</p>
+              <h2 className="display-2">{s.youH}</h2>
+              <p className="muted" style={{ fontSize: 19 }}>{s.youP}</p>
+            </div>
+            <div className="tile stack" style={{ flex: "0 1 340px", gap: 8 }}>
+              <p className="stat-n" style={{ fontSize: 56 }}>{s.youStat}</p>
+              <p style={{ fontSize: 18 }}>{s.youStatText}</p>
+              <a href={SOURCES.openai} target="_blank" rel="noopener noreferrer" className="tiny subtle">{s.youSrc}</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="gap" aria-label={s.gapEyebrow} className="wrap stack" style={{ gap: 28, paddingBottom: 104 }}>
+          <div className="stack" style={{ gap: 12, maxWidth: 780 }}>
+            <p className="eyebrow">{s.gapEyebrow}</p>
+            <h2 className="display-2">{s.gapH}</h2>
+          </div>
+          <div className="gap-compare">
+            <div className="gap-box">
+              <p className="gap-n" style={{ color: "var(--primary)" }}>{s.gapA}</p>
+              <p style={{ fontSize: 17 }}>{s.gapAText}</p>
+            </div>
+            <div className="gap-box">
+              <p className="gap-n" style={{ color: "var(--terracotta)" }}>{s.gapB}</p>
+              <p style={{ fontSize: 17 }}>{s.gapBText}</p>
+            </div>
+          </div>
+          <p className="why-line">{s.gapP}</p>
+          <a href={SOURCES.oxford} target="_blank" rel="noopener noreferrer" className="tiny subtle">{s.gapSrc}</a>
+        </section>
+
+        <section id="compare" aria-label={s.sbsH} style={{ background: "var(--primary-dark)" }}>
+          <div className="wrap stack" style={{ paddingTop: 96, paddingBottom: 96, gap: 32 }}>
+            <div className="stack" style={{ gap: 10, maxWidth: 760 }}>
+              <p className="eyebrow" style={{ color: "var(--apricot)" }}>{s.sbsEyebrow}</p>
+              <h2 className="display-2" style={{ color: "#fff" }}>{s.sbsH}</h2>
+              <p style={{ color: "var(--mint)", fontSize: 18 }}>{s.sbsP}</p>
+            </div>
+            <div className="sbs">
+              {[s.a, s.b].map((side, i) => (
+                <div key={side.tag} className={`sbs-col ${i === 1 ? "sbs-good" : ""}`}>
+                  <div className="stack" style={{ gap: 4 }}>
+                    <p className="eyebrow" style={{ color: i === 1 ? "var(--terracotta)" : "var(--subtle)" }}>{side.tag}</p>
+                    <p className="sbs-title">{side.title}</p>
+                  </div>
+                  <div className="stack" style={{ gap: 10 }}>
+                    {side.bubbles.map((bb, j) => (
+                      <p key={j} className={`sbs-bubble ${bb.who === "you" ? "sbs-you" : "sbs-ai"}`}>{bb.text}</p>
+                    ))}
+                  </div>
+                  <p className="small" style={{ fontStyle: "italic", color: "var(--muted)" }}>{side.note}</p>
+                  <div className="stack" style={{ gap: 8, marginTop: "auto" }}>
+                    <p className="tiny" style={{ fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase" }}>{side.outcomeLabel}</p>
+                    <div className="row" style={{ gap: 8 }}>
+                      {side.outcome.map((o) => <span key={o} className={`sbs-chip ${i === 1 ? "sbs-chip-good" : ""}`}>{o}</span>)}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="tiny" style={{ color: "#B9CFCC" }}>{s.sbsNote}</p>
+            <Link href={signup} className="btn btn-lg" style={{ alignSelf: "flex-start", background: "var(--apricot)", color: "var(--primary-dark)" }}>{t.cta}</Link>
+          </div>
+        </section>
+
+        <section id="how" className="wrap stack" style={{ gap: 28, paddingTop: 104, paddingBottom: 96 }} aria-label={s.howEyebrow}>
+          <div className="stack" style={{ gap: 12, maxWidth: 760 }}>
+            <p className="eyebrow">{s.howEyebrow}</p>
+            <h2 className="display-2">{s.howH}</h2>
+          </div>
           <div className="grid-auto">
             {t.triad.map((x, i) => (
               <div key={x.k} className="tile tile-photo stack" style={{ gap: 0 }}>
-                <img src={`/images/${PHOTOS[i]}.webp`} alt={x.alt} width={960} height={720} loading={i === 0 ? "eager" : "lazy"} className="tile-img" />
+                <img src={`/images/${PHOTOS[i]}.webp`} alt={x.alt} width={960} height={720} loading="lazy" className="tile-img" />
                 <div className="stack" style={{ gap: 12, padding: "24px 28px 28px" }}>
                   <div className="row" style={{ gap: 10, alignItems: "center" }}>
                     {ICONS[i]}
@@ -73,42 +147,13 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
           </div>
         </section>
 
-        <section id="why" aria-label={t.whyEyebrow} className="wrap stack" style={{ gap: 28, paddingBottom: 96 }}>
-          <div className="stack" style={{ gap: 12, maxWidth: 760 }}>
-            <p className="eyebrow">{t.whyEyebrow}</p>
-            <h2 className="display-2">{t.whyH}</h2>
+        <section id="decide" aria-label={s.decideEyebrow} className="wrap" style={{ paddingBottom: 104 }}>
+          <div className="card-lg stack" style={{ gap: 14, borderLeft: "6px solid var(--terracotta)" }}>
+            <p className="eyebrow">{s.decideEyebrow}</p>
+            <h2 className="display-2">{s.decideH}</h2>
+            <p className="muted" style={{ fontSize: 19, maxWidth: 820 }}>{s.decideP}</p>
+            <a href={SOURCES.oxford} target="_blank" rel="noopener noreferrer" className="tiny subtle">{s.decideSrc}</a>
           </div>
-          <div className="grid-auto">
-            {t.stats.map((x) => (
-              <div key={x.n} className="tile stack" style={{ gap: 10 }}>
-                <p className="stat-n">{x.n}</p>
-                <p style={{ fontSize: 17 }}>{x.text}</p>
-                <a href={x.href} target="_blank" rel="noopener noreferrer" className="tiny subtle" style={{ marginTop: "auto" }}>{x.src}</a>
-              </div>
-            ))}
-          </div>
-          <p className="why-line">{t.whyLine}</p>
-        </section>
-
-        <section aria-label={t.chatH} style={{ background: "var(--primary)" }}>
-          <div className="wrap row" style={{ paddingTop: 96, paddingBottom: 96, gap: 56, alignItems: "center" }}>
-            <div className="stack" style={{ flex: "1 1 360px", minWidth: 0, gap: 18 }}>
-              <h2 className="display-2" style={{ color: "#fff" }}>{t.chatH}</h2>
-              <p style={{ color: "var(--mint)", fontSize: 19 }}>{t.chatP}</p>
-            </div>
-            <div className="stack" style={{ flex: "1 1 440px", minWidth: 0, gap: 14 }} aria-hidden="true">
-              <div className="bubble bubble-user">{t.bubbleUser}</div>
-              <div className="bubble bubble-ai">{t.bubbleAi}</div>
-              <div className="stack" style={{ alignSelf: "flex-end", maxWidth: 340, background: "var(--ground)", borderRadius: 18, padding: "16px 20px", gap: 8 }}>
-                <p className="eyebrow" style={{ fontSize: 12 }}>{t.checkTitle}</p>
-                {t.checks.map((c) => <p key={c} style={{ fontSize: 15 }}>☐ {c}</p>)}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section aria-label="Statement" className="wrap" style={{ paddingTop: 112, paddingBottom: 112, textAlign: "center" }}>
-          <p className="statement">{t.statement[0]}<span style={{ color: "var(--terracotta)" }}>{t.statement[1]}</span>{t.statement[2]}</p>
         </section>
 
         <section id="map" aria-label={t.nav.map} className="wrap" style={{ paddingBottom: 104 }}>
@@ -140,7 +185,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
             </div>
             <div className="tile stack" style={{ gap: 14, background: "transparent", border: "1.5px solid var(--border)" }}>
               <h2 style={{ fontSize: 26 }}>{t.notH}</h2>
-              {t.not.map((x) => <p key={x} className="claim-row"><span aria-hidden="true" className="mark-no">✕</span>{x}</p>)}
+              {[...t.not, s.notEmergency].map((x) => <p key={x} className="claim-row"><span aria-hidden="true" className="mark-no">✕</span>{x}</p>)}
             </div>
           </div>
           <div className="stack" style={{ gap: 18, marginTop: 40 }}>
