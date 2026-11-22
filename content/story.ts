@@ -37,7 +37,7 @@ export type StoryCopy = {
   notEmergency: string;
   pillarsEyebrow: string;
   pillarsH: string;
-  pillars: { h: string; p: string; tag: string; cta?: string; link?: "signup" | "weekly" }[];
+  pillars: { h: string; p: string; tag: string; cta?: string; link?: "signup" | "weekly" | "share" }[];
 };
 
 const OX = "https://pubmed.ncbi.nlm.nih.gov/41663592/";
@@ -98,7 +98,7 @@ export const story: Record<Lang, StoryCopy> = {
     pillarsEyebrow: "What you get",
     pillarsH: "Three ways to use your AI better for your health.",
     pillars: [
-      { h: "Share safely", p: "Set up your AI before you share health data: what to leave out, which settings to switch off, and the honest limits.", tag: "Free guide · coming soon" },
+      { h: "Share safely", p: "Set up your AI before you share health data: what to leave out, which settings to switch off, and the honest limits.", tag: "Free guide", cta: "Read the guide", link: "share" },
       { h: "Ask the right questions", p: "Prompts and checklists for real moments, built on current guidelines. Starting with your blood test and cholesterol.", tag: "Free guide", cta: "Get the guide", link: "signup" },
       { h: "Keep learning", p: "One topic a week, with prompts you can try on yourself right away.", tag: "Weekly", cta: "Get the weekly prompts", link: "weekly" },
     ],
@@ -157,7 +157,7 @@ export const story: Record<Lang, StoryCopy> = {
     pillarsEyebrow: "Cosa trovi qui",
     pillarsH: "Tre modi per usare meglio la tua AI per la salute.",
     pillars: [
-      { h: "Condividi in sicurezza", p: "Imposta la tua AI prima di condividere dati sanitari: cosa togliere, quali impostazioni disattivare e i limiti reali.", tag: "Guida gratuita · in arrivo" },
+      { h: "Condividi in sicurezza", p: "Imposta la tua AI prima di condividere dati sanitari: cosa togliere, quali impostazioni disattivare e i limiti reali.", tag: "Guida gratuita", cta: "Leggi la guida", link: "share" },
       { h: "Fai le domande giuste", p: "Prompt e checklist per momenti reali, basati sulle linee guida attuali. Si parte dalle analisi del sangue e dal colesterolo.", tag: "Guida gratuita", cta: "Ricevi la guida", link: "signup" },
       { h: "Continua a imparare", p: "Un tema a settimana, con prompt da provare subito su di te.", tag: "Settimanale", cta: "Ricevi i prompt settimanali", link: "weekly" },
     ],
@@ -216,7 +216,7 @@ export const story: Record<Lang, StoryCopy> = {
     pillarsEyebrow: "Was du hier bekommst",
     pillarsH: "Drei Wege, deine KI besser für deine Gesundheit zu nutzen.",
     pillars: [
-      { h: "Sicherer teilen", p: "Richte deine KI ein, bevor du Gesundheitsdaten teilst: was du weglässt, welche Einstellungen du ausschaltest und die ehrlichen Grenzen.", tag: "Kostenloser Leitfaden · bald" },
+      { h: "Sicherer teilen", p: "Richte deine KI ein, bevor du Gesundheitsdaten teilst: was du weglässt, welche Einstellungen du ausschaltest und die ehrlichen Grenzen.", tag: "Kostenloser Leitfaden", cta: "Leitfaden lesen", link: "share" },
       { h: "Die richtigen Fragen stellen", p: "Prompts und Checklisten für echte Momente, auf Basis aktueller Leitlinien. Los geht's mit Bluttest und Cholesterin.", tag: "Kostenloser Leitfaden", cta: "Leitfaden holen", link: "signup" },
       { h: "Weiter lernen", p: "Ein Thema pro Woche, mit Prompts, die du gleich an dir selbst ausprobieren kannst.", tag: "Wöchentlich", cta: "Wöchentliche Prompts erhalten", link: "weekly" },
     ],
