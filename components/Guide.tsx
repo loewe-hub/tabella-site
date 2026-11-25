@@ -1,6 +1,7 @@
 "use client";
 
 import { track } from "@vercel/analytics";
+import { AREA_UI, AREAS } from "@/content/areas";
 import { useEffect, useState } from "react";
 import { GUIDELINE_URL, checklist, glossary, miss, prompt, promptShort, situation, ui, visit } from "@/content/guide";
 import { LANGS, LANG_LABEL, type Lang } from "@/lib/i18n";
@@ -50,6 +51,7 @@ export function Guide({ initialLang, preview }: { initialLang: Lang; preview: bo
   const [ticks, setTicks] = useState<Record<string, boolean>>({});
   const [copied, setCopied] = useState<string | null>(null);
   const t = ui[lang];
+  const FT = AREA_UI[lang];
 
   useEffect(() => {
     setTicks(load(TICKS_KEY, {}));
@@ -157,6 +159,15 @@ export function Guide({ initialLang, preview }: { initialLang: Lang; preview: bo
             </div>
           </div>
           <p className="small muted"><strong>{t.nudgeHead}</strong> {t.nudge}</p>
+          <div className="stack" style={{ gap: 10, borderTop: "1px solid var(--border)", paddingTop: 14 }}>
+            <p style={{ fontWeight: 700, color: "var(--primary-dark)" }}>{FT.followH}</p>
+            <p className="small muted">{FT.followIntro}</p>
+            <details>
+              <summary className="small" style={{ cursor: "pointer", fontWeight: 700, color: "var(--primary)" }}>{FT.showFull}</summary>
+              <p lang={plang} style={{ color: "var(--primary-dark)", marginTop: 8 }}>{AREAS.heart.followUp[plang]}</p>
+            </details>
+            <button type="button" className="btn btn-small btn-soft no-print" style={{ alignSelf: "flex-start" }} onClick={() => copy("follow", AREAS.heart.followUp[plang])}>{copied === "follow" ? FT.copied : FT.copyFollow}</button>
+          </div>
         </section>
 
         <section className="card stack" style={{ gap: 16 }}>

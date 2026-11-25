@@ -18,6 +18,7 @@ export type Area = {
   promptShort: T3;
   prompt: T3;
   questions: { id: string; label: string; q: T3 }[];
+  followUp: T3;
   topics: number[]; // weekly topic numbers (content/learn.ts issues, 1-based)
   deeper?: { label: string; href: string; p: string };
 };
@@ -51,11 +52,22 @@ export const AREA_NAMES: Record<Lang, Record<AreaId, { title: string; tagline: s
   },
 };
 
-const ND: T3 = {
-  en: "Don't diagnose me, and don't calculate values that aren't on the report.",
-  it: "Non farmi diagnosi e non calcolare valori che non sono nel referto.",
-  de: "Stelle keine Diagnose und berechne keine Werte, die nicht im Befund stehen.",
+// Fixed closing line of every main prompt (agreed 25 Nov 2026): explain, don't treat, don't guess.
+export const ND: T3 = {
+  en: "Focus on what could explain my values, not on how to treat them: treatment options are something I'll discuss with my doctor. Don't diagnose me, don't assume or calculate anything the report doesn't show, and tell me what else you would need to know.",
+  it: "Concentrati su cosa potrebbe spiegare i miei valori, non su come trattarli: le opzioni di trattamento le discuterò con il mio medico. Non farmi diagnosi, non dare per scontato né calcolare nulla che non sia nel referto, e dimmi cos'altro ti servirebbe sapere.",
+  de: "Konzentriere dich darauf, was meine Werte erklären könnte, nicht darauf, wie man sie behandelt: Behandlungsmöglichkeiten bespreche ich mit meinem Arzt. Stelle keine Diagnose, nimm nichts an und berechne nichts, was nicht im Befund steht, und sag mir, was du sonst noch wissen müsstest.",
 };
+
+// Optional follow-up prompt "what you can do yourself" (agreed 25 Nov 2026): low-risk habits only,
+// no medication or supplements, named guidelines, disagreement flagged, check with the doctor first where needed.
+export function followUp(ex: T3): T3 {
+  return {
+    en: `Based on what we discussed: what does research say about everyday habits that could help these values, such as food, movement, sleep, stress, alcohol and smoking? Only low-risk habits that guidelines recommend for most adults, like ${ex.en}. No medication, no supplements, no extreme diets or fasting. For each tip, name the guideline or organisation it comes from (such as ESC or WHO), say if experts disagree, and say if you're not sure of the source. Tell me which tips I should check with my doctor first, for example because of medication or a condition. Don't promise results.`,
+    it: `In base a quello che abbiamo visto: cosa dice la ricerca sulle abitudini quotidiane che potrebbero aiutare questi valori, come alimentazione, movimento, sonno, stress, alcol e fumo? Solo abitudini a basso rischio che le linee guida raccomandano alla maggior parte degli adulti, come ${ex.it}. Niente farmaci, niente integratori, niente diete estreme o digiuni. Per ogni consiglio, indica la linea guida o l'organizzazione da cui viene (per esempio ESC o OMS), dimmi se gli esperti non sono d'accordo e se non sei sicuro della fonte. Dimmi quali consigli dovrei verificare prima con il mio medico, per esempio per via di farmaci o di una condizione. Non promettere risultati.`,
+    de: `Ausgehend von dem, was wir besprochen haben: Was sagt die Forschung über Alltagsgewohnheiten, die diesen Werten helfen könnten, etwa Ernährung, Bewegung, Schlaf, Stress, Alkohol und Rauchen? Nur risikoarme Gewohnheiten, die Leitlinien den meisten Erwachsenen empfehlen, wie ${ex.de}. Keine Medikamente, keine Nahrungsergänzungsmittel, keine extremen Diäten oder Fasten. Nenne für jeden Tipp die Leitlinie oder Organisation, von der er stammt (etwa ESC oder WHO), sag, ob Fachleute sich uneinig sind, und ob du dir bei der Quelle nicht sicher bist. Sag mir, welche Tipps ich zuerst mit meinem Arzt klären sollte, etwa wegen Medikamenten oder einer Erkrankung. Versprich keine Ergebnisse.`,
+  };
+}
 
 export const FULL_PROMPT: T3 = {
   en: `Here is my blood test with the lab's reference ranges: [screenshot, without your name]. Explain it in plain words, in under 500 words.
@@ -113,6 +125,7 @@ export const AREAS: Record<AreaId, Area> = {
       { id: "family", label: "Family history", q: { en: "Is anything on my report worth looking at together with my family history?", it: "C'è qualcosa nel mio referto da guardare insieme alla mia storia familiare?", de: "Gibt es etwas in meinem Befund, das man zusammen mit meiner Familiengeschichte ansehen sollte?" } },
       { id: "missing", label: "What's missing", q: { en: "Which tests that aren't on my report would make sense for me?", it: "Quali esami che non sono nel mio referto avrebbero senso per me?", de: "Welche Tests, die nicht in meinem Befund stehen, wären für mich sinnvoll?" } },
     ],
+    followUp: followUp({ en: "a short walk after meals", it: "una breve passeggiata dopo i pasti", de: "ein kurzer Spaziergang nach dem Essen" }),
     topics: [1],
   },
   heart: {
@@ -160,6 +173,7 @@ Schließe mit 3 Fragen für meinen Arzt. ${ND.de}`,
       { id: "lpa", label: "Lp(a)", q: { en: "Has my Lp(a) ever been measured, and should it be?", it: "La mia Lp(a) è mai stata misurata, e andrebbe misurata?", de: "Wurde mein Lp(a) je gemessen, und sollte es gemessen werden?" } },
       { id: "bp", label: "Blood pressure", q: { en: "Should my blood pressure be checked more regularly?", it: "Dovrei controllare la pressione più regolarmente?", de: "Sollte mein Blutdruck regelmäßiger kontrolliert werden?" } },
     ],
+    followUp: followUp({ en: "regular brisk walking", it: "camminare a passo svelto con regolarità", de: "regelmäßiges zügiges Gehen" }),
     topics: [2, 3, 4],
     deeper: { label: "Open the cholesterol guide", href: "/guide", p: "The in-depth guide for a cholesterol result: your situation, the prompt, a full checklist and what to bring to your visit." },
   },
@@ -205,6 +219,7 @@ Schließe mit 3 Fragen für meinen Arzt. ${ND.de}`,
       { id: "tests", label: "HbA1c or ultrasound", q: { en: "Would an HbA1c or a liver ultrasound make sense for me?", it: "Avrebbe senso per me un'HbA1c o un'ecografia del fegato?", de: "Wären ein HbA1c oder ein Leber-Ultraschall für mich sinnvoll?" } },
       { id: "follow", label: "What to follow", q: { en: "Which of these values should we follow over time?", it: "Quali di questi valori dovremmo seguire nel tempo?", de: "Welche dieser Werte sollten wir im Verlauf beobachten?" } },
     ],
+    followUp: followUp({ en: "a short walk after meals", it: "una breve passeggiata dopo i pasti", de: "ein kurzer Spaziergang nach dem Essen" }),
     topics: [5, 6],
   },
   kidneys: {
@@ -248,6 +263,7 @@ Schließe mit 3 Fragen für meinen Arzt. ${ND.de}`,
       { id: "acr", label: "Urine albumin", q: { en: "Should my urine albumin (ACR) be checked?", it: "Andrebbe controllata l'albumina nelle urine (ACR)?", de: "Sollte mein Albumin im Urin (ACR) bestimmt werden?" } },
       { id: "meds", label: "Medications", q: { en: "Do any of my medications affect my kidney values or minerals?", it: "Qualcuno dei miei farmaci influisce sui valori dei reni o sui sali minerali?", de: "Beeinflusst eines meiner Medikamente meine Nierenwerte oder Mineralstoffe?" } },
     ],
+    followUp: followUp({ en: "cutting back on salt", it: "ridurre il sale", de: "weniger Salz" }),
     topics: [8],
   },
   blood: {
@@ -291,6 +307,7 @@ Schließe mit 3 Fragen für meinen Arzt. ${ND.de}`,
       { id: "iron", label: "Iron, B12, folate", q: { en: "Should my iron, B12 or folate be checked together with my blood count?", it: "Andrebbero controllati ferro, B12 o folati insieme all'emocromo?", de: "Sollten Eisen, B12 oder Folsäure zusammen mit dem Blutbild bestimmt werden?" } },
       { id: "cause", label: "Recent illness or medication", q: { en: "Could a recent illness or a medication explain any of these values?", it: "Una malattia recente o un farmaco potrebbero spiegare qualcuno di questi valori?", de: "Könnte eine kürzliche Erkrankung oder ein Medikament einen dieser Werte erklären?" } },
     ],
+    followUp: followUp({ en: "regular meals with vegetables and pulses", it: "pasti regolari con verdure e legumi", de: "regelmäßige Mahlzeiten mit Gemüse und Hülsenfrüchten" }),
     topics: [],
   },
   brain: {
@@ -314,17 +331,18 @@ Schließe mit 3 Fragen für meinen Arzt. ${ND.de}`,
     },
     prompt: {
       en: `Which cardiovascular and metabolic risk factors are linked to dementia? Look at my reports [screenshots, without your name] and tell me which of them I can already see, in plain words. Separately: what are blood tests for Alzheimer's designed for, and why aren't they recommended for people without symptoms?
-End with 3 questions for my doctor. Don't diagnose me.`,
+End with 3 questions for my doctor. ${ND.en}`,
       it: `Quali fattori di rischio cardiovascolari e metabolici sono collegati alla demenza? Guarda i miei referti [screenshot, senza il tuo nome] e dimmi quali posso già vedere, in parole semplici. A parte: a cosa servono gli esami del sangue per l'Alzheimer, e perché non sono consigliati a chi non ha sintomi?
-Chiudi con 3 domande per il mio medico. Non farmi diagnosi.`,
+Chiudi con 3 domande per il mio medico. ${ND.it}`,
       de: `Welche Herz-Kreislauf- und Stoffwechsel-Risikofaktoren hängen mit Demenz zusammen? Sieh dir meine Befunde an [Screenshots, ohne deinen Namen] und sag mir in einfachen Worten, welche ich schon sehen kann. Separat: Wofür sind Bluttests auf Alzheimer gedacht, und warum werden sie Menschen ohne Symptome nicht empfohlen?
-Schließe mit 3 Fragen für meinen Arzt. Stelle keine Diagnose.`,
+Schließe mit 3 Fragen für meinen Arzt. ${ND.de}`,
     },
     questions: [
       { id: "matter", label: "What matters most", q: { en: "Which of my heart or metabolic values matter most for my brain health?", it: "Quali dei miei valori di cuore o metabolismo contano di più per la salute del cervello?", de: "Welche meiner Herz- oder Stoffwechselwerte sind für meine Gehirngesundheit am wichtigsten?" } },
       { id: "family", label: "Family history", q: { en: "Is there anything in my family history we should keep an eye on?", it: "C'è qualcosa nella mia storia familiare da tenere d'occhio?", de: "Gibt es etwas in meiner Familiengeschichte, das wir im Blick behalten sollten?" } },
       { id: "test", label: "Testing or not", q: { en: "Would any test make sense for me, or is it better not to?", it: "Avrebbe senso per me qualche esame, o è meglio di no?", de: "Wäre ein Test für mich sinnvoll, oder besser nicht?" } },
     ],
+    followUp: followUp({ en: "regular movement and enough sleep", it: "movimento regolare e sonno sufficiente", de: "regelmäßige Bewegung und genug Schlaf" }),
     topics: [7],
   },
 };
@@ -332,7 +350,7 @@ Schließe mit 3 Fragen für meinen Arzt. Stelle keine Diagnose.`,
 export const AREA_UI: Record<Lang, {
   read: string; promptIn: string; tag: string; back: string;
   missH: string; markersH: string; markersAsk: string; mapLink: string; connectsH: string;
-  promptH: string; promptIntro: string; showFull: string; copyPrompt: string; copy: string; copied: string; shareLine: string; shareLink: string;
+  promptH: string; promptIntro: string; followH: string; followIntro: string; copyFollow: string; showFull: string; copyPrompt: string; copy: string; copied: string; shareLine: string; shareLink: string;
   checkH: string; checkIntro: string; progress: string; saved: string;
   deeperH: string; topicsH: string; deeperP: string; deeperCta: string;
   print: string; footer: string; emergency: string; enOnly: string;
@@ -340,7 +358,7 @@ export const AREA_UI: Record<Lang, {
   en: {
     read: "Read in", promptIn: "Prompt in", tag: "Guide", back: "All guides",
     missH: "1. What most people miss", markersH: "2. Your markers in plain words", markersAsk: "Ask", mapLink: "See how all markers connect →", connectsH: "3. How it connects",
-    promptH: "4. One prompt for your AI", promptIntro: "Start a new chat, paste this, then add a screenshot of your report.", showFull: "Show the full prompt", copyPrompt: "Copy the full prompt", copy: "Copy", copied: "Copied",
+    promptH: "4. One prompt for your AI", promptIntro: "Start a new chat, paste this, then add a screenshot of your report.", followH: "Then: what you can do yourself", followIntro: "Optional, in the same chat: low-risk everyday habits, with the guideline behind each one. No medication or supplements.", copyFollow: "Copy the follow-up prompt", showFull: "Show the full prompt", copyPrompt: "Copy the full prompt", copy: "Copy", copied: "Copied",
     shareLine: "Only share what you're comfortable sharing with your AI.", shareLink: "How to share safely",
     checkH: "5. Questions for your doctor", checkIntro: "Tick the ones you want to ask. Print this page or copy a question.", progress: "{n} of {t} ticked", saved: "Your ticks stay in this browser only.",
     deeperH: "6. Go deeper", topicsH: "Weekly topics from this area", deeperP: "One small topic every Wednesday, with a prompt to try. Free, unsubscribe anytime.", deeperCta: "Get it weekly",
@@ -350,7 +368,7 @@ export const AREA_UI: Record<Lang, {
   it: {
     read: "Leggi in", promptIn: "Prompt in", tag: "Guida", back: "Tutte le guide",
     missH: "1. Cosa sfugge ai più", markersH: "2. I tuoi valori in parole semplici", markersAsk: "Chiedi", mapLink: "Guarda come si collegano tutti i valori →", connectsH: "3. Come si collega",
-    promptH: "4. Un prompt per la tua AI", promptIntro: "Apri una nuova chat, incolla questo testo, poi aggiungi uno screenshot del referto.", showFull: "Mostra il prompt completo", copyPrompt: "Copia il prompt completo", copy: "Copia", copied: "Copiato",
+    promptH: "4. Un prompt per la tua AI", promptIntro: "Apri una nuova chat, incolla questo testo, poi aggiungi uno screenshot del referto.", followH: "Poi: cosa puoi fare tu", followIntro: "Facoltativo, nella stessa chat: abitudini quotidiane a basso rischio, con la linea guida dietro ciascuna. Niente farmaci né integratori.", copyFollow: "Copia il prompt successivo", showFull: "Mostra il prompt completo", copyPrompt: "Copia il prompt completo", copy: "Copia", copied: "Copiato",
     shareLine: "Condividi solo ciò che ti senti a tuo agio a condividere con la tua AI.", shareLink: "Come condividere in sicurezza",
     checkH: "5. Domande per il tuo medico", checkIntro: "Spunta quelle che vuoi fare. Stampa la pagina o copia una domanda.", progress: "{n} di {t} spuntate", saved: "Le spunte restano solo in questo browser.",
     deeperH: "6. Approfondisci", topicsH: "Temi settimanali di quest'area", deeperP: "Un piccolo tema ogni mercoledì, con un prompt da provare. Gratis, disiscrizione quando vuoi.", deeperCta: "Ricevilo ogni settimana",
@@ -360,7 +378,7 @@ export const AREA_UI: Record<Lang, {
   de: {
     read: "Lesen auf", promptIn: "Prompt auf", tag: "Leitfaden", back: "Alle Leitfäden",
     missH: "1. Was die meisten übersehen", markersH: "2. Deine Werte, verständlich erklärt", markersAsk: "Frag", mapLink: "Sieh, wie alle Werte zusammenhängen →", connectsH: "3. Wie es zusammenhängt",
-    promptH: "4. Ein Prompt für deine KI", promptIntro: "Starte einen neuen Chat, füge diesen Text ein und dann einen Screenshot deines Befunds.", showFull: "Ganzen Prompt zeigen", copyPrompt: "Ganzen Prompt kopieren", copy: "Kopieren", copied: "Kopiert",
+    promptH: "4. Ein Prompt für deine KI", promptIntro: "Starte einen neuen Chat, füge diesen Text ein und dann einen Screenshot deines Befunds.", followH: "Dann: was du selbst tun kannst", followIntro: "Optional, im selben Chat: risikoarme Alltagsgewohnheiten, mit der Leitlinie hinter jeder. Keine Medikamente oder Nahrungsergänzungsmittel.", copyFollow: "Folge-Prompt kopieren", showFull: "Ganzen Prompt zeigen", copyPrompt: "Ganzen Prompt kopieren", copy: "Kopieren", copied: "Kopiert",
     shareLine: "Teile nur, was du mit deiner KI teilen möchtest.", shareLink: "Wie du sicherer teilst",
     checkH: "5. Fragen für deinen Arzt", checkIntro: "Hake an, was du fragen willst. Druck die Seite oder kopiere eine Frage.", progress: "{n} von {t} abgehakt", saved: "Deine Haken bleiben nur in diesem Browser.",
     deeperH: "6. Tiefer gehen", topicsH: "Wöchentliche Themen aus diesem Bereich", deeperP: "Jeden Mittwoch ein kleines Thema, mit einem Prompt zum Ausprobieren. Kostenlos, jederzeit abbestellbar.", deeperCta: "Wöchentlich erhalten",

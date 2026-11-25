@@ -162,6 +162,15 @@ export function AreaGuide({ id, initialLang }: { id: AreaId; initialLang: Lang }
             </div>
           </div>
           <p className="small muted">{t.shareLine} <Link href={`/share-safely${q}`}>{t.shareLink}</Link></p>
+          <div className="stack" style={{ gap: 10, borderTop: "1px solid var(--border)", paddingTop: 14 }}>
+            <p style={{ fontWeight: 700, color: "var(--primary-dark)" }}>{t.followH}</p>
+            <p className="small muted">{t.followIntro}</p>
+            <details>
+              <summary className="small" style={{ cursor: "pointer", fontWeight: 700, color: "var(--primary)" }}>{t.showFull}</summary>
+              <p lang={plang} style={{ color: "var(--primary-dark)", marginTop: 8 }}>{a.followUp[plang]}</p>
+            </details>
+            <button type="button" className="btn btn-small btn-soft no-print" style={{ alignSelf: "flex-start" }} onClick={() => copy("follow", a.followUp[plang])}>{copied === "follow" ? t.copied : t.copyFollow}</button>
+          </div>
         </section>
 
         <section className="card stack" style={{ gap: 16 }}>
