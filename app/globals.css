@@ -272,3 +272,4 @@ p { margin: 0; }
 @media (max-width: 560px) { .area-grid { grid-template-columns: 1fr; } .results-box { padding: 22px; } }
 .learn-pair { display: grid; grid-template-columns: 1fr 2fr; gap: 24px; align-items: stretch; }
 @media (max-width: 900px) { .learn-pair { grid-template-columns: 1fr; } }
+.sbs-gap { opacity: 0.5; font-weight: 700; }

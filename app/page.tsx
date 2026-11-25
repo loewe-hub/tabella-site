@@ -48,25 +48,6 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
           </div>
         </section>
 
-        <section id="gap" aria-label={s.gapEyebrow} className="wrap stack" style={{ gap: 24, paddingBottom: 72 }}>
-          <div className="stack" style={{ gap: 12, maxWidth: 780 }}>
-            <p className="eyebrow">{s.gapEyebrow}</p>
-            <h2 className="display-2">{s.gapH}</h2>
-          </div>
-          <div className="gap-compare">
-            <div className="gap-box">
-              <p className="gap-n" style={{ color: "var(--primary)" }}>{s.gapA}</p>
-              <p style={{ fontSize: "var(--fs-body)" }}>{s.gapAText}</p>
-            </div>
-            <div className="gap-box">
-              <p className="gap-n" style={{ color: "var(--terracotta)" }}>{s.gapB}</p>
-              <p style={{ fontSize: "var(--fs-body)" }}>{s.gapBText}</p>
-            </div>
-          </div>
-          <p className="why-line">{s.gapP}</p>
-          <a href={SOURCES.oxford} target="_blank" rel="noopener noreferrer" className="tiny subtle">{s.gapSrc}</a>
-        </section>
-
         <section id="compare" aria-label={s.sbsH} style={{ background: "var(--primary-dark)" }}>
           <div className="wrap stack" style={{ paddingTop: 96, paddingBottom: 96, gap: 32 }}>
             <div className="stack" style={{ gap: 10, maxWidth: 760 }}>
@@ -83,7 +64,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
                   </div>
                   <div className="stack" style={{ gap: 10 }}>
                     {side.bubbles.map((bb, j) => (
-                      <p key={j} className={`sbs-bubble ${bb.who === "you" ? "sbs-you" : "sbs-ai"}`}>{bb.text}</p>
+                      <p key={j} className={`sbs-bubble ${bb.who === "you" ? "sbs-you" : "sbs-ai"}`}>
+                        {bb.text.split("[…]").map((part, k, arr) => (
+                          <span key={k}>{part}{k < arr.length - 1 && <span className="sbs-gap">[…]</span>}</span>
+                        ))}
+                      </p>
                     ))}
                   </div>
                   <p className="small" style={{ fontStyle: "italic", color: "var(--muted)" }}>{side.note}</p>
@@ -97,6 +82,10 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
               ))}
             </div>
             <p className="tiny" style={{ color: "#B9CFCC" }}>{s.sbsNote}</p>
+            <div className="stack" style={{ gap: 6, maxWidth: 760 }}>
+              <p style={{ color: "#fff", fontSize: "var(--fs-lead)" }}>{s.gapP}</p>
+              <a href={SOURCES.oxford} target="_blank" rel="noopener noreferrer" className="tiny" style={{ color: "#B9CFCC" }}>{s.gapSrc}</a>
+            </div>
           </div>
         </section>
 
