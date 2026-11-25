@@ -97,7 +97,6 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
               ))}
             </div>
             <p className="tiny" style={{ color: "#B9CFCC" }}>{s.sbsNote}</p>
-            <Link href={signup} className="btn btn-lg" style={{ alignSelf: "flex-start", background: "var(--apricot)", color: "var(--primary-dark)" }}>{t.cta}</Link>
           </div>
         </section>
 
