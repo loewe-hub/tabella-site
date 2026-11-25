@@ -85,7 +85,6 @@ export function Guide({ initialLang, preview }: { initialLang: Lang; preview: bo
         <div className="narrow stack" style={{ paddingTop: 24, paddingBottom: 40, gap: 18 }}>
           <div className="row" style={{ alignItems: "center", gap: 10 }}>
             <a href="/" style={{ textDecoration: "none", fontFamily: "var(--font-head)", fontWeight: 800, fontSize: "var(--fs-h3)", letterSpacing: "-0.03em", color: "#fff" }}>Curi<span style={{ color: "var(--apricot)" }}>act</span></a>
-            <span className="tiny" style={{ marginLeft: "auto", color: "var(--mint)" }}>{preview ? t.preview : t.access}</span>
           </div>
           <div className="row no-print" style={{ gap: "12px 28px", alignItems: "center" }}>
             <Switch label={t.read} value={lang} onChange={setLang} />
