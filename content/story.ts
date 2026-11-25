@@ -40,7 +40,7 @@ export type StoryCopy = {
   notEmergency: string;
   pillarsEyebrow: string;
   pillarsH: string;
-  pillars: { h: string; p: string; tag: string; cta?: string; link?: "signup" | "weekly" | "share" }[];
+  pillars: { h: string; p: string; tag: string; cta?: string; link?: "signup" | "weekly" | "share" | "learn" }[];
 };
 
 const OX = "https://pubmed.ncbi.nlm.nih.gov/41663592/";
@@ -97,16 +97,16 @@ export const story: Record<Lang, StoryCopy> = {
     decideH: "AI is good at explaining. Deciding is different.",
     decideP: "Sharing safely, asking well and learning all lead to one place: a better conversation with your doctor. In the same Oxford study, even the AI on its own picked the right next step only about half the time. So use it to be informed, and make the decisions together.",
     actH: "Curious? Act.",
-    actP: "Get the free cholesterol guide, the weekly prompts, or both. You choose on the next page.",
-    actCta: "Act",
+    actP: "One small topic every Wednesday, with a prompt to try. Free, unsubscribe anytime.",
+    actCta: "Get it weekly",
     decideSrc: "University of Oxford, Nature Medicine 2026",
     notEmergency: "Not for new symptoms or emergencies: see a doctor or call 112",
     pillarsEyebrow: "What you get",
     pillarsH: "Three ways to use your AI better for your health.",
     pillars: [
       { h: "Share safely", p: "Set up your AI before you share health data: what to leave out, which settings to switch off, and the honest limits.", tag: "Free guide", cta: "Read the guide", link: "share" },
-      { h: "Ask the right questions", p: "Prompts and checklists for real moments, built on current guidelines. Starting with your blood test and cholesterol.", tag: "Free guide", cta: "Get the guide", link: "signup" },
-      { h: "Keep learning", p: "One topic a week, with prompts you can try on yourself right away.", tag: "Weekly", cta: "Get the weekly prompts", link: "weekly" },
+      { h: "Ask the right questions", p: "Open guides by health area: your markers in plain words, a prompt for your AI and questions for your doctor.", tag: "Open guides", cta: "Explore the guides", link: "learn" },
+      { h: "Keep learning", p: "One small topic every Wednesday, with a prompt you can try on your own report.", tag: "Weekly", cta: "Get it weekly", link: "weekly" },
     ],
   },
   it: {
@@ -159,16 +159,16 @@ export const story: Record<Lang, StoryCopy> = {
     decideH: "L'AI è brava a spiegare. Decidere è un'altra cosa.",
     decideP: "Condividere in sicurezza, fare le domande giuste e continuare a imparare portano allo stesso punto: una conversazione migliore con il tuo medico. Nello stesso studio di Oxford, anche l'AI da sola ha scelto il passo successivo giusto solo in circa metà dei casi. Usala per informarti, e prendete le decisioni insieme.",
     actH: "Curious? Act.",
-    actP: "Ricevi la guida gratuita sul colesterolo, i prompt settimanali o entrambi. Scegli nella pagina successiva.",
-    actCta: "Act",
+    actP: "Un piccolo tema ogni mercoledì, con un prompt da provare. Gratis, disiscrizione quando vuoi.",
+    actCta: "Ricevilo ogni settimana",
     decideSrc: "Università di Oxford, Nature Medicine 2026",
     notEmergency: "Non per sintomi nuovi o emergenze: rivolgiti a un medico o chiama il 112",
     pillarsEyebrow: "Cosa trovi qui",
     pillarsH: "Tre modi per usare meglio la tua AI per la salute.",
     pillars: [
       { h: "Condividi in sicurezza", p: "Imposta la tua AI prima di condividere dati sanitari: cosa togliere, quali impostazioni disattivare e i limiti reali.", tag: "Guida gratuita", cta: "Leggi la guida", link: "share" },
-      { h: "Fai le domande giuste", p: "Prompt e checklist per momenti reali, basati sulle linee guida attuali. Si parte dalle analisi del sangue e dal colesterolo.", tag: "Guida gratuita", cta: "Ricevi la guida", link: "signup" },
-      { h: "Continua a imparare", p: "Un tema a settimana, con prompt da provare subito su di te.", tag: "Settimanale", cta: "Ricevi i prompt settimanali", link: "weekly" },
+      { h: "Fai le domande giuste", p: "Guide aperte per area: i tuoi valori in parole semplici, un prompt per la tua AI e domande per il medico.", tag: "Guide aperte", cta: "Esplora le guide", link: "learn" },
+      { h: "Continua a imparare", p: "Un piccolo tema ogni mercoledì, con un prompt da provare sul tuo referto.", tag: "Settimanale", cta: "Ricevilo ogni settimana", link: "weekly" },
     ],
   },
   de: {
@@ -221,16 +221,16 @@ export const story: Record<Lang, StoryCopy> = {
     decideH: "KI kann gut erklären. Entscheiden ist etwas anderes.",
     decideP: "Sicher teilen, gut fragen und weiter lernen führen zum selben Ziel: einem besseren Gespräch mit deinem Arzt. In derselben Oxford-Studie wählte selbst die KI allein nur in etwa der Hälfte der Fälle den richtigen nächsten Schritt. Nutze sie, um informiert zu sein, und trefft die Entscheidungen gemeinsam.",
     actH: "Curious? Act.",
-    actP: "Hol dir den kostenlosen Cholesterin-Leitfaden, die wöchentlichen Prompts oder beides. Du wählst auf der nächsten Seite.",
-    actCta: "Act",
+    actP: "Jeden Mittwoch ein kleines Thema, mit einem Prompt zum Ausprobieren. Kostenlos, jederzeit abbestellbar.",
+    actCta: "Wöchentlich erhalten",
     decideSrc: "Universität Oxford, Nature Medicine 2026",
     notEmergency: "Nicht für neue Beschwerden oder Notfälle: geh zum Arzt oder ruf 112 an",
     pillarsEyebrow: "Was du hier bekommst",
     pillarsH: "Drei Wege, deine KI besser für deine Gesundheit zu nutzen.",
     pillars: [
       { h: "Sicherer teilen", p: "Richte deine KI ein, bevor du Gesundheitsdaten teilst: was du weglässt, welche Einstellungen du ausschaltest und die ehrlichen Grenzen.", tag: "Kostenloser Leitfaden", cta: "Leitfaden lesen", link: "share" },
-      { h: "Die richtigen Fragen stellen", p: "Prompts und Checklisten für echte Momente, auf Basis aktueller Leitlinien. Los geht's mit Bluttest und Cholesterin.", tag: "Kostenloser Leitfaden", cta: "Leitfaden holen", link: "signup" },
-      { h: "Weiter lernen", p: "Ein Thema pro Woche, mit Prompts, die du gleich an dir selbst ausprobieren kannst.", tag: "Wöchentlich", cta: "Wöchentliche Prompts erhalten", link: "weekly" },
+      { h: "Die richtigen Fragen stellen", p: "Offene Leitfäden nach Bereichen: deine Werte verständlich erklärt, ein Prompt für deine KI und Fragen für deinen Arzt.", tag: "Offene Leitfäden", cta: "Leitfäden ansehen", link: "learn" },
+      { h: "Weiter lernen", p: "Jeden Mittwoch ein kleines Thema, mit einem Prompt für deinen eigenen Befund.", tag: "Wöchentlich", cta: "Wöchentlich erhalten", link: "weekly" },
     ],
   },
 };

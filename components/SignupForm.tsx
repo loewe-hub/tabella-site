@@ -6,8 +6,7 @@ import { useState } from "react";
 import { COUNTRIES, REASONS, signup, type SignupMode } from "@/content/signup";
 import type { Lang } from "@/lib/i18n";
 
-// Two tick boxes: the cholesterol guide and the weekly prompts. The weekly prompts are never pre-ticked
-// unless the visitor came from a "weekly" link (mode=weekly), where that is what they asked for.
+// One sign-up (agreed 25 Nov 2026): the weekly newsletter. Guides are open on the site.
 export function SignupForm({ lang, mode = "guide" }: { lang: Lang; mode?: SignupMode }) {
   const t = signup[lang];
   const router = useRouter();
@@ -15,8 +14,8 @@ export function SignupForm({ lang, mode = "guide" }: { lang: Lang; mode?: Signup
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState<string>(lang === "de" ? "DE" : "IT");
   const [reason, setReason] = useState<string>("results");
-  const [wantGuide, setWantGuide] = useState(!isWeekly);
-  const [wantWeekly, setWantWeekly] = useState(isWeekly);
+  const wantGuide = false; // 25 Nov: one sign-up (weekly). Guides are open on the site.
+  const wantWeekly = true;
   const [error, setError] = useState("");
   const [sending, setSending] = useState(false);
 
@@ -24,9 +23,8 @@ export function SignupForm({ lang, mode = "guide" }: { lang: Lang; mode?: Signup
     e.preventDefault();
     setError("");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return setError(t.errors.email);
-    if (!wantGuide && !wantWeekly) return setError(t.errors.none);
     setSending(true);
-    const payload = { email, country, reason: wantGuide ? reason : "curious", weekly: wantWeekly, guide: wantGuide, lang };
+    const payload = { email, country, reason, weekly: wantWeekly, guide: wantGuide, lang };
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
@@ -61,22 +59,7 @@ export function SignupForm({ lang, mode = "guide" }: { lang: Lang; mode?: Signup
         </select>
       </div>
 
-      <div className="stack" style={{ gap: 10 }}>
-        {([
-          [wantGuide, setWantGuide, t.guideBox, t.guideTooHint],
-          [wantWeekly, setWantWeekly, t.weeklyBox, t.weeklyHint],
-        ] as const).map(([on, set, label, hint]) => (
-          <label key={label} style={{ display: "flex", gap: 10, alignItems: "flex-start", background: "var(--ground)", borderRadius: 12, padding: "12px 14px" }}>
-            <input type="checkbox" checked={on} onChange={(e) => set(e.target.checked)} style={{ width: 18, height: 18, marginTop: 3, flex: "none", accentColor: "var(--primary)" }} />
-            <span className="stack" style={{ gap: 2 }}>
-              <strong style={{ fontSize: "var(--fs-body)" }}>{label}</strong>
-              <span className="small muted">{hint}</span>
-            </span>
-          </label>
-        ))}
-      </div>
-
-      {wantGuide && (
+      {(
         <fieldset className="field" style={{ border: 0, margin: 0, padding: 0 }}>
           <legend style={{ marginBottom: 10, padding: 0 }}>{t.reason}</legend>
           {REASONS.map((r) => (
@@ -97,7 +80,7 @@ export function SignupForm({ lang, mode = "guide" }: { lang: Lang; mode?: Signup
       )}
 
       <button type="submit" className="btn" disabled={sending} style={{ height: 52 }}>
-        {sending ? t.sending : wantGuide ? t.submit : t.weeklySubmit}
+        {sending ? t.sending : t.weeklySubmit}
       </button>
       <p className="tiny subtle" style={{ textAlign: "center" }}>{t.note}</p>
     </form>

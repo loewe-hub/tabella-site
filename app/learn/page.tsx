@@ -1,51 +1,82 @@
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { SiteHeader } from "@/components/SiteHeader";
+import { AREA_NAMES, AREA_ORDER, AREAS } from "@/content/areas";
 import { landing } from "@/content/landing";
-import { learn } from "@/content/learn";
+import { learn, TOPIC_AREA, TOPIC_DATES } from "@/content/learn";
+import { nodes } from "@/content/map";
 import { toLang } from "@/lib/i18n";
 
 export const metadata = {
-  title: "Learn: your blood test and your AI",
-  description: "Plain-language guides and a weekly series on your blood test, each with a prompt to try with your AI.",
+  title: "Learn: your blood test, area by area",
+  description: "Open guides to your blood test by health area, a prompt to read your whole report with your AI, and one small topic a week.",
 };
 
 export default async function LearnPage({ searchParams }: { searchParams: Promise<{ lang?: string }> }) {
   const lang = toLang((await searchParams).lang);
   const t = learn[lang];
+  const names = AREA_NAMES[lang];
   const l = landing[lang];
   const q = lang === "en" ? "" : `?lang=${lang}`;
-  const hrefs = { share: `/share-safely${q}`, map: `/map${q}`, signup: `/signup${q}` };
-  const weekly = `/signup?mode=weekly${lang === "en" ? "" : `&lang=${lang}`}`;
+  const terms = Object.fromEntries(nodes(lang).map((n) => [n.id, n.term]));
 
   return (
     <div lang={lang}>
       <SiteHeader lang={lang} path="/learn" />
-      <main className="wrap stack" style={{ gap: 40, paddingTop: 48, paddingBottom: 72 }}>
+      <main className="wrap stack" style={{ gap: 48, paddingTop: 48, paddingBottom: 72 }}>
         <div className="stack" style={{ gap: 10, maxWidth: 720 }}>
           <h1 className="display-2">{t.h1}</h1>
-          <p className="muted" style={{ fontSize: "var(--fs-lead)" }}>{t.intro}</p>
+          <p className="muted lead">{t.intro}</p>
         </div>
 
-        <div className="grid-auto">
-          {t.cards.map((c) => (
-            <div key={c.h} className="tile stack" style={{ gap: 12 }}>
-              <p className="eyebrow">{c.tag}</p>
-              <p className="tile-h">{c.h}</p>
-              <p className="muted" style={{ fontSize: "var(--fs-body)" }}>{c.p}</p>
-              {c.cta && c.href && <Link href={hrefs[c.href]} className="btn btn-small" style={{ alignSelf: "flex-start", marginTop: "auto" }}>{c.cta}</Link>}
-            </div>
-          ))}
-        </div>
+        <Link href={`/learn/your-blood-test${q}#prompt`} className="results-box">
+          <div className="stack" style={{ gap: 6, minWidth: 0 }}>
+            <p className="eyebrow">{t.resultsTag}</p>
+            <h2 className="h3">{t.resultsH}</h2>
+            <p>{t.resultsP}</p>
+          </div>
+          <span className="btn" aria-hidden="true">{t.resultsCta} →</span>
+        </Link>
 
-        <section className="card-lg stack" style={{ gap: 16 }} aria-label={t.seriesH}>
-          <p className="eyebrow">{t.seriesTag}</p>
-          <h2 className="display-3">{t.seriesH}</h2>
-          <p className="muted" style={{ fontSize: "var(--fs-body)" }}>{t.seriesP}</p>
-          <ol className="learn-issues">
-            {t.issues.map((x) => <li key={x}>{x}</li>)}
-          </ol>
-          <Link href={weekly} className="btn" style={{ alignSelf: "flex-start" }}>{t.seriesCta}</Link>
+        <section className="stack" style={{ gap: 20 }} aria-label={t.mapH}>
+          <div className="stack" style={{ gap: 8, maxWidth: 720 }}>
+            <h2 className="display-3">{t.mapH}</h2>
+            <p className="muted">{t.mapP}</p>
+          </div>
+          <div className="area-grid">
+            {AREA_ORDER.map((id) => (
+              <Link key={id} href={`/learn/${id}${q}`} className={`area-tile area-${id}`}>
+                <p className="h3">{names[id].title}</p>
+                <p className="muted">{names[id].tagline}</p>
+                {AREAS[id].markers.length > 0 && id !== "brain" && (
+                  <p className="small subtle">{AREAS[id].markers.map((m) => terms[m]).join(" · ")}</p>
+                )}
+              </Link>
+            ))}
+          </div>
+          <Link href={`/map${q}`} className="small">{t.mapLink} →</Link>
+        </section>
+
+        <section className="learn-pair" aria-label={t.shareH}>
+          <div className="tile stack" style={{ gap: 10 }}>
+            <p className="eyebrow">{t.shareTag}</p>
+            <p className="h3">{t.shareH}</p>
+            <p className="muted">{t.shareP}</p>
+            <Link href={`/share-safely${q}`} className="btn btn-small" style={{ alignSelf: "flex-start", marginTop: "auto" }}>{t.shareCta}</Link>
+          </div>
+          <div className="tile stack" style={{ gap: 10 }}>
+            <p className="eyebrow">{t.seriesTag}</p>
+            <p className="h3">{t.seriesH}</p>
+            <p className="muted">{t.seriesP}</p>
+            <ol className="learn-issues">
+              {t.issues.map((x, i) => (
+                <li key={x}>
+                  {x} <Link href={`/learn/${TOPIC_AREA[i]}${q}`} className="small subtle">{names[TOPIC_AREA[i]].title} · {TOPIC_DATES[i]}</Link>
+                </li>
+              ))}
+            </ol>
+            <Link href={`/signup${q}`} className="btn btn-small" style={{ alignSelf: "flex-start" }}>{t.seriesCta}</Link>
+          </div>
         </section>
       </main>
       <Footer disclaimer={l.disclaimer} lang={lang} />

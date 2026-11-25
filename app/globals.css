@@ -250,3 +250,25 @@ p { margin: 0; }
 @media (max-width: 720px) { .hero { padding-top: 40px; padding-bottom: 40px; } }
 .learn-issues { padding-left: 22px; display: grid; gap: 8px; font-size: var(--fs-body); }
 .learn-issues li::marker { color: var(--terracotta); font-weight: 700; }
+
+/* Learn hub + area guides (25 Nov) */
+.h3 { font-family: var(--font-head); font-weight: 700; font-size: var(--fs-h3); line-height: 1.25; color: var(--primary-dark); }
+.lead { font-size: var(--fs-lead); }
+.results-box { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; padding: 28px 32px; border-radius: 24px; background: var(--apricot); color: var(--ink, #1d2b2b); text-decoration: none; }
+.results-box > .stack { flex: 1 1 420px; }
+.results-box:hover { filter: brightness(0.98); }
+.area-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.area-tile { display: flex; flex-direction: column; gap: 8px; padding: 22px 24px; border-radius: 20px; background: #fff; border: 1px solid var(--border); text-decoration: none; color: inherit; border-top: 4px solid var(--primary); transition: transform .15s ease; }
+.area-tile:hover { transform: translateY(-2px); }
+.area-your-blood-test { border-top-color: var(--terracotta); background: var(--ground); }
+.area-metabolism { border-top-color: var(--accent); }
+.area-kidneys, .area-blood { border-top-color: #7a9a99; }
+.area-brain { border-top-color: var(--primary-dark); }
+.marker-list { display: grid; gap: 12px; }
+.en-only { background: var(--apricot); border-radius: 10px; padding: 8px 12px; color: var(--primary-dark); }
+.area-next { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill-link { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border); background: #fff; font-size: var(--fs-small); font-weight: 700; text-decoration: none; color: var(--primary-dark); }
+@media (max-width: 900px) { .area-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .area-grid { grid-template-columns: 1fr; } .results-box { padding: 22px; } }
+.learn-pair { display: grid; grid-template-columns: 1fr 2fr; gap: 24px; align-items: stretch; }
+@media (max-width: 900px) { .learn-pair { grid-template-columns: 1fr; } }
