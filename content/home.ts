@@ -4,7 +4,7 @@ import type { Lang } from "@/lib/i18n";
 // The hero animation stays in English in every language: it spells the brand name.
 
 export type HomeCopy = {
-  nav: { how: string; topics: string; map: string; cta: string };
+  nav: { how: string; topics: string; map: string; cta: string; learn: string };
   heroSub: string;
   cta: string;
   ctaSecondary: string;
@@ -38,7 +38,7 @@ export type HomeCopy = {
 
 export const home: Record<Lang, HomeCopy> = {
   en: {
-    nav: { how: "How it works", topics: "Topics", map: "The map", cta: "Start with one question" },
+    nav: { how: "How it works", topics: "Topics", map: "The map", cta: "Act", learn: "Learn" },
     heroSub: "Be curious about your health. Then act on it, with your doctor.",
     cta: "Start with one question",
     ctaSecondary: "How it works",
@@ -88,7 +88,7 @@ export const home: Record<Lang, HomeCopy> = {
     freeP: "The guides and the weekly prompts are free. We will never sell your personal data.",
   },
   it: {
-    nav: { how: "Come funziona", topics: "Temi", map: "La mappa", cta: "Inizia con una domanda" },
+    nav: { how: "Come funziona", topics: "Temi", map: "La mappa", cta: "Act", learn: "Impara" },
     heroSub: "Sii curioso della tua salute. Poi agisci, insieme al tuo medico.",
     cta: "Inizia con una domanda",
     ctaSecondary: "Come funziona",
@@ -138,7 +138,7 @@ export const home: Record<Lang, HomeCopy> = {
     freeP: "Le guide e i prompt settimanali sono gratuiti. Non venderemo mai i tuoi dati personali.",
   },
   de: {
-    nav: { how: "So funktioniert's", topics: "Themen", map: "Die Karte", cta: "Mit einer Frage starten" },
+    nav: { how: "So funktioniert's", topics: "Themen", map: "Die Karte", cta: "Act", learn: "Lernen" },
     heroSub: "Sei neugierig auf deine Gesundheit. Dann handle, gemeinsam mit deinem Arzt.",
     cta: "Mit einer Frage starten",
     ctaSecondary: "So funktioniert's",

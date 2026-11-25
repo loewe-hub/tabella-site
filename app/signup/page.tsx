@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { SignupForm } from "@/components/SignupForm";
 import { SimplePage } from "@/components/SimplePage";
 import { signup } from "@/content/signup";
@@ -11,7 +10,6 @@ export default async function SignupPage({ searchParams }: { searchParams: Promi
   const lang = toLang(sp.lang);
   const mode = sp.mode === "weekly" ? "weekly" : "guide";
   const t = signup[lang];
-  const weeklyHref = `/signup?mode=weekly${lang === "en" ? "" : `&lang=${lang}`}`;
   return (
     <SimplePage lang={lang}>
       <div className="stack" style={{ gap: 6 }}>
@@ -20,7 +18,6 @@ export default async function SignupPage({ searchParams }: { searchParams: Promi
         {mode === "weekly" && <p className="muted" style={{ marginTop: 6 }}>{t.weeklyP}</p>}
       </div>
       <SignupForm lang={lang} mode={mode} />
-      {mode === "guide" && <Link href={weeklyHref} className="small" style={{ textAlign: "center" }}>{t.weeklyLink}</Link>}
     </SimplePage>
   );
 }

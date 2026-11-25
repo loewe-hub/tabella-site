@@ -6,9 +6,8 @@ import { useState } from "react";
 import { COUNTRIES, REASONS, signup, type SignupMode } from "@/content/signup";
 import type { Lang } from "@/lib/i18n";
 
-// Two modes on one form:
-// - guide:  email gets the guide; weekly prompts are an extra, unticked opt-in.
-// - weekly: pressing the button is the opt-in to the weekly prompts; the guide is an extra, unticked box.
+// Two tick boxes: the cholesterol guide and the weekly prompts. The weekly prompts are never pre-ticked
+// unless the visitor came from a "weekly" link (mode=weekly), where that is what they asked for.
 export function SignupForm({ lang, mode = "guide" }: { lang: Lang; mode?: SignupMode }) {
   const t = signup[lang];
   const router = useRouter();
@@ -16,7 +15,8 @@ export function SignupForm({ lang, mode = "guide" }: { lang: Lang; mode?: Signup
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState<string>(lang === "de" ? "DE" : "IT");
   const [reason, setReason] = useState<string>("results");
-  const [extra, setExtra] = useState(false); // guide mode: weekly prompts; weekly mode: the guide
+  const [wantGuide, setWantGuide] = useState(!isWeekly);
+  const [wantWeekly, setWantWeekly] = useState(isWeekly);
   const [error, setError] = useState("");
   const [sending, setSending] = useState(false);
 
@@ -24,10 +24,9 @@ export function SignupForm({ lang, mode = "guide" }: { lang: Lang; mode?: Signup
     e.preventDefault();
     setError("");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return setError(t.errors.email);
+    if (!wantGuide && !wantWeekly) return setError(t.errors.none);
     setSending(true);
-    const payload = isWeekly
-      ? { email, country, reason: "curious", weekly: true, guide: extra, lang }
-      : { email, country, reason, weekly: extra, guide: true, lang };
+    const payload = { email, country, reason: wantGuide ? reason : "curious", weekly: wantWeekly, guide: wantGuide, lang };
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
@@ -37,7 +36,7 @@ export function SignupForm({ lang, mode = "guide" }: { lang: Lang; mode?: Signup
       if (!res.ok) throw new Error(String(res.status));
       const params = new URLSearchParams();
       if (lang !== "en") params.set("lang", lang);
-      if (isWeekly && !extra) params.set("mode", "weekly");
+      if (wantWeekly && !wantGuide) params.set("mode", "weekly");
       const qs = params.toString();
       router.push(qs ? `/check-inbox?${qs}` : "/check-inbox");
     } catch {
@@ -62,7 +61,22 @@ export function SignupForm({ lang, mode = "guide" }: { lang: Lang; mode?: Signup
         </select>
       </div>
 
-      {!isWeekly && (
+      <div className="stack" style={{ gap: 10 }}>
+        {([
+          [wantGuide, setWantGuide, t.guideBox, t.guideTooHint],
+          [wantWeekly, setWantWeekly, t.weeklyBox, t.weeklyHint],
+        ] as const).map(([on, set, label, hint]) => (
+          <label key={label} style={{ display: "flex", gap: 10, alignItems: "flex-start", background: "var(--ground)", borderRadius: 12, padding: "12px 14px" }}>
+            <input type="checkbox" checked={on} onChange={(e) => set(e.target.checked)} style={{ width: 18, height: 18, marginTop: 3, flex: "none", accentColor: "var(--primary)" }} />
+            <span className="stack" style={{ gap: 2 }}>
+              <strong style={{ fontSize: 15 }}>{label}</strong>
+              <span className="small muted">{hint}</span>
+            </span>
+          </label>
+        ))}
+      </div>
+
+      {wantGuide && (
         <fieldset className="field" style={{ border: 0, margin: 0, padding: 0 }}>
           <legend style={{ marginBottom: 10, padding: 0 }}>{t.reason}</legend>
           {REASONS.map((r) => (
@@ -74,16 +88,8 @@ export function SignupForm({ lang, mode = "guide" }: { lang: Lang; mode?: Signup
         </fieldset>
       )}
 
-      <label style={{ display: "flex", gap: 10, alignItems: "flex-start", background: "var(--ground)", borderRadius: 12, padding: "12px 14px" }}>
-        <input type="checkbox" checked={extra} onChange={(e) => setExtra(e.target.checked)} style={{ width: 18, height: 18, marginTop: 3, flex: "none", accentColor: "var(--primary)" }} />
-        <span className="stack" style={{ gap: 2 }}>
-          <strong style={{ fontSize: 15 }}>{isWeekly ? t.guideToo : t.weekly}</strong>
-          <span className="small muted">{isWeekly ? t.guideTooHint : t.weeklyHint}</span>
-        </span>
-      </label>
-
       <p className="tiny subtle">
-        {isWeekly ? t.weeklyPrivacyLead : t.privacyLead} <Link href="/privacy">{t.privacy}</Link>.
+        {t.weeklyPrivacyLead} <Link href="/privacy">{t.privacy}</Link>.
       </p>
 
       {error && (
@@ -91,7 +97,7 @@ export function SignupForm({ lang, mode = "guide" }: { lang: Lang; mode?: Signup
       )}
 
       <button type="submit" className="btn" disabled={sending} style={{ height: 52 }}>
-        {sending ? t.sending : isWeekly ? t.weeklySubmit : t.submit}
+        {sending ? t.sending : wantGuide ? t.submit : t.weeklySubmit}
       </button>
       <p className="tiny subtle" style={{ textAlign: "center" }}>{t.note}</p>
     </form>

@@ -20,7 +20,9 @@ export const signup: Record<Lang, {
   submit: string;
   sending: string;
   note: string;
-  errors: { email: string; generic: string };
+  errors: { email: string; generic: string; none: string };
+  guideBox: string;
+  weeklyBox: string;
   inboxH: string;
   inboxP: string;
   inboxPWeekly: string;
@@ -53,7 +55,9 @@ export const signup: Record<Lang, {
     submit: "Send me the guide",
     sending: "Sending…",
     note: "No health questions. Unsubscribe anytime.",
-    errors: { email: "Please enter a valid email address.", generic: "Something went wrong. Please try again in a minute." },
+    errors: { email: "Please enter a valid email address.", generic: "Something went wrong. Please try again in a minute.", none: "Please tick at least one box." },
+    guideBox: "Send me the free cholesterol guide",
+    weeklyBox: "Send me the weekly prompts",
     inboxH: "Check your inbox",
     inboxP: "We sent you a link to confirm your email. Click it and your guide link follows straight away.",
     inboxPWeekly: "We sent you a link to confirm your email. Click it and your first weekly prompts are on their way.",
@@ -86,7 +90,9 @@ export const signup: Record<Lang, {
     submit: "Inviami la guida",
     sending: "Invio…",
     note: "Nessuna domanda sulla salute. Disiscriviti quando vuoi.",
-    errors: { email: "Inserisci un indirizzo email valido.", generic: "Qualcosa è andato storto. Riprova tra un minuto." },
+    errors: { email: "Inserisci un indirizzo email valido.", generic: "Qualcosa è andato storto. Riprova tra un minuto.", none: "Seleziona almeno una casella." },
+    guideBox: "Inviami la guida gratuita sul colesterolo",
+    weeklyBox: "Inviami i prompt settimanali",
     inboxH: "Controlla la tua email",
     inboxP: "Ti abbiamo inviato un link per confermare l'indirizzo. Cliccalo e riceverai subito il link alla guida.",
     inboxPWeekly: "Ti abbiamo inviato un link per confermare l'indirizzo. Cliccalo e i primi prompt settimanali sono in arrivo.",
@@ -119,7 +125,9 @@ export const signup: Record<Lang, {
     submit: "Leitfaden senden",
     sending: "Wird gesendet…",
     note: "Keine Gesundheitsfragen. Jederzeit abmeldbar.",
-    errors: { email: "Bitte gib eine gültige E-Mail-Adresse ein.", generic: "Etwas ist schiefgelaufen. Bitte versuch es in einer Minute noch einmal." },
+    errors: { email: "Bitte gib eine gültige E-Mail-Adresse ein.", generic: "Etwas ist schiefgelaufen. Bitte versuch es in einer Minute noch einmal.", none: "Bitte wähle mindestens eine Option." },
+    guideBox: "Schick mir den kostenlosen Cholesterin-Leitfaden",
+    weeklyBox: "Schick mir die wöchentlichen Prompts",
     inboxH: "Schau in dein Postfach",
     inboxP: "Wir haben dir einen Bestätigungslink geschickt. Klick ihn an, dann kommt dein Link zum Leitfaden sofort.",
     inboxPWeekly: "Wir haben dir einen Bestätigungslink geschickt. Klick ihn an, dann kommen deine ersten wöchentlichen Prompts.",

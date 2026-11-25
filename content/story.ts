@@ -34,6 +34,9 @@ export type StoryCopy = {
   decideH: string;
   decideP: string;
   decideSrc: string;
+  actH: string;
+  actP: string;
+  actCta: string;
   notEmergency: string;
   pillarsEyebrow: string;
   pillarsH: string;
@@ -90,9 +93,12 @@ export const story: Record<Lang, StoryCopy> = {
     sbsNote: "ChatGPT, November 2026, shortened excerpts. Your answers will differ.",
     howEyebrow: "How Curiact closes the gap",
     howH: "Curious, prepared, decided together.",
-    decideEyebrow: "Decide with your doctor",
+    decideEyebrow: "Then: decide with your doctor",
     decideH: "AI is good at explaining. Deciding is different.",
-    decideP: "In the same Oxford study, even the AI on its own picked the right next step only about half the time. So use it to understand, and decide with your doctor: as a partner, not a patient without options.",
+    decideP: "Sharing safely, asking well and learning all lead to one place: a better conversation with your doctor. In the same Oxford study, even the AI on its own picked the right next step only about half the time. So use it to be informed, and make the decisions together.",
+    actH: "Curious? Act.",
+    actP: "Get the free cholesterol guide, the weekly prompts, or both. You choose on the next page.",
+    actCta: "Act",
     decideSrc: "University of Oxford, Nature Medicine 2026",
     notEmergency: "Not for new symptoms or emergencies: see a doctor or call 112",
     pillarsEyebrow: "What you get",
@@ -149,9 +155,12 @@ export const story: Record<Lang, StoryCopy> = {
     sbsNote: "ChatGPT, novembre 2026, estratti abbreviati e tradotti. Le tue risposte saranno diverse.",
     howEyebrow: "Come Curiact colma il divario",
     howH: "Curioso, preparato, si decide insieme.",
-    decideEyebrow: "Decidi con il tuo medico",
+    decideEyebrow: "Poi: decidi con il tuo medico",
     decideH: "L'AI è brava a spiegare. Decidere è un'altra cosa.",
-    decideP: "Nello stesso studio di Oxford, anche l'AI da sola ha scelto il passo successivo giusto solo in circa metà dei casi. Usala per capire, e decidi con il tuo medico: da partner, non da paziente senza alternative.",
+    decideP: "Condividere in sicurezza, fare le domande giuste e continuare a imparare portano allo stesso punto: una conversazione migliore con il tuo medico. Nello stesso studio di Oxford, anche l'AI da sola ha scelto il passo successivo giusto solo in circa metà dei casi. Usala per informarti, e prendete le decisioni insieme.",
+    actH: "Curious? Act.",
+    actP: "Ricevi la guida gratuita sul colesterolo, i prompt settimanali o entrambi. Scegli nella pagina successiva.",
+    actCta: "Act",
     decideSrc: "Università di Oxford, Nature Medicine 2026",
     notEmergency: "Non per sintomi nuovi o emergenze: rivolgiti a un medico o chiama il 112",
     pillarsEyebrow: "Cosa trovi qui",
@@ -208,9 +217,12 @@ export const story: Record<Lang, StoryCopy> = {
     sbsNote: "ChatGPT, November 2026, gekürzte und übersetzte Auszüge. Deine Antworten werden anders sein.",
     howEyebrow: "Wie Curiact die Lücke schließt",
     howH: "Neugierig, vorbereitet, gemeinsam entschieden.",
-    decideEyebrow: "Entscheide mit deinem Arzt",
+    decideEyebrow: "Dann: entscheide mit deinem Arzt",
     decideH: "KI kann gut erklären. Entscheiden ist etwas anderes.",
-    decideP: "In derselben Oxford-Studie wählte selbst die KI allein nur in etwa der Hälfte der Fälle den richtigen nächsten Schritt. Nutze sie zum Verstehen und entscheide mit deinem Arzt: als Partner, nicht als Patient ohne Alternativen.",
+    decideP: "Sicher teilen, gut fragen und weiter lernen führen zum selben Ziel: einem besseren Gespräch mit deinem Arzt. In derselben Oxford-Studie wählte selbst die KI allein nur in etwa der Hälfte der Fälle den richtigen nächsten Schritt. Nutze sie, um informiert zu sein, und trefft die Entscheidungen gemeinsam.",
+    actH: "Curious? Act.",
+    actP: "Hol dir den kostenlosen Cholesterin-Leitfaden, die wöchentlichen Prompts oder beides. Du wählst auf der nächsten Seite.",
+    actCta: "Act",
     decideSrc: "Universität Oxford, Nature Medicine 2026",
     notEmergency: "Nicht für neue Beschwerden oder Notfälle: geh zum Arzt oder ruf 112 an",
     pillarsEyebrow: "Was du hier bekommst",
