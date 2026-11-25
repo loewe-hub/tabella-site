@@ -18,7 +18,7 @@ export default async function GuidePage({ searchParams }: { searchParams: Promis
     const t = ui[lang];
     return (
       <SimplePage lang={lang}>
-        <h1 style={{ fontSize: 28 }}>{t.deniedH}</h1>
+        <h1 style={{ fontSize: "var(--fs-h2)" }}>{t.deniedH}</h1>
         <p className="muted">{t.deniedP}</p>
         <Link href={lang === "en" ? "/signup" : `/signup?lang=${lang}`} className="btn" style={{ alignSelf: "flex-start" }}>{t.deniedCta}</Link>
       </SimplePage>

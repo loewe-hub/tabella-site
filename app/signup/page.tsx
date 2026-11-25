@@ -14,7 +14,7 @@ export default async function SignupPage({ searchParams }: { searchParams: Promi
     <SimplePage lang={lang}>
       <div className="stack" style={{ gap: 6 }}>
         <p className="eyebrow">{mode === "weekly" ? t.weeklyEyebrow : t.eyebrow}</p>
-        <h1 style={{ fontSize: 30, lineHeight: 1.15 }}>{mode === "weekly" ? t.weeklyH1 : t.h1}</h1>
+        <h1 style={{ fontSize: "var(--fs-h2)", lineHeight: 1.15 }}>{mode === "weekly" ? t.weeklyH1 : t.h1}</h1>
         {mode === "weekly" && <p className="muted" style={{ marginTop: 6 }}>{t.weeklyP}</p>}
       </div>
       <SignupForm lang={lang} mode={mode} />

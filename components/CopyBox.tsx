@@ -6,7 +6,7 @@ export function CopyBox({ text, id, label, done }: { text: string; id: string; l
   const [ok, setOk] = useState(false);
   return (
     <div className="card stack" style={{ gap: 14, background: "var(--mint)", border: "none" }}>
-      <p style={{ fontSize: 17, lineHeight: 1.55 }}>{text}</p>
+      <p style={{ fontSize: "var(--fs-body)", lineHeight: 1.55 }}>{text}</p>
       <button
         type="button"
         className="btn btn-small"

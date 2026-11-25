@@ -72,8 +72,8 @@ export function MarkerMap({ signupHref, lang }: { signupHref: string; lang: Lang
     <div className="stack" style={{ gap: 40 }}>
       <section className="wrap stack" style={{ gap: 14, alignItems: "center", textAlign: "center", paddingTop: 24 }}>
         <p className="eyebrow" style={{ color: "#A84F2C" }}>{t.eyebrow}</p>
-        <h1 style={{ fontSize: "clamp(36px, 4.6vw, 56px)", lineHeight: 1.05, letterSpacing: "-0.03em" }}>{t.h1}</h1>
-        <p className="muted" style={{ maxWidth: 640, fontSize: 19 }}>
+        <h1 style={{ fontSize: "var(--fs-h2)", lineHeight: 1.05, letterSpacing: "-0.03em" }}>{t.h1}</h1>
+        <p className="muted" style={{ maxWidth: 640, fontSize: "var(--fs-lead)" }}>
           {t.sub}
         </p>
       </section>
@@ -81,7 +81,7 @@ export function MarkerMap({ signupHref, lang }: { signupHref: string; lang: Lang
       <section className="narrow">
         <div className="stack" style={{ background: "var(--primary-dark)", color: "#fff", borderRadius: 24, padding: "28px 32px", gap: 14 }}>
           <p className="eyebrow" style={{ color: "#F6D9C4" }}>{t.wholeEyebrow}</p>
-          <p style={{ fontFamily: "var(--font-head)", fontWeight: 700, fontSize: 26, lineHeight: 1.25 }}>&ldquo;{t.wholeShort}&rdquo;</p>
+          <p style={{ fontFamily: "var(--font-head)", fontWeight: 700, fontSize: "var(--fs-h3)", lineHeight: 1.25 }}>&ldquo;{t.wholeShort}&rdquo;</p>
           <div className="row" style={{ gap: "12px 20px", alignItems: "center", justifyContent: "space-between" }}>
             <p className="small" style={{ flex: "1 1 340px", color: "#F3E7DA" }}>
               {t.wholeNote}
@@ -127,21 +127,21 @@ export function MarkerMap({ signupHref, lang }: { signupHref: string; lang: Lang
         <div id="marker-detail" className="card stack" style={{ gap: 18, borderRadius: 24, boxShadow: "0 20px 50px rgba(10,69,71,0.08)" }} aria-live="polite">
           <div className="stack" style={{ gap: 4 }}>
             <p className="tiny" style={{ fontWeight: 700, letterSpacing: "0.1em", color: z.on, textTransform: "uppercase" }}>{s.term}</p>
-            <h2 style={{ fontSize: 30 }}>{s.name}</h2>
+            <h2 style={{ fontSize: "var(--fs-h3)" }}>{s.name}</h2>
           </div>
-          <p style={{ fontSize: 19 }}>{s.what}</p>
+          <p style={{ fontSize: "var(--fs-lead)" }}>{s.what}</p>
           <p className="muted"><strong style={{ color: "var(--ink)" }}>{t.connects}</strong> {s.connects.join(" · ")}</p>
           <div className="row" style={{ background: "var(--ground)", borderRadius: 16, padding: "18px 20px", gap: "12px 20px", alignItems: "center", justifyContent: "space-between" }}>
             <div className="stack" style={{ flex: "1 1 340px", minWidth: 0, gap: 4 }}>
               <p className="tiny" style={{ fontWeight: 700, letterSpacing: "0.1em", color: "#A84F2C", textTransform: "uppercase" }}>{t.ask}</p>
-              <p style={{ fontSize: 18, fontWeight: 600 }}>&ldquo;{s.ask}&rdquo;</p>
+              <p style={{ fontSize: "var(--fs-lead)", fontWeight: 700 }}>&ldquo;{s.ask}&rdquo;</p>
             </div>
             <button type="button" className="btn" onClick={() => copy(s.id, promptFor(s, lang))}>
               {copied === s.id ? t.copied : t.copy}
             </button>
           </div>
           <p className="small muted">
-            {t.guideQ} <Link href={signupHref} style={{ fontWeight: 600 }}>{t.guideLink}</Link>
+            {t.guideQ} <Link href={signupHref} style={{ fontWeight: 700 }}>{t.guideLink}</Link>
           </p>
         </div>
       </section>

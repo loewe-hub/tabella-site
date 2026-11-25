@@ -36,13 +36,13 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
             <div className="stack" style={{ gap: 12 }}>
               <p className="eyebrow">{s.youEyebrow}</p>
               <h2 className="display-3">{s.youH}</h2>
-              <p className="muted" style={{ fontSize: 17 }}>{s.youP}</p>
+              <p className="muted" style={{ fontSize: "var(--fs-body)" }}>{s.youP}</p>
             </div>
             <div className="tile tile-photo you-tile">
               <img src="/images/curious.webp" alt={t.triad[0].alt} width={960} height={720} loading="eager" className="you-img" />
               <div className="stack" style={{ gap: 4, padding: "16px 20px" }}>
-                <p className="stat-n" style={{ fontSize: 44 }}>{s.youStat}</p>
-                <p style={{ fontSize: 16 }}>{s.youStatText}</p>
+                <p className="stat-n" style={{ fontSize: "var(--fs-num)" }}>{s.youStat}</p>
+                <p style={{ fontSize: "var(--fs-body)" }}>{s.youStatText}</p>
                 <a href={SOURCES.openai} target="_blank" rel="noopener noreferrer" className="tiny subtle">{s.youSrc}</a>
               </div>
             </div>
@@ -57,11 +57,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
           <div className="gap-compare">
             <div className="gap-box">
               <p className="gap-n" style={{ color: "var(--primary)" }}>{s.gapA}</p>
-              <p style={{ fontSize: 17 }}>{s.gapAText}</p>
+              <p style={{ fontSize: "var(--fs-body)" }}>{s.gapAText}</p>
             </div>
             <div className="gap-box">
               <p className="gap-n" style={{ color: "var(--terracotta)" }}>{s.gapB}</p>
-              <p style={{ fontSize: 17 }}>{s.gapBText}</p>
+              <p style={{ fontSize: "var(--fs-body)" }}>{s.gapBText}</p>
             </div>
           </div>
           <p className="why-line">{s.gapP}</p>
@@ -73,7 +73,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
             <div className="stack" style={{ gap: 10, maxWidth: 760 }}>
               <p className="eyebrow" style={{ color: "var(--apricot)" }}>{s.sbsEyebrow}</p>
               <h2 className="display-2" style={{ color: "#fff" }}>{s.sbsH}</h2>
-              <p style={{ color: "var(--mint)", fontSize: 18 }}>{s.sbsP}</p>
+              <p style={{ color: "var(--mint)", fontSize: "var(--fs-lead)" }}>{s.sbsP}</p>
             </div>
             <div className="sbs">
               {[s.a, s.b].map((side, i) => (
@@ -112,7 +112,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
               <div key={x.h} className="tile stack pillar" style={{ gap: 14 }}>
                 <p className="pillar-n">{i + 1}</p>
                 <p className="tile-h">{x.h}</p>
-                <p className="muted" style={{ fontSize: 17 }}>{x.p}</p>
+                <p className="muted" style={{ fontSize: "var(--fs-body)" }}>{x.p}</p>
                 <div className="row" style={{ gap: 12, alignItems: "center", marginTop: "auto", justifyContent: "space-between" }}>
                   <span className="tiny" style={{ fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--terracotta)" }}>{x.tag}</span>
                   {x.cta && x.link && <Link href={x.link === "signup" ? signup : x.link === "share" ? (q ? `/share-safely?${q}` : "/share-safely") : weekly} className="btn btn-small">{x.cta}</Link>}
@@ -128,7 +128,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
             <div className="stack" style={{ gap: 10, minWidth: 0 }}>
               <p className="eyebrow">{s.decideEyebrow}</p>
               <h2 className="display-3">{s.decideH}</h2>
-              <p className="muted" style={{ fontSize: 17 }}>{s.decideP}</p>
+              <p className="muted" style={{ fontSize: "var(--fs-body)" }}>{s.decideP}</p>
               <a href={SOURCES.oxford} target="_blank" rel="noopener noreferrer" className="tiny subtle">{s.decideSrc}</a>
             </div>
           </div>
@@ -136,18 +136,18 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
 
         <section aria-label={t.principlesH} className="wrap" style={{ paddingBottom: 64 }}>
           <div className="stack" style={{ gap: 18 }}>
-            <h2 style={{ fontSize: 26 }}>{t.principlesH}</h2>
+            <h2 style={{ fontSize: "var(--fs-h3)" }}>{t.principlesH}</h2>
             <div className="grid-tiles">
               {t.principles.map((x) => (
                 <div key={x.h} className="principle-card stack" style={{ gap: 8 }}>
                   <p className="principle-h">{x.h}</p>
-                  <p className="muted" style={{ fontSize: 16 }}>{x.p}</p>
+                  <p className="muted" style={{ fontSize: "var(--fs-body)" }}>{x.p}</p>
                 </div>
               ))}
             </div>
           </div>
           <div className="tile stack" style={{ gap: 12, marginTop: 32, background: "transparent", border: "1.5px solid var(--border)" }}>
-            <h2 style={{ fontSize: 22 }}>{t.notH}</h2>
+            <h2 style={{ fontSize: "var(--fs-h3)" }}>{t.notH}</h2>
             <div className="grid-tiles" style={{ gap: "8px 24px" }}>
               {[...t.not, s.notEmergency].map((x) => <p key={x} className="claim-row"><span aria-hidden="true" className="mark-no">✕</span>{x}</p>)}
             </div>
@@ -158,7 +158,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
           <div className="row card-lg" style={{ gap: 28, alignItems: "center", justifyContent: "space-between", padding: "40px 48px" }}>
             <div className="stack" style={{ flex: "1 1 420px", minWidth: 0, gap: 10 }}>
               <h2 className="display-2">{s.actH}</h2>
-              <p className="muted" style={{ fontSize: 18 }}>{s.actP}</p>
+              <p className="muted" style={{ fontSize: "var(--fs-lead)" }}>{s.actP}</p>
             </div>
             <Link href={signup} className="btn btn-lg">{s.actCta}</Link>
           </div>

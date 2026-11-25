@@ -69,7 +69,7 @@ export function SignupForm({ lang, mode = "guide" }: { lang: Lang; mode?: Signup
           <label key={label} style={{ display: "flex", gap: 10, alignItems: "flex-start", background: "var(--ground)", borderRadius: 12, padding: "12px 14px" }}>
             <input type="checkbox" checked={on} onChange={(e) => set(e.target.checked)} style={{ width: 18, height: 18, marginTop: 3, flex: "none", accentColor: "var(--primary)" }} />
             <span className="stack" style={{ gap: 2 }}>
-              <strong style={{ fontSize: 15 }}>{label}</strong>
+              <strong style={{ fontSize: "var(--fs-body)" }}>{label}</strong>
               <span className="small muted">{hint}</span>
             </span>
           </label>

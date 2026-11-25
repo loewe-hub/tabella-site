@@ -24,7 +24,7 @@ export default async function LearnPage({ searchParams }: { searchParams: Promis
       <main className="wrap stack" style={{ gap: 40, paddingTop: 48, paddingBottom: 72 }}>
         <div className="stack" style={{ gap: 10, maxWidth: 720 }}>
           <h1 className="display-2">{t.h1}</h1>
-          <p className="muted" style={{ fontSize: 19 }}>{t.intro}</p>
+          <p className="muted" style={{ fontSize: "var(--fs-lead)" }}>{t.intro}</p>
         </div>
 
         <div className="grid-auto">
@@ -32,7 +32,7 @@ export default async function LearnPage({ searchParams }: { searchParams: Promis
             <div key={c.h} className="tile stack" style={{ gap: 12 }}>
               <p className="eyebrow">{c.tag}</p>
               <p className="tile-h">{c.h}</p>
-              <p className="muted" style={{ fontSize: 16 }}>{c.p}</p>
+              <p className="muted" style={{ fontSize: "var(--fs-body)" }}>{c.p}</p>
               {c.cta && c.href && <Link href={hrefs[c.href]} className="btn btn-small" style={{ alignSelf: "flex-start", marginTop: "auto" }}>{c.cta}</Link>}
             </div>
           ))}
@@ -41,7 +41,7 @@ export default async function LearnPage({ searchParams }: { searchParams: Promis
         <section className="card-lg stack" style={{ gap: 16 }} aria-label={t.seriesH}>
           <p className="eyebrow">{t.seriesTag}</p>
           <h2 className="display-3">{t.seriesH}</h2>
-          <p className="muted" style={{ fontSize: 17 }}>{t.seriesP}</p>
+          <p className="muted" style={{ fontSize: "var(--fs-body)" }}>{t.seriesP}</p>
           <ol className="learn-issues">
             {t.issues.map((x) => <li key={x}>{x}</li>)}
           </ol>

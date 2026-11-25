@@ -8,7 +8,7 @@ export const metadata = { title: "Privacy notice" };
 export default function Privacy() {
   return (
     <SimplePage lang="en">
-      <h1 style={{ fontSize: 30 }}>Privacy notice</h1>
+      <h1 style={{ fontSize: "var(--fs-h2)" }}>Privacy notice</h1>
       <p className="tiny" style={{ background: "#F9EEDA", borderRadius: 10, padding: "10px 14px" }}>Draft placeholder: not yet the final text.</p>
       <p className="muted">
         Data controller: {brand.publisher}, {brand.vatNumber}. We collect your email address, your country, why you signed up and, if you choose, which topics to tailor (women's or men's health), to send you the guide you asked for and its follow-ups (for example a reminder before your next test). The weekly prompts are a separate, optional choice. We never ask for or store your test results. If you reply with health information, we delete it.

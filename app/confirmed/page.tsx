@@ -11,7 +11,7 @@ export default async function Confirmed({ searchParams }: { searchParams: Promis
   const t = signup[lang];
   return (
     <SimplePage lang={lang}>
-      <h1 style={{ fontSize: 30 }}>{t.confirmedH}</h1>
+      <h1 style={{ fontSize: "var(--fs-h2)" }}>{t.confirmedH}</h1>
       <p className="muted">{t.confirmedP}</p>
       <Link href={lang === "en" ? "/" : `/?lang=${lang}`} className="small">{t.back}</Link>
     </SimplePage>

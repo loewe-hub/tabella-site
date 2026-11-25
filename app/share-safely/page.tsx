@@ -64,12 +64,12 @@ export default async function ShareSafely({ searchParams }: { searchParams: Prom
         <div className="stack" style={{ gap: 16 }}>
           <p className="eyebrow">{g.eyebrow}</p>
           <h1 className="display-2">{g.h1}</h1>
-          <p className="muted" style={{ fontSize: 19 }}>{g.forWho}</p>
+          <p className="muted" style={{ fontSize: "var(--fs-lead)" }}>{g.forWho}</p>
           <p className="tiny subtle" lang={lang}>{ui.lastChecked}: {g.lastChecked}</p>
         </div>
 
         <div className="card stack" style={{ gap: 14 }}>
-          <p style={{ fontSize: 18, lineHeight: 1.55 }}>{g.point}</p>
+          <p style={{ fontSize: "var(--fs-lead)", lineHeight: 1.55 }}>{g.point}</p>
           <Items items={g.versions} />
           <a href="#checklist" className="btn-text">{g.checkH} ↓</a>
         </div>
@@ -123,7 +123,7 @@ export default async function ShareSafely({ searchParams }: { searchParams: Prom
 
         <section className="card-lg stack" style={{ gap: 14, background: "var(--primary-dark)", color: "#fff" }}>
           <h2 style={{ color: "#fff" }}>{g.nextH}</h2>
-          <p style={{ fontSize: 18, opacity: 0.9 }}>{g.nextP}</p>
+          <p style={{ fontSize: "var(--fs-lead)", opacity: 0.9 }}>{g.nextP}</p>
           <Link href={signup} className="btn btn-lg" style={{ alignSelf: "flex-start", background: "var(--apricot)", color: "var(--primary-dark)" }}>{g.nextCta}</Link>
         </section>
 

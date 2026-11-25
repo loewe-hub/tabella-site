@@ -18,7 +18,7 @@ export default async function CheckInbox({ searchParams }: { searchParams: Promi
           <path d="M5 10l11 8 11-8" stroke="#0E5E60" strokeWidth="2.2" fill="none" strokeLinejoin="round" />
         </svg>
       </span>
-      <h1 style={{ fontSize: 30 }}>{t.inboxH}</h1>
+      <h1 style={{ fontSize: "var(--fs-h2)" }}>{t.inboxH}</h1>
       <p className="muted">{weeklyOnly ? t.inboxPWeekly : t.inboxP}</p>
       <p className="small subtle">{t.inboxSpam}</p>
       <Link href={lang === "en" ? "/" : `/?lang=${lang}`} className="small">{t.back}</Link>

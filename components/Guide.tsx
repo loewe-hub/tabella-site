@@ -84,7 +84,7 @@ export function Guide({ initialLang, preview }: { initialLang: Lang; preview: bo
       <header style={{ background: "var(--primary)", color: "#fff" }}>
         <div className="narrow stack" style={{ paddingTop: 24, paddingBottom: 40, gap: 18 }}>
           <div className="row" style={{ alignItems: "center", gap: 10 }}>
-            <a href="/" style={{ textDecoration: "none", fontFamily: "var(--font-head)", fontWeight: 800, fontSize: 22, letterSpacing: "-0.03em", color: "#fff" }}>Curi<span style={{ color: "var(--apricot)" }}>act</span></a>
+            <a href="/" style={{ textDecoration: "none", fontFamily: "var(--font-head)", fontWeight: 800, fontSize: "var(--fs-h3)", letterSpacing: "-0.03em", color: "#fff" }}>Curi<span style={{ color: "var(--apricot)" }}>act</span></a>
             <span className="tiny" style={{ marginLeft: "auto", color: "var(--mint)" }}>{preview ? t.preview : t.access}</span>
           </div>
           <div className="row no-print" style={{ gap: "12px 28px", alignItems: "center" }}>
@@ -92,15 +92,15 @@ export function Guide({ initialLang, preview }: { initialLang: Lang; preview: bo
             <Switch label={t.prompt} value={plang} onChange={changePlang} />
           </div>
           <p className="tiny" style={{ marginTop: 12, color: "#BFE3DA" }}>{t.tag}</p>
-          <h1 style={{ color: "#fff", fontSize: "clamp(32px, 6vw, 44px)", lineHeight: 1.08, letterSpacing: "-0.03em" }}>{t.h1}</h1>
-          <p style={{ fontSize: 18, color: "var(--mint)" }}>{t.sub}</p>
+          <h1 style={{ color: "#fff", fontSize: "var(--fs-h2)", lineHeight: 1.08, letterSpacing: "-0.03em" }}>{t.h1}</h1>
+          <p style={{ fontSize: "var(--fs-lead)", color: "var(--mint)" }}>{t.sub}</p>
           <p className="small" style={{ color: "#BFE3DA" }}>{t.forWho}</p>
         </div>
       </header>
 
       <main className="narrow stack" style={{ paddingTop: 32, paddingBottom: 48, gap: 28 }}>
         <section className="card stack" style={{ gap: 14 }}>
-          <h2 style={{ fontSize: 24 }}>{t.missH}</h2>
+          <h2 style={{ fontSize: "var(--fs-h3)" }}>{t.missH}</h2>
           <ol className="stack" style={{ margin: 0, padding: 0, listStyle: "none", gap: 12 }}>
             {miss[lang].map(([head, body], i) => (
               <li key={head} style={{ display: "flex", gap: 14 }}>
@@ -112,7 +112,7 @@ export function Guide({ initialLang, preview }: { initialLang: Lang; preview: bo
         </section>
 
         <section className="card stack" style={{ gap: 12 }}>
-          <h2 style={{ fontSize: 24 }}>{t.situationH}</h2>
+          <h2 style={{ fontSize: "var(--fs-h3)" }}>{t.situationH}</h2>
           <EnOnly lang={lang} />
           <p className="muted">{t.situationP}</p>
           <ol style={{ margin: 0, paddingLeft: 22 }} className="stack">
@@ -121,7 +121,7 @@ export function Guide({ initialLang, preview }: { initialLang: Lang; preview: bo
         </section>
 
         <section className="card stack" style={{ gap: 12 }}>
-          <h2 style={{ fontSize: 24 }}>{t.reportH}</h2>
+          <h2 style={{ fontSize: "var(--fs-h3)" }}>{t.reportH}</h2>
           <p className="muted">{t.reportP}</p>
           <p style={{ background: "var(--mint)", borderRadius: 12, padding: "14px 16px", color: "var(--primary-dark)" }}>
             <strong>{t.rangeHead}</strong> {t.rangeBody}{" "}
@@ -134,7 +134,7 @@ export function Guide({ initialLang, preview }: { initialLang: Lang; preview: bo
         </section>
 
         <section className="card stack" style={{ gap: 12, borderLeft: "4px solid var(--terracotta)" }}>
-          <h2 style={{ fontSize: 22 }}>{t.setupH}</h2>
+          <h2 style={{ fontSize: "var(--fs-h3)" }}>{t.setupH}</h2>
           <p className="muted">{t.setupIntro}</p>
           <ol className="stack" style={{ gap: 8, paddingLeft: 20, margin: 0 }}>
             {[t.setup1, t.setup2, t.setup3, t.setup4].map((x) => <li key={x}>{x}</li>)}
@@ -143,14 +143,14 @@ export function Guide({ initialLang, preview }: { initialLang: Lang; preview: bo
         </section>
 
         <section className="card stack" style={{ gap: 14 }}>
-          <h2 style={{ fontSize: 24 }}>{t.promptH}</h2>
+          <h2 style={{ fontSize: "var(--fs-h3)" }}>{t.promptH}</h2>
           <p className="muted">{t.promptIntro}</p>
           <div className="stack" style={{ background: "var(--mint)", borderRadius: 14, padding: "20px 22px", gap: 14 }}>
-            <p lang={plang} style={{ fontSize: 19, fontWeight: 600, color: "var(--primary-dark)" }}>&ldquo;{promptShort[plang]}&rdquo;</p>
+            <p lang={plang} style={{ fontSize: "var(--fs-lead)", fontWeight: 700, color: "var(--primary-dark)" }}>&ldquo;{promptShort[plang]}&rdquo;</p>
             <p className="small" style={{ color: "var(--primary-dark)" }}>{t.fullNote}</p>
             <details>
-              <summary className="small" style={{ cursor: "pointer", fontWeight: 600, color: "var(--primary)" }}>{t.showFull}</summary>
-              <p lang={plang} style={{ fontSize: 15, color: "var(--primary-dark)", marginTop: 8 }}>{prompt[plang]}</p>
+              <summary className="small" style={{ cursor: "pointer", fontWeight: 700, color: "var(--primary)" }}>{t.showFull}</summary>
+              <p lang={plang} style={{ fontSize: "var(--fs-body)", color: "var(--primary-dark)", marginTop: 8 }}>{prompt[plang]}</p>
             </details>
             <div className="row no-print" style={{ gap: 12, alignItems: "center" }}>
               <button type="button" className="btn" onClick={() => copy("prompt", prompt[plang])}>{copied === "prompt" ? t.copied : t.copyPrompt}</button>
@@ -162,13 +162,13 @@ export function Guide({ initialLang, preview }: { initialLang: Lang; preview: bo
 
         <section className="card stack" style={{ gap: 16 }}>
           <div className="row" style={{ gap: "8px 16px", alignItems: "baseline", justifyContent: "space-between" }}>
-            <h2 style={{ fontSize: 24 }}>{t.checkH}</h2>
+            <h2 style={{ fontSize: "var(--fs-h3)" }}>{t.checkH}</h2>
             <span className="pill tiny" style={{ background: "var(--sky)", color: "var(--primary-dark)" }}>
               {t.progress.replace("{n}", String(done)).replace("{t}", String(checklist.length))}
             </span>
           </div>
           <p className="muted">{t.checkIntro}</p>
-          <a href={lang === "en" ? "/map" : `/map?lang=${lang}`} style={{ fontWeight: 600, alignSelf: "flex-start" }}>{t.mapLink}</a>
+          <a href={lang === "en" ? "/map" : `/map?lang=${lang}`} style={{ fontWeight: 700, alignSelf: "flex-start" }}>{t.mapLink}</a>
           {buckets.map((b) => (
             <div key={b.id} className="stack" style={{ gap: 10 }}>
               <p className="eyebrow" style={{ marginTop: 10 }}>{b.title}</p>
@@ -197,12 +197,12 @@ export function Guide({ initialLang, preview }: { initialLang: Lang; preview: bo
         </section>
 
         <section className="card stack" style={{ gap: 14 }}>
-          <h2 style={{ fontSize: 24 }}>{t.visitH}</h2>
+          <h2 style={{ fontSize: "var(--fs-h3)" }}>{t.visitH}</h2>
           <EnOnly lang={lang} />
           <p className="muted">{visit.intro}</p>
-          <h3 style={{ fontSize: 17 }}>Before</h3>
+          <h3 style={{ fontSize: "var(--fs-body)" }}>Before</h3>
           <ul style={{ margin: 0, paddingLeft: 20 }}>{visit.before.map((x) => <li key={x} style={{ marginBottom: 6 }}>{x}</li>)}</ul>
-          <h3 style={{ fontSize: 17 }}>During</h3>
+          <h3 style={{ fontSize: "var(--fs-body)" }}>During</h3>
           <ul style={{ margin: 0, paddingLeft: 20 }}>
             {visit.during.map((x) => <li key={x} style={{ marginBottom: 6 }}>{x}</li>)}
             <li>
@@ -210,10 +210,10 @@ export function Guide({ initialLang, preview }: { initialLang: Lang; preview: bo
               <ol style={{ marginTop: 6 }}>{visit.closing.map((x) => <li key={x}><em>{x}</em></li>)}</ol>
             </li>
           </ul>
-          <h3 style={{ fontSize: 17 }}>When the answer is &quot;not needed&quot;</h3>
+          <h3 style={{ fontSize: "var(--fs-body)" }}>When the answer is &quot;not needed&quot;</h3>
           <p className="muted">{visit.notNeededIntro}</p>
           <ul style={{ margin: 0, paddingLeft: 20 }}>{visit.notNeeded.map((x) => <li key={x} style={{ marginBottom: 6 }}><em>{x}</em></li>)}</ul>
-          <h3 style={{ fontSize: 17 }}>After</h3>
+          <h3 style={{ fontSize: "var(--fs-body)" }}>After</h3>
           <ul style={{ margin: 0, paddingLeft: 20 }}>{visit.after.map((x) => <li key={x} style={{ marginBottom: 6 }}>{x}</li>)}</ul>
         </section>
 
@@ -223,7 +223,7 @@ export function Guide({ initialLang, preview }: { initialLang: Lang; preview: bo
 
         <footer className="stack" style={{ gap: 10, paddingTop: 20, borderTop: "1px solid var(--border)" }}>
           <p className="small subtle">{t.footer}</p>
-          <p className="small" style={{ fontWeight: 600, color: "var(--primary-dark)" }}>{t.emergency}</p>
+          <p className="small" style={{ fontWeight: 700, color: "var(--primary-dark)" }}>{t.emergency}</p>
         </footer>
       </main>
     </div>
