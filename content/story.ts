@@ -82,7 +82,7 @@ export const story: Record<Lang, StoryCopy> = {
       tag: "With Curiact",
       title: "Starts with you",
       bubbles: [
-        { who: "you", text: "I just got my cholesterol results: LDL 170 mg/dL, total 244, HDL 52, triglycerides 110, fasting. I live in Bologna, Italy. Do not diagnose me. First ask me the questions you need, one at a time. […] At the end, write a one-page summary for my doctor: my values, what we discussed and my questions." },
+        { who: "you", text: "I just got my cholesterol results: LDL 170 mg/dL, total 244, HDL 52, triglycerides 110, fasting. I'm male, in my mid 30s. Do not diagnose me. First ask me the questions you need, one at a time. […] At the end, write a one-page summary for my doctor: my values, what we discussed and my questions." },
         { who: "ai", text: "Having normal triglycerides and reasonably favourable HDL does not cancel out an elevated LDL." },
         { who: "ai", text: "I would not draw a conclusion about your overall cardiovascular risk from this report alone." },
       ],
@@ -144,7 +144,7 @@ export const story: Record<Lang, StoryCopy> = {
       tag: "Con Curiact",
       title: "Parte da te",
       bubbles: [
-        { who: "you", text: "Ho appena ricevuto le analisi del colesterolo: LDL 170 mg/dL, totale 244, HDL 52, trigliceridi 110, a digiuno. Vivo a Bologna. Non farmi diagnosi. Prima fammi, una alla volta, le domande che ti servono. […] Alla fine scrivimi un riassunto di una pagina per il medico: i miei valori, cosa abbiamo discusso e le mie domande." },
+        { who: "you", text: "Ho appena ricevuto le analisi del colesterolo: LDL 170 mg/dL, totale 244, HDL 52, trigliceridi 110, a digiuno. Sono un uomo di circa 35 anni. Non farmi diagnosi. Prima fammi, una alla volta, le domande che ti servono. […] Alla fine scrivimi un riassunto di una pagina per il medico: i miei valori, cosa abbiamo discusso e le mie domande." },
         { who: "ai", text: "Trigliceridi nella norma e un HDL abbastanza favorevole non annullano un LDL elevato." },
         { who: "ai", text: "Da questo referto da solo non trarrei conclusioni sul tuo rischio cardiovascolare complessivo." },
       ],
@@ -206,7 +206,7 @@ export const story: Record<Lang, StoryCopy> = {
       tag: "Mit Curiact",
       title: "Beginnt mit dir",
       bubbles: [
-        { who: "you", text: "Ich habe gerade meine Cholesterinwerte bekommen: LDL 170 mg/dL, gesamt 244, HDL 52, Triglyceride 110, nüchtern. Ich wohne in Bologna. Stelle keine Diagnose. Stell mir zuerst nacheinander die Fragen, die du brauchst. […] Schreib mir am Ende eine einseitige Zusammenfassung für meinen Arzt: meine Werte, was wir besprochen haben und meine Fragen." },
+        { who: "you", text: "Ich habe gerade meine Cholesterinwerte bekommen: LDL 170 mg/dL, gesamt 244, HDL 52, Triglyceride 110, nüchtern. Ich bin ein Mann, Mitte 30. Stelle keine Diagnose. Stell mir zuerst nacheinander die Fragen, die du brauchst. […] Schreib mir am Ende eine einseitige Zusammenfassung für meinen Arzt: meine Werte, was wir besprochen haben und meine Fragen." },
         { who: "ai", text: "Normale Triglyceride und ein recht günstiges HDL heben ein erhöhtes LDL nicht auf." },
         { who: "ai", text: "Aus diesem Befund allein würde ich keine Schlüsse über dein gesamtes Herz-Kreislauf-Risiko ziehen." },
       ],
