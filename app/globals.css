@@ -273,3 +273,24 @@ p { margin: 0; }
 .learn-pair { display: grid; grid-template-columns: 1fr 2fr; gap: 24px; align-items: stretch; }
 @media (max-width: 900px) { .learn-pair { grid-template-columns: 1fr; } }
 .sbs-gap { opacity: 0.5; font-weight: 700; }
+
+/* Hero: say what Curiact is (26 Nov 2026) */
+.hero-label { font-weight: 700; font-size: var(--fs-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--terracotta); margin-top: -8px; }
+.hero-sub em { font-style: italic; }
+.hero-form { width: 100%; max-width: 520px; display: flex; flex-direction: column; gap: 8px; align-items: center; }
+.hero-form-row { display: flex; gap: 10px; width: 100%; }
+.hero-form-row .input { flex: 1 1 auto; min-width: 0; height: 52px; }
+.hero-form-row .btn { height: 52px; white-space: nowrap; }
+@media (max-width: 520px) { .hero-form-row { flex-direction: column; } }
+.hero-not { font-size: var(--fs-small); color: var(--muted); max-width: 560px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+/* Email preview in "What you get" */
+.get-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 32px; align-items: end; }
+@media (max-width: 860px) { .get-head { grid-template-columns: 1fr; } }
+.email-preview { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.email-card { background: #fff; border: 1.5px solid var(--border); border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+.email-head { display: flex; gap: 12px; align-items: center; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+.email-dot { flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--primary); color: #fff; font-weight: 800; display: grid; place-items: center; }
+.email-subject { font-weight: 700; font-size: var(--fs-body); line-height: 1.25; }
+.email-btn { align-self: flex-start; background: var(--primary); color: #fff; font-weight: 700; font-size: var(--fs-small); border-radius: 999px; padding: 8px 14px; }

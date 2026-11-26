@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { SiteHeader } from "@/components/SiteHeader";
+import { HeroSignup } from "@/components/HeroSignup";
+import { EmailPreview } from "@/components/EmailPreview";
 import { home } from "@/content/home";
 import { SOURCES, story } from "@/content/story";
 import { landing } from "@/content/landing";
@@ -27,7 +29,12 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
               <span className="cx-act"><span className="cx-A">A</span><span className="cx-a">a</span>ct</span>
             </span>
           </h1>
-          <p className="cx-rise hero-sub">{s.heroSub}</p>
+          <p className="cx-rise hero-label">{s.heroLabel}</p>
+          <p className="cx-rise hero-sub">
+            {s.heroSub.split("*").map((part, i) => (i % 2 ? <em key={i}>{part}</em> : <span key={i}>{part}</span>))}
+          </p>
+          <HeroSignup lang={lang} />
+          <p className="cx-rise hero-not">{s.heroNot}</p>
         </section>
 
         <section id="you" aria-label={s.youEyebrow} className="wrap" style={{ paddingBottom: 64 }}>
@@ -90,9 +97,12 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
         </section>
 
         <section id="get" className="wrap stack" style={{ gap: 24, paddingTop: 64, paddingBottom: 20 }} aria-label={s.pillarsEyebrow}>
-          <div className="stack" style={{ gap: 12, maxWidth: 760 }}>
-            <p className="eyebrow">{s.pillarsEyebrow}</p>
-            <h2 className="display-2">{s.pillarsH}</h2>
+          <div className="get-head">
+            <div className="stack" style={{ gap: 12, maxWidth: 760 }}>
+              <p className="eyebrow">{s.pillarsEyebrow}</p>
+              <h2 className="display-2">{s.pillarsH}</h2>
+            </div>
+            <EmailPreview p={s.preview} />
           </div>
           <div className="grid-auto">
             {s.pillars.map((x, i) => (

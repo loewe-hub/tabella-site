@@ -6,8 +6,13 @@ import type { Lang } from "@/lib/i18n";
 type Bubble = { who: "you" | "ai"; text: string };
 type Side = { tag: string; title: string; bubbles: Bubble[]; note: string; outcomeLabel: string; outcome: string[] };
 
+type Preview = { label: string; meta: string; subject: string; body: string; actionH: string; action: string; button: string };
+
 export type StoryCopy = {
+  heroLabel: string;
   heroSub: string;
+  heroNot: string;
+  preview: Preview;
   youEyebrow: string;
   youH: string;
   youStat: string;
@@ -48,7 +53,18 @@ export const SOURCES = { openai: "https://openai.com/index/health-in-chatgpt/", 
 
 export const story: Record<Lang, StoryCopy> = {
   en: {
-    heroSub: "Better questions for your AI about your blood test, so you walk into your doctor's visit prepared.",
+    heroLabel: "A free weekly newsletter on health and AI",
+    heroSub: "One short email every Wednesday: what your blood test actually measures, and better questions for the AI you already use. Put the *informed* into your informed decisions.",
+    heroNot: "No app, no plugin, no account. Keep using ChatGPT, Claude or Gemini. We make your questions better.",
+    preview: {
+      label: "What lands in your inbox",
+      meta: "Curiact · Wednesday, 12:00",
+      subject: "Thirty values, and nobody joins the dots",
+      body: "Imagine Marco, 47. His blood test results arrive as a PDF. Thirty lines of abbreviations: AST, ALT, HDL, GGT. A number next to each, a range next to that. Nothing in bold.",
+      actionH: "One thing to do this week",
+      action: "Give your AI your last report and ask it to sort your values by health area, explain anything outside the range, and end with 3 questions for your doctor.",
+      button: "Copy the prompt and open your AI →",
+    },
     youEyebrow: "You already do this",
     youH: "Asked your AI about a rash, a blood value or a medication? So has everyone.",
     youStat: "300M+",
@@ -110,7 +126,18 @@ export const story: Record<Lang, StoryCopy> = {
     ],
   },
   it: {
-    heroSub: "Domande migliori per la tua AI sulle analisi del sangue, per arrivare preparato dal medico.",
+    heroLabel: "Una newsletter settimanale gratuita su salute e AI",
+    heroSub: "Una breve email ogni mercoledì: cosa misurano davvero le tue analisi del sangue e domande migliori per l'AI che usi già. Perché una decisione consapevole parte dall'essere *informati*.",
+    heroNot: "Nessuna app, nessun plugin, nessun account. Continua a usare ChatGPT, Claude o Gemini: noi miglioriamo le tue domande.",
+    preview: {
+      label: "Cosa arriva nella tua casella",
+      meta: "Curiact · mercoledì, 12:00",
+      subject: "Trenta valori, e nessuno unisce i puntini",
+      body: "Immagina Marco, 47 anni. Le sue analisi arrivano in PDF. Trenta righe di sigle: AST, ALT, HDL, GGT. Un numero accanto a ciascuna, un intervallo accanto al numero. Niente in grassetto.",
+      actionH: "Una cosa da fare questa settimana",
+      action: "Dai alla tua AI il tuo ultimo referto e chiedile di ordinare i valori per area di salute, spiegare quelli fuori intervallo e chiudere con 3 domande per il medico.",
+      button: "Copia il prompt e apri la tua AI →",
+    },
     youEyebrow: "Lo fai già",
     youH: "Hai chiesto alla tua AI di un'irritazione, di un valore o di un farmaco? Lo fanno tutti.",
     youStat: "300M+",
@@ -172,7 +199,18 @@ export const story: Record<Lang, StoryCopy> = {
     ],
   },
   de: {
-    heroSub: "Bessere Fragen an deine KI zu deinem Bluttest, damit du vorbereitet zum Arzt gehst.",
+    heroLabel: "Ein kostenloser wöchentlicher Newsletter zu Gesundheit und KI",
+    heroSub: "Eine kurze E-Mail jeden Mittwoch: was dein Bluttest wirklich misst, und bessere Fragen für die KI, die du schon nutzt. Damit deine Entscheidung wirklich *informiert* ist.",
+    heroNot: "Keine App, kein Plugin, kein Konto. Nutze weiter ChatGPT, Claude oder Gemini. Wir machen deine Fragen besser.",
+    preview: {
+      label: "Was in deinem Postfach landet",
+      meta: "Curiact · Mittwoch, 12:00",
+      subject: "Dreißig Werte, und niemand verbindet die Punkte",
+      body: "Stell dir Marco vor, 47. Sein Bluttest kommt als PDF. Dreißig Zeilen Abkürzungen: AST, ALT, HDL, GGT. Neben jeder eine Zahl, daneben ein Bereich. Nichts fett gedruckt.",
+      actionH: "Eine Sache für diese Woche",
+      action: "Gib deiner KI deinen letzten Befund und bitte sie, die Werte nach Gesundheitsbereich zu ordnen, alles außerhalb des Bereichs zu erklären und mit 3 Fragen für deinen Arzt zu enden.",
+      button: "Prompt kopieren und KI öffnen →",
+    },
     youEyebrow: "Das machst du schon",
     youH: "Deine KI schon mal nach einem Ausschlag, einem Blutwert oder einem Medikament gefragt? Das machen alle.",
     youStat: "300 Mio.+",
