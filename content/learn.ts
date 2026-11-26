@@ -5,7 +5,7 @@ import type { AreaId } from "@/content/areas";
 
 // Which guide each weekly topic belongs to (same order as issues).
 export const TOPIC_AREA: AreaId[] = ["your-blood-test", "heart", "heart", "heart", "metabolism", "metabolism", "brain", "kidneys"];
-export const TOPIC_DATES = ["16 Dec", "23 Dec", "13 Jan", "20 Jan", "27 Jan", "3 Feb", "10 Feb", "17 Feb"];
+export const TOPIC_DATES = ["9 Dec", "16 Dec", "13 Jan", "20 Jan", "27 Jan", "3 Feb", "10 Feb", "17 Feb"];
 
 export const learn: Record<Lang, {
   title: string; h1: string; intro: string;
@@ -36,7 +36,7 @@ export const learn: Record<Lang, {
     shareCta: "Read the guide",
     seriesTag: "Every Wednesday",
     seriesH: "One small topic a week",
-    seriesP: "Each topic stands on its own and links to its guide. The first eight, from 16 December:",
+    seriesP: "Each topic stands on its own and links to its guide. The first eight, from 9 December:",
     issues: [
       "Your blood test isn't a story",
       "Your heart has more than one number",
@@ -70,7 +70,7 @@ export const learn: Record<Lang, {
     shareCta: "Leggi la guida",
     seriesTag: "Ogni mercoledì",
     seriesH: "Un piccolo tema a settimana",
-    seriesP: "Ogni tema è autonomo e rimanda alla sua guida. I primi otto, dal 16 dicembre:",
+    seriesP: "Ogni tema è autonomo e rimanda alla sua guida. I primi otto, dal 9 dicembre:",
     issues: [
       "Le tue analisi non raccontano una storia",
       "Il tuo cuore ha più di un numero",
@@ -104,7 +104,7 @@ export const learn: Record<Lang, {
     shareCta: "Leitfaden lesen",
     seriesTag: "Jeden Mittwoch",
     seriesH: "Ein kleines Thema pro Woche",
-    seriesP: "Jedes Thema steht für sich und verweist auf seinen Leitfaden. Die ersten acht, ab 16. Dezember:",
+    seriesP: "Jedes Thema steht für sich und verweist auf seinen Leitfaden. Die ersten acht, ab 9. Dezember:",
     issues: [
       "Dein Bluttest erzählt keine Geschichte",
       "Dein Herz hat mehr als eine Zahl",
