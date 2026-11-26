@@ -30,9 +30,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
             </span>
           </h1>
           <p className="cx-rise hero-label">{s.heroLabel}</p>
-          <p className="cx-rise hero-sub">
-            {s.heroSub.split("*").map((part, i) => (i % 2 ? <em key={i}>{part}</em> : <span key={i}>{part}</span>))}
-          </p>
+          <p className="cx-rise hero-line">{s.heroLine}</p>
+          <p className="cx-rise hero-sub">{s.heroSub}</p>
           <HeroSignup lang={lang} />
           <p className="cx-rise hero-not">{s.heroNot}</p>
         </section>

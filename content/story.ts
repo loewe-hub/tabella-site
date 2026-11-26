@@ -10,6 +10,7 @@ type Preview = { label: string; meta: string; subject: string; body: string; act
 
 export type StoryCopy = {
   heroLabel: string;
+  heroLine: string;
   heroSub: string;
   heroNot: string;
   preview: Preview;
@@ -53,8 +54,9 @@ export const SOURCES = { openai: "https://openai.com/index/health-in-chatgpt/", 
 
 export const story: Record<Lang, StoryCopy> = {
   en: {
-    heroLabel: "A free weekly newsletter on health and AI",
-    heroSub: "One short email every Wednesday: what your blood test actually measures, and better questions for the AI you already use. Put the *informed* into your informed decisions.",
+    heroLabel: "Free weekly newsletter",
+    heroLine: "Use your AI to have a real say in your health decisions.",
+    heroSub: "Every Wednesday: 1 health topic, explained and connected, and 1 prompt to apply it to yourself.",
     heroNot: "No app, no plugin, no account. Keep using ChatGPT, Claude or Gemini. We make your questions better.",
     preview: {
       label: "What lands in your inbox",
@@ -126,8 +128,9 @@ export const story: Record<Lang, StoryCopy> = {
     ],
   },
   it: {
-    heroLabel: "Una newsletter settimanale gratuita su salute e AI",
-    heroSub: "Una breve email ogni mercoledì: cosa misurano davvero le tue analisi del sangue e domande migliori per l'AI che usi già. Perché una decisione consapevole parte dall'essere *informati*.",
+    heroLabel: "Newsletter settimanale gratuita",
+    heroLine: "Usa la tua AI per avere voce in capitolo nelle decisioni sulla tua salute.",
+    heroSub: "Ogni mercoledì: 1 tema di salute, spiegato e collegato al resto, e 1 prompt per applicarlo a te.",
     heroNot: "Nessuna app, nessun plugin, nessun account. Continua a usare ChatGPT, Claude o Gemini: noi miglioriamo le tue domande.",
     preview: {
       label: "Cosa arriva nella tua casella",
@@ -199,8 +202,9 @@ export const story: Record<Lang, StoryCopy> = {
     ],
   },
   de: {
-    heroLabel: "Ein kostenloser wöchentlicher Newsletter zu Gesundheit und KI",
-    heroSub: "Eine kurze E-Mail jeden Mittwoch: was dein Bluttest wirklich misst, und bessere Fragen für die KI, die du schon nutzt. Damit deine Entscheidung wirklich *informiert* ist.",
+    heroLabel: "Kostenloser wöchentlicher Newsletter",
+    heroLine: "Nutze deine KI, um bei deinen Gesundheitsentscheidungen wirklich mitzureden.",
+    heroSub: "Jeden Mittwoch: 1 Gesundheitsthema, erklärt und eingeordnet, und 1 Prompt, um es auf dich anzuwenden.",
     heroNot: "Keine App, kein Plugin, kein Konto. Nutze weiter ChatGPT, Claude oder Gemini. Wir machen deine Fragen besser.",
     preview: {
       label: "Was in deinem Postfach landet",

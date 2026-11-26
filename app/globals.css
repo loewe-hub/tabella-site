@@ -294,3 +294,5 @@ p { margin: 0; }
 .email-dot { flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--primary); color: #fff; font-weight: 800; display: grid; place-items: center; }
 .email-subject { font-weight: 700; font-size: var(--fs-body); line-height: 1.25; }
 .email-btn { align-self: flex-start; background: var(--primary); color: #fff; font-weight: 700; font-size: var(--fs-small); border-radius: 999px; padding: 8px 14px; }
+.hero-line { font-family: var(--font-head); font-weight: 700; font-size: var(--fs-h2); line-height: 1.15; letter-spacing: -0.02em; max-width: 760px; color: var(--primary-dark); }
+.hero .hero-sub { margin-top: -12px; }
