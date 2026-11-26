@@ -59,10 +59,13 @@ export default async function LearnPage({ searchParams }: { searchParams: Promis
 
         <section className="learn-pair" aria-label={t.shareH}>
           <div className="tile stack" style={{ gap: 10 }}>
-            <p className="eyebrow">{t.shareTag}</p>
-            <p className="h3">{t.shareH}</p>
-            <p className="muted">{t.shareP}</p>
-            <Link href={`/share-safely${q}`} className="btn btn-small" style={{ alignSelf: "flex-start", marginTop: "auto" }}>{t.shareCta}</Link>
+            <p className="eyebrow">{t.askTag}</p>
+            <p className="h3">{t.askH}</p>
+            <p className="muted">{t.askP}</p>
+            <div className="row" style={{ gap: 16, alignItems: "center", marginTop: "auto" }}>
+              <Link href={`/ask-better${q}`} className="btn btn-small">{t.askCta}</Link>
+              <Link href={`/share-safely${q}`} className="small">{t.shareH} →</Link>
+            </div>
           </div>
           <div className="tile stack" style={{ gap: 10 }}>
             <p className="eyebrow">{t.seriesTag}</p>

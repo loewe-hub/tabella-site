@@ -12,6 +12,7 @@ export const learn: Record<Lang, {
   resultsTag: string; resultsH: string; resultsP: string; resultsCta: string;
   mapH: string; mapP: string; mapLink: string;
   shareTag: string; shareH: string; shareP: string; shareCta: string;
+  askTag: string; askH: string; askP: string; askCta: string;
   seriesTag: string; seriesH: string; seriesP: string; issues: string[]; seriesCta: string;
 }> = {
   en: {
@@ -25,6 +26,10 @@ export const learn: Record<Lang, {
     mapH: "The map of your blood test",
     mapP: "Each area has a complete guide: the markers in plain words, how they connect, a prompt and questions for your doctor.",
     mapLink: "Interactive marker map",
+    askTag: "Any health question",
+    askH: "Ask better health questions",
+    askP: "Seven habits and one prompt for any symptom, diagnosis, medication or test. Then check what to leave out before you share.",
+    askCta: "Read the guide",
     shareTag: "Before you share",
     shareH: "Share safely",
     shareP: "What to leave out and which settings to switch off before you share health data with your AI.",
@@ -55,6 +60,10 @@ export const learn: Record<Lang, {
     mapH: "La mappa delle tue analisi",
     mapP: "Ogni area ha una guida completa: i valori in parole semplici, come si collegano, un prompt e le domande per il medico.",
     mapLink: "Mappa interattiva dei valori",
+    askTag: "Qualsiasi domanda sulla salute",
+    askH: "Domande migliori sulla salute",
+    askP: "Sette abitudini e un prompt per qualsiasi sintomo, diagnosi, farmaco o esame. Poi controlla cosa togliere prima di condividere.",
+    askCta: "Leggi la guida",
     shareTag: "Prima di condividere",
     shareH: "Condividi in sicurezza",
     shareP: "Cosa togliere e quali impostazioni disattivare prima di condividere dati sanitari con la tua AI.",
@@ -85,6 +94,10 @@ export const learn: Record<Lang, {
     mapH: "Die Karte deines Bluttests",
     mapP: "Jeder Bereich hat einen vollständigen Leitfaden: die Werte verständlich erklärt, wie sie zusammenhängen, ein Prompt und Fragen für deinen Arzt.",
     mapLink: "Interaktive Werte-Karte",
+    askTag: "Jede Gesundheitsfrage",
+    askH: "Bessere Gesundheitsfragen",
+    askP: "Sieben Gewohnheiten und ein Prompt für jedes Symptom, jede Diagnose, jedes Medikament oder jeden Test. Dann prüfen, was du vor dem Teilen weglässt.",
+    askCta: "Leitfaden lesen",
     shareTag: "Bevor du teilst",
     shareH: "Sicherer teilen",
     shareP: "Was du weglässt und welche Einstellungen du ausschaltest, bevor du Gesundheitsdaten mit deiner KI teilst.",

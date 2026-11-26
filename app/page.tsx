@@ -111,7 +111,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
                 <p className="muted" style={{ fontSize: "var(--fs-body)" }}>{x.p}</p>
                 <div className="row" style={{ gap: 12, alignItems: "center", marginTop: "auto", justifyContent: "space-between" }}>
                   <span className="tiny" style={{ fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--terracotta)" }}>{x.tag}</span>
-                  {x.cta && x.link && <Link href={x.link === "share" ? (q ? `/share-safely?${q}` : "/share-safely") : x.link === "learn" ? (q ? `/learn?${q}` : "/learn") : signup} className="btn btn-small">{x.cta}</Link>}
+                  {x.cta && x.link && <Link href={x.link === "share" ? (q ? `/share-safely?${q}` : "/share-safely") : x.link === "learn" ? (q ? `/learn?${q}` : "/learn") : x.link === "ask" ? (q ? `/ask-better?${q}` : "/ask-better") : signup} className="btn btn-small">{x.cta}</Link>}
                 </div>
               </div>
             ))}
