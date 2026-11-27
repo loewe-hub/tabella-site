@@ -33,7 +33,23 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
           <p className="cx-rise hero-line">{s.heroLine}</p>
           <p className="cx-rise hero-sub">{s.heroSub}</p>
           <HeroSignup lang={lang} />
+          <Link href={q ? `/learn/your-blood-test?${q}#prompt` : "/learn/your-blood-test#prompt"} className="cx-rise hero-results">{s.heroResults}</Link>
           <p className="cx-rise hero-not">{s.heroNot}</p>
+        </section>
+
+        <section aria-label={s.stepsLabel} className="wrap" style={{ paddingBottom: 64 }}>
+          <p className="eyebrow" style={{ marginBottom: 14 }}>{s.stepsLabel}</p>
+          <ol className="how-steps">
+            {s.steps.map((x, i) => (
+              <li key={x.h} className="how-step">
+                <span className="how-n" aria-hidden="true">{i + 1}</span>
+                <div className="stack" style={{ gap: 4 }}>
+                  <p className="tile-h" style={{ fontSize: "var(--fs-h3)" }}>{x.h}</p>
+                  <p className="muted small">{x.p}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </section>
 
         <section id="you" aria-label={s.youEyebrow} className="wrap" style={{ paddingBottom: 64 }}>
@@ -104,9 +120,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
             <EmailPreview p={s.preview} />
           </div>
           <div className="grid-auto">
-            {s.pillars.map((x, i) => (
+            {s.pillars.map((x) => (
               <div key={x.h} className="tile stack pillar" style={{ gap: 14 }}>
-                <p className="pillar-n">{i + 1}</p>
                 <p className="tile-h">{x.h}</p>
                 <p className="muted" style={{ fontSize: "var(--fs-body)" }}>{x.p}</p>
                 <div className="row" style={{ gap: 12, alignItems: "center", marginTop: "auto", justifyContent: "space-between" }}>

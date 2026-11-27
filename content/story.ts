@@ -13,6 +13,9 @@ export type StoryCopy = {
   heroLine: string;
   heroSub: string;
   heroNot: string;
+  heroResults: string;
+  stepsLabel: string;
+  steps: { h: string; p: string }[];
   preview: Preview;
   youEyebrow: string;
   youH: string;
@@ -58,6 +61,13 @@ export const story: Record<Lang, StoryCopy> = {
     heroLine: "Use your AI to have a real say in your health decisions.",
     heroSub: "Every Wednesday: 1 health topic, explained and connected, and 1 prompt to apply it to yourself.",
     heroNot: "Nothing to install, no account. Works in the AI you already use: ChatGPT, Claude or Gemini. We make your questions better.",
+    heroResults: "Got your results today? Use the free prompt now →",
+    stepsLabel: "How it works",
+    steps: [
+      { h: "Pick your question", p: "A topic from the newsletter, a guide, or your own results." },
+      { h: "Copy our prompt into your AI", p: "ChatGPT, Claude, Gemini: the one you already use." },
+      { h: "Take the answer to your doctor", p: "With the questions worth asking. Then decide together." },
+    ],
     preview: {
       label: "What lands in your inbox",
       meta: "Curiact · Wednesday, 12:00",
@@ -132,6 +142,13 @@ export const story: Record<Lang, StoryCopy> = {
     heroLine: "Usa la tua AI per avere voce in capitolo nelle decisioni sulla tua salute.",
     heroSub: "Ogni mercoledì: 1 tema di salute, spiegato e collegato al resto, e 1 prompt per applicarlo a te.",
     heroNot: "Niente da installare, nessun account. Funziona con l'AI che usi già: ChatGPT, Claude o Gemini. Noi miglioriamo le tue domande.",
+    heroResults: "Hai appena ricevuto le analisi? Usa subito il prompt gratuito →",
+    stepsLabel: "Come funziona",
+    steps: [
+      { h: "Scegli la tua domanda", p: "Un tema della newsletter, una guida o i tuoi risultati." },
+      { h: "Copia il nostro prompt nella tua AI", p: "ChatGPT, Claude, Gemini: quella che usi già." },
+      { h: "Porta la risposta al tuo medico", p: "Con le domande che contano. Poi decidete insieme." },
+    ],
     preview: {
       label: "Cosa arriva nella tua casella",
       meta: "Curiact · mercoledì, 12:00",
@@ -206,6 +223,13 @@ export const story: Record<Lang, StoryCopy> = {
     heroLine: "Nutze deine KI, um bei deinen Gesundheitsentscheidungen wirklich mitzureden.",
     heroSub: "Jeden Mittwoch: 1 Gesundheitsthema, erklärt und eingeordnet, und 1 Prompt, um es auf dich anzuwenden.",
     heroNot: "Nichts zu installieren, kein Konto. Funktioniert mit der KI, die du schon nutzt: ChatGPT, Claude oder Gemini. Wir machen deine Fragen besser.",
+    heroResults: "Ergebnisse gerade bekommen? Nutze jetzt den kostenlosen Prompt →",
+    stepsLabel: "So funktioniert's",
+    steps: [
+      { h: "Wähle deine Frage", p: "Ein Thema aus dem Newsletter, ein Leitfaden oder deine eigenen Werte." },
+      { h: "Kopiere unseren Prompt in deine KI", p: "ChatGPT, Claude, Gemini: die, die du schon nutzt." },
+      { h: "Nimm die Antwort mit zum Arzt", p: "Mit den Fragen, die zählen. Dann entscheidet ihr gemeinsam." },
+    ],
     preview: {
       label: "Was in deinem Postfach landet",
       meta: "Curiact · Mittwoch, 12:00",
