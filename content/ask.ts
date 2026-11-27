@@ -22,7 +22,7 @@ export const ask = {
   habits: [
     { b: "Describe, don't conclude.", t: "Start with what's happening, since when and what changed, not with the diagnosis you fear." },
     { b: "Give context, not identity.", t: "Age range, sex, medications, relevant conditions and family history help. Your name and address don't." },
-    { b: "Let it ask first.", t: "Ask it to ask you up to 5 questions, one at a time, before it answers." },
+    { b: "Let it ask first.", t: "Ask it to ask you up to 5 questions, one at a time, before it answers. Our prompt does this for you." },
     { b: "Ask for possibilities, not a verdict.", t: "The common explanations, including harmless ones, and what would make it more urgent." },
     { b: "Ask where it comes from.", t: "Which guideline or health organisation the answer is based on, and where experts disagree." },
     { b: "Ask what it can't tell.", t: "What it would need to know, and what only an examination or a test can show." },
@@ -35,9 +35,9 @@ export const ask = {
   urgentP: "If something is sudden or severe, such as chest pain, difficulty breathing, sudden weakness or confusion, call 112 (in Europe) or your local emergency number. Don't wait for an answer.",
 
   promptH: "The prompt",
-  promptLead: "Fill in the brackets, then copy it into your AI. Only share what you're comfortable sharing.",
+  promptLead: "Tap your AI: it will ask you what's going on, one question at a time. Only share what you're comfortable sharing.",
   prompt:
-    "I have a health question: [what's happening, since when, what changed].\nAbout me: [age range, sex, relevant conditions, medications; only what I'm comfortable sharing].\n\nBefore you answer, ask me up to 5 questions, one at a time. Then explain in plain words the most common explanations, including harmless ones, and what would make this more urgent. Name the guideline or health organisation your answer is based on, and say where experts disagree or where you're not sure.\n\nFocus on what could explain what's happening, not on how to treat it: treatment is something I'll discuss with my doctor. Don't diagnose me, don't assume anything I haven't told you, and tell me what you can't judge without an examination or tests. End with the 3 questions most worth asking my doctor and a short summary I can bring.",
+    "I have a health question. Before you answer anything, ask me what's happening, since when and what has changed, then what you need to know about me, such as my age range, sex, relevant conditions and medications. Ask one question at a time, at most 5; I'll only share what I'm comfortable sharing.\n\nThen explain in plain words the most common explanations, including harmless ones, and what would make this more urgent. Name the guideline or health organisation your answer is based on, and say where experts disagree or where you're not sure.\n\nFocus on what could explain what's happening, not on how to treat it: treatment is something I'll discuss with my doctor. Don't diagnose me, don't assume anything I haven't told you, and tell me what you can't judge without an examination or tests. End with the 3 questions most worth asking my doctor and a short summary I can bring.",
 
   checkH: "Did your AI…",
   check: [
