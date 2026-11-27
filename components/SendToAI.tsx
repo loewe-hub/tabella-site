@@ -8,11 +8,11 @@ import type { Lang } from "@/lib/i18n";
 // Prefill via URL works on ChatGPT and Perplexity; Claude, Gemini and Copilot may open empty,
 // so the prompt is always copied first and the hint says to paste it. Test all five before launch.
 const AIS = [
-  { id: "chatgpt", name: "ChatGPT", url: (t: string) => `https://chatgpt.com/?q=${encodeURIComponent(t)}` },
-  { id: "claude", name: "Claude", url: (t: string) => `https://claude.ai/new?q=${encodeURIComponent(t)}` },
-  { id: "gemini", name: "Gemini", url: () => "https://gemini.google.com/app" },
-  { id: "copilot", name: "Copilot", url: (t: string) => `https://copilot.microsoft.com/?q=${encodeURIComponent(t)}` },
-  { id: "perplexity", name: "Perplexity", url: (t: string) => `https://www.perplexity.ai/search?q=${encodeURIComponent(t)}` },
+  { id: "chatgpt", name: "ChatGPT", color: "#10A37F", url: (t: string) => `https://chatgpt.com/?q=${encodeURIComponent(t)}` },
+  { id: "claude", name: "Claude", color: "#D97757", url: (t: string) => `https://claude.ai/new?q=${encodeURIComponent(t)}` },
+  { id: "gemini", name: "Gemini", color: "#4285F4", url: () => "https://gemini.google.com/app" },
+  { id: "copilot", name: "Copilot", color: "#7A5AF8", url: (t: string) => `https://copilot.microsoft.com/?q=${encodeURIComponent(t)}` },
+  { id: "perplexity", name: "Perplexity", color: "#20808D", url: (t: string) => `https://www.perplexity.ai/search?q=${encodeURIComponent(t)}` },
 ] as const;
 
 const UI: Record<Lang, { open: string; copy: string; copied: string; hint: (ai: string) => string }> = {
@@ -70,7 +70,9 @@ export function SendToAI({ text, id, lang, promptLang }: { text: string; id: str
       <p className="small" style={{ fontWeight: 700, color: "var(--primary-dark)" }}>{t.open}</p>
       <div className="send-row">
         {ordered.map((ai) => (
-          <button key={ai.id} type="button" className={`btn btn-small ${ai.id === fav ? "" : "btn-soft"}`} onClick={() => open(ai)}>{ai.name}</button>
+          <button key={ai.id} type="button" className="btn btn-small btn-soft ai-btn" style={{ ["--ai" as string]: ai.color, ...(ai.id === fav ? { borderColor: ai.color, boxShadow: `inset 0 0 0 1px ${ai.color}` } : {}) }} onClick={() => open(ai)}>
+            <span className="ai-dot" aria-hidden="true" />{ai.name}
+          </button>
         ))}
         <button
           type="button"

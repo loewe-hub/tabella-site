@@ -308,3 +308,6 @@ p { margin: 0; }
 .send-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .btn-ghost { background: transparent; color: var(--primary); border: 1px dashed var(--primary); }
 .btn-ghost:hover { background: #fff; }
+.ai-btn { display: inline-flex; align-items: center; gap: 8px; }
+.ai-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--ai); flex: none; }
+.ai-btn:hover { border-color: var(--ai); }
