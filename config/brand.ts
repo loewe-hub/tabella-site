@@ -8,8 +8,9 @@ export const brand = {
   siteUrl: process.env.SITE_URL || "http://localhost:3000",
   senderName: "Curiact",
   senderEmail: "hello@curiact.com",
-  publisher: "[Publisher name]",
-  vatNumber: "P.IVA [number]",
+  publisher: "Christian Loewe-di Biase",
+  vatNumber: "P.IVA 13391640961",
+  address: "Via Castiglione 11, 40124 Bologna, Italy",
   founderSignature: "Christian",
   colors: {
     primary: "#0E5E60",
