@@ -55,7 +55,7 @@ export default async function AskBetter({ searchParams }: { searchParams: Promis
         <section id="prompt" className="card stack" style={{ gap: 16 }}>
           <h2>{g.promptH}</h2>
           <p className="muted">{g.promptLead}</p>
-          <CopyBox text={g.prompt} id="ask-better" label={ui.copy} done={ui.copied} />
+          <CopyBox text={g.prompt} id="ask-better" label={ui.copy} done={ui.copied} send={lang} />
         </section>
 
         <section className="stack" style={{ gap: 12 }}>

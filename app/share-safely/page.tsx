@@ -118,7 +118,7 @@ export default async function ShareSafely({ searchParams }: { searchParams: Prom
           <h3>{g.everyH}</h3>
           <ul className="share-check">{g.every.map((x) => <li key={x}>{x}</li>)}</ul>
           <h3>{g.promptH}</h3>
-          <CopyBox text={g.prompt} id="share-start" label={ui.copy} done={ui.copied} />
+          <CopyBox text={g.prompt} id="share-start" label={ui.copy} done={ui.copied} send={lang} />
         </section>
 
         <section className="card-lg stack" style={{ gap: 14, background: "var(--primary-dark)", color: "#fff" }}>

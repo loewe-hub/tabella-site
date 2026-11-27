@@ -303,3 +303,8 @@ p { margin: 0; }
 @media (max-width: 760px) { .how-steps { grid-template-columns: 1fr; } }
 .how-step { display: flex; gap: 14px; align-items: flex-start; background: #fff; border: 1.5px solid var(--border); border-radius: 16px; padding: 18px 20px; }
 .how-n { flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--apricot); color: var(--primary-dark); font-weight: 800; display: grid; place-items: center; }
+
+/* Send to AI row (27 Nov 2026) */
+.send-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.btn-ghost { background: transparent; color: var(--primary); border: 1px dashed var(--primary); }
+.btn-ghost:hover { background: #fff; }

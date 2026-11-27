@@ -2,6 +2,7 @@
 
 import { track } from "@vercel/analytics";
 import { AREA_UI, AREAS } from "@/content/areas";
+import { SendToAI } from "@/components/SendToAI";
 import { useEffect, useState } from "react";
 import { GUIDELINE_URL, checklist, glossary, miss, prompt, promptShort, situation, ui, visit } from "@/content/guide";
 import { LANGS, LANG_LABEL, type Lang } from "@/lib/i18n";
@@ -154,7 +155,7 @@ export function Guide({ initialLang, preview }: { initialLang: Lang; preview: bo
               <p lang={plang} style={{ fontSize: "var(--fs-body)", color: "var(--primary-dark)", marginTop: 8 }}>{prompt[plang]}</p>
             </details>
             <div className="row no-print" style={{ gap: 12, alignItems: "center" }}>
-              <button type="button" className="btn" onClick={() => copy("prompt", prompt[plang])}>{copied === "prompt" ? t.copied : t.copyPrompt}</button>
+              <SendToAI text={prompt[plang]} id="cholesterol-prompt" lang={lang} promptLang={plang} />
               <span role="status" className="tiny" style={{ color: "var(--accent)" }}>{copied === "prompt" ? t.copied : ""}</span>
             </div>
           </div>

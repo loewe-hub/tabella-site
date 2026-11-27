@@ -4,6 +4,7 @@
 // six numbered sections, a printable checklist of questions for the doctor.
 import { track } from "@vercel/analytics";
 import Link from "next/link";
+import { SendToAI } from "@/components/SendToAI";
 import { useEffect, useState } from "react";
 import { AREA_NAMES, AREA_ORDER, AREA_UI, AREAS, type AreaId } from "@/content/areas";
 import { learn, TOPIC_DATES } from "@/content/learn";
@@ -157,9 +158,7 @@ export function AreaGuide({ id, initialLang }: { id: AreaId; initialLang: Lang }
               <summary className="small" style={{ cursor: "pointer", fontWeight: 700, color: "var(--primary)" }}>{t.showFull}</summary>
               <p lang={plang} style={{ color: "var(--primary-dark)", marginTop: 8, whiteSpace: "pre-line" }}>{a.prompt[plang]}</p>
             </details>
-            <div className="row no-print" style={{ gap: 12, alignItems: "center" }}>
-              <button type="button" className="btn" onClick={() => copy("prompt", a.prompt[plang])}>{copied === "prompt" ? t.copied : t.copyPrompt}</button>
-            </div>
+            <SendToAI text={a.prompt[plang]} id={`area-${id}-prompt`} lang={lang} promptLang={plang} />
           </div>
           <p className="small muted">{t.shareLine} <Link href={`/share-safely${q}`}>{t.shareLink}</Link></p>
           <div className="stack" style={{ gap: 10, borderTop: "1px solid var(--border)", paddingTop: 14 }}>
