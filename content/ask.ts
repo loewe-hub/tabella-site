@@ -51,6 +51,6 @@ export const ask = {
   checkNote: "If not, ask it to.",
 
   nextH: "One topic a week",
-  nextP: "Every Wednesday: 1 health topic, explained and connected, and 1 prompt to apply it to yourself.",
+  nextP: "Every Wednesday: 1 prevention topic, explained and connected, and 1 prompt to apply it to yourself.",
   nextCta: "Get it weekly",
 };

@@ -57,9 +57,9 @@ export const SOURCES = { openai: "https://openai.com/index/health-in-chatgpt/", 
 
 export const story: Record<Lang, StoryCopy> = {
   en: {
-    heroLabel: "Free weekly newsletter",
+    heroLabel: "Free weekly newsletter on preventive health",
     heroLine: "Use your AI to have a real say in your health decisions.",
-    heroSub: "Every Wednesday: 1 health topic, explained and connected, and 1 prompt to apply it to yourself.",
+    heroSub: "Every Wednesday: 1 prevention topic, explained and connected, and 1 prompt to apply it to yourself. Before something goes wrong.",
     heroNot: "Nothing to install, no account. Works in the AI you already use: ChatGPT, Claude or Gemini. We make your questions better.",
     heroResults: "Got your results today? Use the free prompt now →",
     stepsLabel: "How it works",
@@ -132,15 +132,15 @@ export const story: Record<Lang, StoryCopy> = {
     pillarsEyebrow: "What you get",
     pillarsH: "One email a week. Open guides any time.",
     pillars: [
-      { h: "1 topic, 1 prompt, every Wednesday", p: "A short email that explains one health topic, connects it to the bigger picture, and gives you a prompt to apply it to yourself.", tag: "Weekly", cta: "Get it weekly", link: "weekly" },
+      { h: "1 topic, 1 prompt, every Wednesday", p: "A short email that explains one prevention topic, connects it to the bigger picture, and gives you a prompt to apply it to yourself.", tag: "Weekly", cta: "Get it weekly", link: "weekly" },
       { h: "Ask better health questions", p: "How to ask your AI about any health question: what to share, what to ask, and what to bring to your doctor.", tag: "Free guide", cta: "Read the guide", link: "ask" },
       { h: "Guides by health area", p: "Starting with your blood test: your values in plain words, a prompt for your AI and questions for your doctor.", tag: "Open guides", cta: "Explore the guides", link: "learn" },
     ],
   },
   it: {
-    heroLabel: "Newsletter settimanale gratuita",
+    heroLabel: "Newsletter settimanale gratuita sulla prevenzione",
     heroLine: "Usa la tua AI per avere voce in capitolo nelle decisioni sulla tua salute.",
-    heroSub: "Ogni mercoledì: 1 tema di salute, spiegato e collegato al resto, e 1 prompt per applicarlo a te.",
+    heroSub: "Ogni mercoledì: 1 tema di prevenzione, spiegato e collegato al resto, e 1 prompt per applicarlo a te. Prima che qualcosa vada storto.",
     heroNot: "Niente da installare, nessun account. Funziona con l'AI che usi già: ChatGPT, Claude o Gemini. Noi miglioriamo le tue domande.",
     heroResults: "Hai appena ricevuto le analisi? Usa subito il prompt gratuito →",
     stepsLabel: "Come funziona",
@@ -213,15 +213,15 @@ export const story: Record<Lang, StoryCopy> = {
     pillarsEyebrow: "Cosa trovi qui",
     pillarsH: "Una email a settimana. Guide aperte, sempre.",
     pillars: [
-      { h: "1 tema, 1 prompt, ogni mercoledì", p: "Una breve email che spiega un tema di salute, lo collega al quadro generale e ti dà un prompt per applicarlo a te.", tag: "Settimanale", cta: "Ricevilo ogni settimana", link: "weekly" },
+      { h: "1 tema, 1 prompt, ogni mercoledì", p: "Una breve email che spiega un tema di prevenzione, lo collega al quadro generale e ti dà un prompt per applicarlo a te.", tag: "Settimanale", cta: "Ricevilo ogni settimana", link: "weekly" },
       { h: "Domande migliori sulla salute", p: "Come chiedere alla tua AI qualsiasi cosa sulla salute: cosa condividere, cosa chiedere e cosa portare al medico.", tag: "Guida gratuita", cta: "Leggi la guida", link: "ask" },
       { h: "Guide per area di salute", p: "Si parte dalle analisi del sangue: i tuoi valori in parole semplici, un prompt per la tua AI e domande per il medico.", tag: "Guide aperte", cta: "Esplora le guide", link: "learn" },
     ],
   },
   de: {
-    heroLabel: "Kostenloser wöchentlicher Newsletter",
+    heroLabel: "Kostenloser wöchentlicher Newsletter zur Vorsorge",
     heroLine: "Nutze deine KI, um bei deinen Gesundheitsentscheidungen wirklich mitzureden.",
-    heroSub: "Jeden Mittwoch: 1 Gesundheitsthema, erklärt und eingeordnet, und 1 Prompt, um es auf dich anzuwenden.",
+    heroSub: "Jeden Mittwoch: 1 Vorsorgethema, erklärt und eingeordnet, und 1 Prompt, um es auf dich anzuwenden. Bevor etwas schiefgeht.",
     heroNot: "Nichts zu installieren, kein Konto. Funktioniert mit der KI, die du schon nutzt: ChatGPT, Claude oder Gemini. Wir machen deine Fragen besser.",
     heroResults: "Ergebnisse gerade bekommen? Nutze jetzt den kostenlosen Prompt →",
     stepsLabel: "So funktioniert's",
@@ -294,7 +294,7 @@ export const story: Record<Lang, StoryCopy> = {
     pillarsEyebrow: "Was du hier bekommst",
     pillarsH: "Eine E-Mail pro Woche. Offene Leitfäden, jederzeit.",
     pillars: [
-      { h: "1 Thema, 1 Prompt, jeden Mittwoch", p: "Eine kurze E-Mail, die ein Gesundheitsthema erklärt, es ins größere Bild einordnet und dir einen Prompt gibt, um es auf dich anzuwenden.", tag: "Wöchentlich", cta: "Wöchentlich erhalten", link: "weekly" },
+      { h: "1 Thema, 1 Prompt, jeden Mittwoch", p: "Eine kurze E-Mail, die ein Vorsorgethema erklärt, es ins größere Bild einordnet und dir einen Prompt gibt, um es auf dich anzuwenden.", tag: "Wöchentlich", cta: "Wöchentlich erhalten", link: "weekly" },
       { h: "Bessere Gesundheitsfragen", p: "Wie du deine KI zu jeder Gesundheitsfrage fragst: was du teilst, was du fragst und was du zum Arzt mitnimmst.", tag: "Kostenloser Leitfaden", cta: "Leitfaden lesen", link: "ask" },
       { h: "Leitfäden nach Gesundheitsbereich", p: "Los geht's mit deinem Bluttest: deine Werte verständlich erklärt, ein Prompt für deine KI und Fragen für deinen Arzt.", tag: "Offene Leitfäden", cta: "Leitfäden ansehen", link: "learn" },
     ],
