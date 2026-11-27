@@ -57,7 +57,7 @@ export const story: Record<Lang, StoryCopy> = {
     heroLabel: "Free weekly newsletter",
     heroLine: "Use your AI to have a real say in your health decisions.",
     heroSub: "Every Wednesday: 1 health topic, explained and connected, and 1 prompt to apply it to yourself.",
-    heroNot: "No app, no plugin, no account. Keep using ChatGPT, Claude or Gemini. We make your questions better.",
+    heroNot: "Nothing to install, no account. Works in the AI you already use: ChatGPT, Claude or Gemini. We make your questions better.",
     preview: {
       label: "What lands in your inbox",
       meta: "Curiact · Wednesday, 12:00",
@@ -131,7 +131,7 @@ export const story: Record<Lang, StoryCopy> = {
     heroLabel: "Newsletter settimanale gratuita",
     heroLine: "Usa la tua AI per avere voce in capitolo nelle decisioni sulla tua salute.",
     heroSub: "Ogni mercoledì: 1 tema di salute, spiegato e collegato al resto, e 1 prompt per applicarlo a te.",
-    heroNot: "Nessuna app, nessun plugin, nessun account. Continua a usare ChatGPT, Claude o Gemini: noi miglioriamo le tue domande.",
+    heroNot: "Niente da installare, nessun account. Funziona con l'AI che usi già: ChatGPT, Claude o Gemini. Noi miglioriamo le tue domande.",
     preview: {
       label: "Cosa arriva nella tua casella",
       meta: "Curiact · mercoledì, 12:00",
@@ -205,7 +205,7 @@ export const story: Record<Lang, StoryCopy> = {
     heroLabel: "Kostenloser wöchentlicher Newsletter",
     heroLine: "Nutze deine KI, um bei deinen Gesundheitsentscheidungen wirklich mitzureden.",
     heroSub: "Jeden Mittwoch: 1 Gesundheitsthema, erklärt und eingeordnet, und 1 Prompt, um es auf dich anzuwenden.",
-    heroNot: "Keine App, kein Plugin, kein Konto. Nutze weiter ChatGPT, Claude oder Gemini. Wir machen deine Fragen besser.",
+    heroNot: "Nichts zu installieren, kein Konto. Funktioniert mit der KI, die du schon nutzt: ChatGPT, Claude oder Gemini. Wir machen deine Fragen besser.",
     preview: {
       label: "Was in deinem Postfach landet",
       meta: "Curiact · Mittwoch, 12:00",
